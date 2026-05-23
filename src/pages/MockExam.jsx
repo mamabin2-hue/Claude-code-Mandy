@@ -41,7 +41,6 @@ export default function MockExam() {
   }, [])
 
   function selectAnswer(letter) {
-    if (answers[session[idx]?.id]) return
     setAnswers(prev => ({ ...prev, [session[idx].id]: letter }))
   }
 
@@ -135,9 +134,8 @@ export default function MockExam() {
               onClick={() => setIdx(i)}
               className={`w-6 h-6 rounded text-xs font-bold cursor-pointer transition-colors ${
                 i === idx ? 'bg-blue-700 text-white'
-                : answers[sq.id]
-                  ? answers[sq.id] === sq.answer ? 'bg-green-200 text-green-700' : 'bg-red-200 text-red-700'
-                  : 'bg-slate-200 text-slate-500'
+                : answers[sq.id] ? 'bg-purple-200 text-purple-700'
+                : 'bg-slate-200 text-slate-500'
               }`}
             >
               {i + 1}
@@ -161,8 +159,7 @@ export default function MockExam() {
                 <button
                   key={opt}
                   onClick={() => selectAnswer(letter)}
-                  disabled={!!sel}
-                  className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all text-sm font-medium cursor-pointer disabled:cursor-default ${style}`}
+                  className={`w-full text-left px-4 py-3 rounded-xl border-2 transition-all text-sm font-medium cursor-pointer ${style}`}
                 >
                   {opt}
                 </button>

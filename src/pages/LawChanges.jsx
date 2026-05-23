@@ -1,6 +1,58 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+function ExamQuestionCard({ q, num }) {
+  const [revealed, setRevealed] = useState(false)
+  const [selected, setSelected] = useState(null)
+
+  function pick(letter) {
+    setSelected(letter)
+    setRevealed(true)
+  }
+
+  return (
+    <div className="bg-indigo-50 rounded-xl border border-indigo-100 p-4">
+      <p className="text-xs font-bold text-indigo-500 mb-1">預測題 {num}</p>
+      <p className="text-sm font-semibold text-slate-800 mb-3 leading-relaxed">{q.question}</p>
+      <div className="space-y-2 mb-3">
+        {q.options.map(opt => {
+          const letter = opt.charAt(0)
+          let style = 'bg-white border-slate-200 text-slate-700'
+          if (revealed) {
+            if (letter === q.answer) style = 'bg-green-100 border-green-400 text-green-800 font-bold'
+            else if (letter === selected) style = 'bg-red-100 border-red-300 text-red-700'
+          } else if (letter === selected) {
+            style = 'bg-indigo-100 border-indigo-400 text-indigo-800'
+          }
+          return (
+            <button
+              key={opt}
+              onClick={() => pick(letter)}
+              className={`w-full text-left px-3 py-2 rounded-lg border text-xs cursor-pointer transition-all ${style}`}
+            >
+              {opt}
+            </button>
+          )
+        })}
+      </div>
+      {!revealed && (
+        <button
+          onClick={() => setRevealed(true)}
+          className="text-xs text-indigo-600 underline cursor-pointer"
+        >
+          顯示答案
+        </button>
+      )}
+      {revealed && (
+        <div className="bg-white rounded-lg p-3 border border-green-200 mt-1">
+          <p className="text-xs font-bold text-green-700 mb-1">✅ 答案：{q.answer}</p>
+          <p className="text-xs text-slate-600 leading-relaxed">{q.explanation}</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
 const CAT_COLORS = {
   '職業安全衛生法': 'bg-blue-100 text-blue-800',
   '性別平等工作法': 'bg-pink-100 text-pink-800',
@@ -145,16 +197,14 @@ export default function LawChanges() {
                       {/* Exam tab */}
                       {currentTab === 'exam' && (
                         <div>
-                          <p className="text-xs font-bold text-slate-600 mb-3">🎯 可能出現的考題方向</p>
-                          <div className="space-y-2">
+                          <p className="text-xs font-bold text-slate-600 mb-3">🎯 考題預測（含標準答案）</p>
+                          <div className="space-y-4">
                             {law.possibleExamQuestions.map((q, i) => (
-                              <div key={i} className="p-3 bg-indigo-50 rounded-xl border border-indigo-100">
-                                <p className="text-sm text-indigo-800">❓ {q}</p>
-                              </div>
+                              <ExamQuestionCard key={i} q={q} num={i + 1} />
                             ))}
                           </div>
                           <div className="mt-3 p-3 bg-orange-50 rounded-xl border border-orange-200">
-                            <p className="text-xs text-orange-700">⚠️ 以上為預測方向，非官方公告考題，請自行核對最新法規原文。</p>
+                            <p className="text-xs text-orange-700">⚠️ 以上為預測考題，非官方公告題目，請自行核對最新法規原文。</p>
                           </div>
                         </div>
                       )}
