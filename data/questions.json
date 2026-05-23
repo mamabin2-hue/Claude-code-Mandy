@@ -1,0 +1,218 @@
+[
+  {
+    "id": "2024-1-001",
+    "year": 2024,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列何者為職業衛生之主要目的？",
+    "options": [
+      "A. 促進生產效率",
+      "B. 保護勞工免於因工作引起之健康危害",
+      "C. 增加企業利潤",
+      "D. 減少勞資糾紛"
+    ],
+    "answer": "B",
+    "explanation": "職業衛生（Occupational Hygiene）的核心目標是預防、辨識、評估及控制工作場所中對勞工健康有害的因素，以保護勞工健康。",
+    "lawRef": "職業安全衛生法§1",
+    "source": "official"
+  },
+  {
+    "id": "2024-1-002",
+    "year": 2024,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "下列哪一項屬於物理性危害因子？",
+    "options": [
+      "A. 苯蒸氣",
+      "B. 噪音",
+      "C. 黴菌孢子",
+      "D. 工作壓力"
+    ],
+    "answer": "B",
+    "explanation": "物理性危害因子包括：噪音、振動、高溫、低溫、游離輻射、非游離輻射、異常氣壓等。苯蒸氣屬化學性，黴菌孢子屬生物性，工作壓力屬心理性危害。",
+    "lawRef": "職業安全衛生法施行細則§2",
+    "source": "official"
+  },
+  {
+    "id": "2024-1-003",
+    "year": 2024,
+    "session": 1,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "下列哪項屬於定量暴露評估方法？",
+    "options": [
+      "A. 問卷調查",
+      "B. 作業環境空氣採樣分析",
+      "C. 目視觀察",
+      "D. 類比推估"
+    ],
+    "answer": "B",
+    "explanation": "定量暴露評估需透過實際量測（如空氣採樣分析、生物偵測）取得數值，以數字表達暴露量。問卷、目視觀察屬定性；類比推估屬半定量方法。",
+    "lawRef": "作業環境監測實施辦法§3",
+    "source": "official"
+  },
+  {
+    "id": "2024-1-004",
+    "year": 2024,
+    "session": 1,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "依「作業環境監測實施辦法」規定，有機溶劑作業場所應多久實施一次作業環境監測？",
+    "options": [
+      "A. 每月一次",
+      "B. 每季一次（至少六個月一次）",
+      "C. 每年一次",
+      "D. 每兩年一次"
+    ],
+    "answer": "B",
+    "explanation": "依作業環境監測實施辦法，一般有機溶劑作業場所每六個月監測一次，但若最近兩次結果均低於10%OEL者，得延長至每年一次。",
+    "lawRef": "作業環境監測實施辦法§11",
+    "source": "official"
+  },
+  {
+    "id": "2024-1-005",
+    "year": 2024,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "依「危害控制」的優先順序，下列何者應優先採用？",
+    "options": [
+      "A. 佩戴個人防護具",
+      "B. 工程控制（Engineering Controls）",
+      "C. 行政管理（Administrative Controls）",
+      "D. 工作輪換"
+    ],
+    "answer": "B",
+    "explanation": "危害控制優先順序（危害控制層級）：消除→替代→工程控制→行政管理→個人防護具（PPE）。工程控制屬第三層，優先於行政管理與PPE。",
+    "lawRef": "職業安全衛生法§6",
+    "source": "official"
+  },
+  {
+    "id": "2023-1-001",
+    "year": 2023,
+    "session": 1,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "生物偵測（Biological Monitoring）主要用來評估何種暴露？",
+    "options": [
+      "A. 噪音暴露",
+      "B. 輻射暴露",
+      "C. 化學物質的體內吸收量",
+      "D. 高溫暴露"
+    ],
+    "answer": "C",
+    "explanation": "生物偵測是透過分析血液、尿液或呼出氣體中的生物指標（如代謝物），評估勞工體內化學物質的實際吸收量，包含各種途徑（吸入、皮膚、口腔）的總暴露。",
+    "lawRef": "勞工健康保護規則§10",
+    "source": "official"
+  },
+  {
+    "id": "2023-1-002",
+    "year": 2023,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "職業衛生管理的基本程序，下列排列順序何者正確？",
+    "options": [
+      "A. 辨識→評估→控制→監督",
+      "B. 評估→辨識→控制→監督",
+      "C. 控制→辨識→評估→監督",
+      "D. 監督→辨識→評估→控制"
+    ],
+    "answer": "A",
+    "explanation": "職業衛生管理基本程序為：危害辨識（Anticipation & Recognition）→ 危害評估（Evaluation）→ 危害控制（Control）→ 追蹤監督（Follow-up），簡稱AREC。",
+    "lawRef": null,
+    "source": "official"
+  },
+  {
+    "id": "2023-1-003",
+    "year": 2023,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "下列何者屬於噪音危害工程控制措施？",
+    "options": [
+      "A. 縮短暴露時間",
+      "B. 在音源處加裝隔音罩",
+      "C. 配戴耳塞",
+      "D. 實施定期聽力檢查"
+    ],
+    "answer": "B",
+    "explanation": "工程控制是在音源、傳播途徑或接受者加裝物理設施。在音源加裝隔音罩屬工程控制；縮短暴露時間、聽力檢查屬行政管理；耳塞屬個人防護具。",
+    "lawRef": "噪音危害預防標準§5",
+    "source": "official"
+  },
+  {
+    "id": "2022-1-001",
+    "year": 2022,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "GHS危害通識制度中，SDS（安全資料表）需包含幾個區段？",
+    "options": [
+      "A. 8個",
+      "B. 12個",
+      "C. 16個",
+      "D. 20個"
+    ],
+    "answer": "C",
+    "explanation": "依GHS（全球化學品統一分類及標示制度），SDS（安全資料表）共包含16個區段，內容涵蓋化學品標識、危害辨識、組成成分、急救措施、滅火措施等。",
+    "lawRef": "危害性化學品標示及通識規則§13",
+    "source": "official"
+  },
+  {
+    "id": "2022-1-002",
+    "year": 2022,
+    "session": 1,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "採集個人空氣樣本時，採樣泵應佩戴於勞工的何處？",
+    "options": [
+      "A. 腰帶",
+      "B. 呼吸帶（鼻口附近）",
+      "C. 手腕",
+      "D. 胸口"
+    ],
+    "answer": "B",
+    "explanation": "個人採樣時，採樣頭（濾紙匣或採樣管）應置於勞工的呼吸帶（breathing zone），即鼻口附近約30公分範圍內，以代表勞工實際吸入的空氣濃度；採樣泵則置於腰帶。",
+    "lawRef": "作業環境監測實施辦法§6",
+    "source": "official"
+  },
+  {
+    "id": "2024-1-law01",
+    "year": 2024,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依「職業安全衛生法」規定，雇主使勞工從事工作前，應告知作業場所應注意之事項，係屬何種義務？",
+    "options": [
+      "A. 安全衛生設施義務",
+      "B. 危害告知義務",
+      "C. 健康管理義務",
+      "D. 教育訓練義務"
+    ],
+    "answer": "B",
+    "explanation": "依職安法第26條，雇主使勞工在坑道、坑井等場所作業前，應告知危害因素、安全衛生注意事項及緊急應變措施，屬危害告知義務。",
+    "lawRef": "職業安全衛生法§26",
+    "source": "official"
+  },
+  {
+    "id": "2021-1-001",
+    "year": 2021,
+    "session": 1,
+    "category": "F",
+    "categoryName": "暴露風險分級與管理",
+    "question": "職業衛生暴露風險分級中，「高風險」等級勞工應優先採取何種措施？",
+    "options": [
+      "A. 持續監測，每年複查",
+      "B. 立即採取工程控制或行政管理措施",
+      "C. 要求勞工自行防護",
+      "D. 記錄後定期追蹤"
+    ],
+    "answer": "B",
+    "explanation": "高風險等級暴露表示勞工健康受危害的可能性高，應立即採取工程控制（優先）或行政管理措施，不應拖延。",
+    "lawRef": "作業環境監測實施辦法§16",
+    "source": "official"
+  }
+]
