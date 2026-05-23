@@ -10,7 +10,7 @@ export default function WrongQuestions() {
   const { wrongIds, masteredIds, markMastered, recordAnswer } = useProgress()
 
   useEffect(() => {
-    fetch('/data/questions.json').then(r => r.json()).then(setAllQ)
+    fetch(import.meta.env.BASE_URL + 'data/questions.json').then(r => r.json()).then(setAllQ)
   }, [])
 
   const wrongQ = allQ.filter(q => wrongIds.includes(q.id))

@@ -14,8 +14,8 @@ export default function FlashcardPage() {
 
   useEffect(() => {
     Promise.all([
-      fetch('/data/knowledge_cards.json').then(r => r.json()),
-      fetch('/data/questions.json').then(r => r.json()),
+      fetch(import.meta.env.BASE_URL + 'data/knowledge_cards.json').then(r => r.json()),
+      fetch(import.meta.env.BASE_URL + 'data/questions.json').then(r => r.json()),
     ]).then(([cards, questions]) => {
       setAllCards(cards)
       const qCards = questions.map(q => ({

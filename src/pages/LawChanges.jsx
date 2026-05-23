@@ -13,7 +13,7 @@ export default function LawChanges() {
   const [activeTab, setActiveTab] = useState({})
 
   useEffect(() => {
-    fetch('/data/law_changes.json').then(r => r.json()).then(data => {
+    fetch(import.meta.env.BASE_URL + 'data/law_changes.json').then(r => r.json()).then(data => {
       setLaws(data)
       if (data.length > 0) setExpanded(data[0].id)
     })

@@ -10,7 +10,7 @@ export default function Predictions() {
   const { recordAnswer } = useProgress()
 
   useEffect(() => {
-    fetch('/data/ai_predictions.json').then(r => r.json()).then(setQuestions)
+    fetch(import.meta.env.BASE_URL + 'data/ai_predictions.json').then(r => r.json()).then(setQuestions)
   }, [])
 
   function handleAnswer(correct) {

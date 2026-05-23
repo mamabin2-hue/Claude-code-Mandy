@@ -21,7 +21,7 @@ export default function MockExam() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/data/questions.json').then(r => r.json()).then(setAllQ)
+    fetch(import.meta.env.BASE_URL + 'data/questions.json').then(r => r.json()).then(setAllQ)
   }, [])
 
   function startExam() {
