@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import QuestionCard from '../components/QuestionCard'
 import { useProgress } from '../hooks/useProgress'
+import { shuffle, shuffleOptions } from '../utils/questionBank'
 
 export default function WrongQuestions() {
   const [allQ, setAllQ] = useState([])
+  const [session, setSession] = useState(null)
   const [idx, setIdx] = useState(0)
   const [results, setResults] = useState([])
   const { wrongIds, masteredIds, markMastered, recordAnswer } = useProgress()
@@ -15,10 +17,24 @@ export default function WrongQuestions() {
 
   const wrongQ = allQ.filter(q => wrongIds.includes(q.id))
 
+  function buildSession(baseQ) {
+    return shuffle(baseQ).map(shuffleOptions)
+  }
+
+  useEffect(() => {
+    if (wrongQ.length > 0 && !session) setSession(buildSession(wrongQ))
+  }, [wrongQ.length])
+
   function handleAnswer(correct, letter) {
-    const q = wrongQ[idx]
+    const q = session[idx]
     recordAnswer(q.id, correct)
     setResults(prev => [...prev, { question: q, correct, selected: letter }])
+  }
+
+  function retry() {
+    setSession(buildSession(wrongQ))
+    setIdx(0)
+    setResults([])
   }
 
   if (wrongQ.length === 0) {
@@ -42,7 +58,9 @@ export default function WrongQuestions() {
     )
   }
 
-  if (idx >= wrongQ.length) {
+  if (!session) return null
+
+  if (idx >= session.length) {
     const correct = results.filter(r => r.correct).length
     return (
       <div className="min-h-screen bg-slate-50 px-4 py-6">
@@ -54,7 +72,7 @@ export default function WrongQuestions() {
               {correct === results.length ? '全部答對！考慮標記為已掌握' : `還有 ${results.length - correct} 題需要繼續練習`}
             </p>
             <div className="flex gap-3">
-              <button onClick={() => { setIdx(0); setResults([]) }} className="flex-1 py-3 border-2 border-slate-200 rounded-xl text-slate-700 font-semibold hover:bg-slate-50 cursor-pointer">
+              <button onClick={retry} className="flex-1 py-3 border-2 border-slate-200 rounded-xl text-slate-700 font-semibold hover:bg-slate-50 cursor-pointer">
                 重練一次
               </button>
               <Link to="/" className="flex-1 py-3 bg-blue-700 text-white rounded-xl font-bold text-center hover:bg-blue-800">
@@ -67,7 +85,7 @@ export default function WrongQuestions() {
     )
   }
 
-  const q = wrongQ[idx]
+  const q = session[idx]
   const answered = results.length > idx
   const isMastered = masteredIds.includes(q.id)
 
@@ -79,12 +97,12 @@ export default function WrongQuestions() {
             <Link to="/" className="text-slate-400 hover:text-slate-600">←</Link>
             <h2 className="text-xl font-bold">錯題本</h2>
           </div>
-          <span className="text-sm text-slate-500">{idx + 1}/{wrongQ.length}</span>
+          <span className="text-sm text-slate-500">{idx + 1}/{session.length}</span>
         </div>
 
         <div className="flex gap-2 mb-4">
           <div className="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
-            <div className="h-full bg-red-500 rounded-full transition-all" style={{ width: `${(idx / wrongQ.length) * 100}%` }} />
+            <div className="h-full bg-red-500 rounded-full transition-all" style={{ width: `${(idx / session.length) * 100}%` }} />
           </div>
         </div>
 
@@ -107,7 +125,7 @@ export default function WrongQuestions() {
               onClick={() => setIdx(i => i + 1)}
               className="w-full py-3 bg-blue-700 text-white rounded-xl font-bold hover:bg-blue-800 transition-colors cursor-pointer"
             >
-              {idx + 1 < wrongQ.length ? '下一題 →' : '查看結果'}
+              {idx + 1 < session.length ? '下一題 →' : '查看結果'}
             </button>
           </div>
         )}

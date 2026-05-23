@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import QuestionCard from '../components/QuestionCard'
 import { useProgress } from '../hooks/useProgress'
-import { filterQuestions, getCategories, getYears, shuffle } from '../utils/questionBank'
+import { filterQuestions, getCategories, getYears, shuffle, shuffleOptions } from '../utils/questionBank'
 
 const LIMITS = [5, 10, 20, 40]
 
@@ -26,7 +26,7 @@ export default function Practice() {
   const filtered = filterQuestions(allQ, { category, year })
 
   function startSession() {
-    const selected = shuffle(filtered).slice(0, limit)
+    const selected = shuffle(filtered).slice(0, limit).map(shuffleOptions)
     setSession(selected)
     setIdx(0)
     setResults([])

@@ -26,3 +26,13 @@ export function getCategories(questions) {
 export function getYears(questions) {
   return [...new Set(questions.map(q => q.year))].sort((a, b) => b - a)
 }
+
+export function shuffleOptions(question) {
+  const letters = ['A', 'B', 'C', 'D']
+  const texts = question.options.map(o => o.slice(3))  // strip "X. "
+  const correctText = question.options.find(o => o.charAt(0) === question.answer)?.slice(3)
+  const shuffled = shuffle(texts)
+  const newOptions = shuffled.map((t, i) => `${letters[i]}. ${t}`)
+  const newAnswer = letters[shuffled.indexOf(correctText)]
+  return { ...question, options: newOptions, answer: newAnswer }
+}
