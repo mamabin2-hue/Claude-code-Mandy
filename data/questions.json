@@ -2626,5 +2626,725 @@
     "explanation": "工業衛生三大程序：(1) Recognition（危害辨識）→(2) Evaluation（暴露評估）→(3) Control（危害控制）。記憶口訣：「辨評控」。",
     "lawRef": null,
     "source": "practice"
+  },
+  {
+    "id": "practice-MON-001",
+    "year": null,
+    "session": null,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "依「作業環境監測實施辦法」，下列哪種作業需實施化學性因子作業環境監測？",
+    "options": [
+      "A. 辦公室文書作業",
+      "B. 有機溶劑作業（甲類、乙類）",
+      "C. 輕工業包裝作業",
+      "D. 一般倉儲作業"
+    ],
+    "answer": "B",
+    "explanation": "有機溶劑（甲類、乙類）、特定化學物質、鉛、四烷基鉛、粉塵、噪音等特別危害健康作業均須定期實施環境監測。",
+    "lawRef": "作業環境監測實施辦法§2",
+    "source": "practice"
+  },
+  {
+    "id": "practice-MON-002",
+    "year": null,
+    "session": null,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "個人採樣與定點採樣的主要差異為何？",
+    "options": [
+      "A. 個人採樣固定在作業場所定點，定點採樣由勞工攜帶",
+      "B. 個人採樣由勞工配戴採樣器，代表個人實際暴露；定點採樣固定於工作區域",
+      "C. 兩者完全相同，只是名稱不同",
+      "D. 定點採樣只能在室外使用"
+    ],
+    "answer": "B",
+    "explanation": "個人採樣（Personal Sampling）：採樣器配戴於勞工呼吸帶，代表個人實際暴露濃度，用於評估個人健康風險。定點採樣（Area Sampling）：採樣器固定於作業場所特定位置，用於了解環境分布。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-MON-003",
+    "year": null,
+    "session": null,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "作業環境監測結果紀錄應保存多久？",
+    "options": [
+      "A. 1年",
+      "B. 3年",
+      "C. 5年（特別危害健康作業30年）",
+      "D. 永久保存"
+    ],
+    "answer": "C",
+    "explanation": "一般作業環境監測紀錄保存3年；特別危害健康作業（如石綿、鉛、粉塵等）監測紀錄應保存30年，以供職業病追蹤。",
+    "lawRef": "作業環境監測實施辦法§14",
+    "source": "practice"
+  },
+  {
+    "id": "practice-MON-004",
+    "year": null,
+    "session": null,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "採樣後進行氣體分析，最常用於有機化合物定性定量分析的儀器為何？",
+    "options": [
+      "A. 原子吸收光譜（AAS）",
+      "B. 氣相層析儀（GC）",
+      "C. 感應耦合電漿質譜（ICP-MS）",
+      "D. X射線螢光（XRF）"
+    ],
+    "answer": "B",
+    "explanation": "氣相層析儀（GC）搭配適當偵測器（FID、MS等）是分析有機溶劑、揮發性有機物（VOCs）的標準方法。重金屬分析用AAS或ICP-MS。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-MON-005",
+    "year": null,
+    "session": null,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "採樣流量計在使用前後均應校正，採樣前後流量差異不得超過多少百分比？",
+    "options": [
+      "A. 5%",
+      "B. 10%",
+      "C. 15%",
+      "D. 25%"
+    ],
+    "answer": "B",
+    "explanation": "NIOSH及國內法規規定，個人採樣前後流量誤差不得超過10%（部分規範為±5%），以確保採樣體積準確，影響濃度計算。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-MON-006",
+    "year": null,
+    "session": null,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "粉塵作業環境監測，可吸入性粉塵（Inhalable Dust）與可呼吸性粉塵（Respirable Dust）的主要區別為何？",
+    "options": [
+      "A. 可呼吸性粉塵粒徑較大，可吸入性粉塵粒徑較小",
+      "B. 可吸入性粉塵（粒徑<100μm）沉積於上呼吸道；可呼吸性粉塵（粒徑<10μm）可到達肺泡",
+      "C. 兩者定義相同",
+      "D. 可吸入性粉塵只在室外量測"
+    ],
+    "answer": "B",
+    "explanation": "可吸入性粉塵（Inhalable）：所有可進入鼻口的粉塵（<100μm）；可胸腔性（Thoracic）<25μm；可呼吸性（Respirable）<10μm，可到達肺泡，引發塵肺症。",
+    "lawRef": "勞工作業場所容許暴露標準",
+    "source": "practice"
+  },
+  {
+    "id": "practice-MON-007",
+    "year": null,
+    "session": null,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "石英（crystalline silica）粉塵的分析方法，最常用的是哪種？",
+    "options": [
+      "A. 原子吸收光譜（AAS）",
+      "B. X射線繞射分析（XRD）",
+      "C. 氣相層析法（GC）",
+      "D. 高效液相層析法（HPLC）"
+    ],
+    "answer": "B",
+    "explanation": "石英（游離二氧化矽）含量分析最常用X射線繞射法（XRD），可識別結晶型態（α-石英、方矽石、鱗矽石）；亦可用紅外線光譜法（IR）。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-MON-008",
+    "year": null,
+    "session": null,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "8小時時間加權平均濃度（TWA）的計算公式，勞工上午暴露於甲苯50 ppm（3小時）、下午100 ppm（3小時）、其餘2小時無暴露，TWA為多少ppm？",
+    "options": [
+      "A. 56.25 ppm",
+      "B. 75 ppm",
+      "C. 87.5 ppm",
+      "D. 100 ppm"
+    ],
+    "answer": "A",
+    "explanation": "TWA = (50×3 + 100×3 + 0×2) / 8 = (150+300+0)/8 = 450/8 = 56.25 ppm。",
+    "lawRef": "勞工作業場所容許暴露標準",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-001",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "選擇呼吸防護具時，應先確認下列哪項資訊？",
+    "options": [
+      "A. 製造商知名度",
+      "B. 危害物種類、濃度及是否有立即生命危險（IDLH）",
+      "C. 防護具的顏色",
+      "D. 勞工的個人偏好"
+    ],
+    "answer": "B",
+    "explanation": "選擇呼吸防護具流程：(1)確認危害物種類及濃度→(2)判斷是否IDLH環境→(3)計算所需防護係數（APF）→(4)選擇適當防護具→(5)執行密合度測試（Fit Test）。",
+    "lawRef": "呼吸防護計畫",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-002",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "下列呼吸防護具中，哪種提供最高的防護係數（APF）？",
+    "options": [
+      "A. 拋棄式口罩（N95）",
+      "B. 半面罩式防毒面具",
+      "C. 全面罩式防毒面具",
+      "D. 自攜式空氣呼吸器（SCBA）壓力需求模式"
+    ],
+    "answer": "D",
+    "explanation": "防護係數（APF）由低到高：N95(10) < 半面罩(10) < 全面罩(50) < 動力淨氣式全面罩(1000) < SCBA壓力需求(10,000)。IDLH環境必須使用SCBA。",
+    "lawRef": "呼吸防護計畫",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-003",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "化學防護手套的選用，應優先考量下列哪項資料？",
+    "options": [
+      "A. 手套的顏色",
+      "B. 化學品的滲透時間（Permeation Time）及降解性（Degradation）",
+      "C. 手套的價格",
+      "D. 手套厚度（越厚越好）"
+    ],
+    "answer": "B",
+    "explanation": "化學防護手套選用關鍵：(1)滲透時間（化學品滲透過手套所需時間，越長越好）、(2)降解性（手套材質被化學品腐蝕的速率）。需查閱製造商的滲透測試數據。",
+    "lawRef": "個人防護具管理辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-004",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "N95口罩的「95」代表什麼意義？",
+    "options": [
+      "A. 可過濾95種化學物質",
+      "B. 在規定測試條件下，過濾非油性微粒的效率達95%以上",
+      "C. 可使用95小時",
+      "D. 適合95%的人配戴"
+    ],
+    "answer": "B",
+    "explanation": "N95：N代表Not resistant to oil（不抗油性微粒），95代表在NIOSH測試條件下（0.3μm NaCl氣膠），過濾效率≥95%。台灣CNS標準類似。",
+    "lawRef": "個人防護具管理辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-005",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "密合度測試（Fit Test）分為定性與定量兩種，下列何者屬於「定量」密合度測試？",
+    "options": [
+      "A. 苦味（苦精）法",
+      "B. 甜味（醋酸異戊酯）法",
+      "C. 使用儀器測量面罩內外微粒濃度比值",
+      "D. 用煙霧觀察有無洩漏"
+    ],
+    "answer": "C",
+    "explanation": "定量密合度測試（QNFT）：使用儀器（如PortaCount）測量面罩內外微粒濃度，計算密合度係數（Fit Factor）。定性測試（QLFT）靠配戴者感知甜/苦味或刺激。",
+    "lawRef": "呼吸防護計畫",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-006",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "護目鏡（Safety Glasses）與防護面罩（Face Shield）的主要防護差異為何？",
+    "options": [
+      "A. 完全相同",
+      "B. 護目鏡防護眼睛；防護面罩同時保護眼睛、臉部及頸部",
+      "C. 防護面罩只能防粉塵",
+      "D. 護目鏡可防護所有化學品飛濺"
+    ],
+    "answer": "B",
+    "explanation": "護目鏡（Safety Glasses）：保護眼睛免於飛濺物或衝擊。防護面罩（Face Shield）：保護整個臉部（含眼睛、鼻、口），適合化學品飛濺、研磨作業。高危險作業常需兩者並用。",
+    "lawRef": "個人防護具管理辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-007",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "依職業安全衛生設施規則，雇主提供個人防護具，下列敘述何者正確？",
+    "options": [
+      "A. 費用應由勞工自行負擔",
+      "B. 雇主應免費提供並確保勞工正確使用",
+      "C. 個人防護具可以替代工程控制",
+      "D. 防護具選用不需考量作業特性"
+    ],
+    "answer": "B",
+    "explanation": "依職安法及職業安全衛生設施規則，雇主應免費提供符合標準之個人防護具，並使勞工正確使用、維護及保管。費用不得轉嫁勞工。",
+    "lawRef": "職業安全衛生設施規則§277",
+    "source": "practice"
+  },
+  {
+    "id": "practice-PPE-008",
+    "year": null,
+    "session": null,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "安全帽（工業用）的主要功能不包含下列哪項？",
+    "options": [
+      "A. 防止飛落物衝擊頭部",
+      "B. 防止頭部碰撞固定物",
+      "C. 防護化學品大量潑灑至頭部",
+      "D. 提供電氣絕緣（E級安全帽）"
+    ],
+    "answer": "C",
+    "explanation": "工業用安全帽主要防止：(1)落物衝擊、(2)頭部碰撞、(3)電氣危害（E級）、(4)飛濺物。大量化學品防護需使用全身化學防護衣（Chemical Suit），安全帽無法防護大量化學潑灑。",
+    "lawRef": "個人防護具管理辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-001",
+    "year": null,
+    "session": null,
+    "category": "F",
+    "categoryName": "暴露風險分級與管理",
+    "question": "依「勞工健康保護規則」，一般勞工（非特別危害作業）定期健康檢查頻率，40歲以上未滿65歲者為何？",
+    "options": [
+      "A. 每5年一次",
+      "B. 每3年一次",
+      "C. 每年一次",
+      "D. 每2年一次"
+    ],
+    "answer": "C",
+    "explanation": "定期健康檢查頻率：未滿40歲→每3年；40歲以上未滿65歲→每年；65歲以上→每年。特別危害健康作業者另有規定（通常每年）。",
+    "lawRef": "勞工健康保護規則§14",
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-002",
+    "year": null,
+    "session": null,
+    "category": "F",
+    "categoryName": "暴露風險分級與管理",
+    "question": "健康檢查結果分為幾個管理級別？其中「第三級管理」代表什麼？",
+    "options": [
+      "A. 3級；第三級=正常",
+      "B. 4級；第三級=異常（與工作有關聯），需追蹤或就醫",
+      "C. 5級；第三級=需立即停工",
+      "D. 2級；第三級不存在"
+    ],
+    "answer": "B",
+    "explanation": "健康管理分4級：第一級（正常）→第二級（異常，與工作無關）→第三級（異常，疑與工作有關，需追蹤）→第四級（異常，需立即改善工作環境或暫停作業）。",
+    "lawRef": "勞工健康保護規則§21",
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-003",
+    "year": null,
+    "session": null,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "矽肺症（Silicosis）的致病原因為何？",
+    "options": [
+      "A. 長期暴露於石綿纖維",
+      "B. 長期吸入含游離二氧化矽（結晶型矽）粉塵",
+      "C. 長期暴露於有機溶劑蒸氣",
+      "D. 長期噪音暴露"
+    ],
+    "answer": "B",
+    "explanation": "矽肺症（Silicosis）：吸入結晶型游離二氧化矽（石英）粉塵，引起肺部纖維化。高風險行業：採礦、石材切割、陶瓷、噴砂作業。游離二氧化矽含量越高，危害越大。",
+    "lawRef": "粉塵危害預防標準",
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-004",
+    "year": null,
+    "session": null,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "職業性氣喘（Occupational Asthma）最常見的高風險職業為何？",
+    "options": [
+      "A. 辦公室文書人員",
+      "B. 麵包師傅（麵粉塵）、油漆工（異氰酸酯）、醫療人員（乳膠）",
+      "C. 計程車司機",
+      "D. 軟體工程師"
+    ],
+    "answer": "B",
+    "explanation": "職業性氣喘的常見致敏原：(1)麵粉塵（麵包師傅）、(2)異氰酸酯TDI/MDI（油漆、聚氨酯工業）、(3)天然乳膠（醫療人員）、(4)環氧樹脂（電子業）。",
+    "lawRef": null,
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-005",
+    "year": null,
+    "session": null,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "下列哪種重金屬暴露與「痛痛病（Itai-itai disease）」有關？",
+    "options": [
+      "A. 汞（Hg）",
+      "B. 鉛（Pb）",
+      "C. 鎘（Cd）",
+      "D. 鉻（Cr）"
+    ],
+    "answer": "C",
+    "explanation": "痛痛病（鎘中毒）：日本富山縣神通川流域，鎘污染水源導致居民腎臟損傷→骨質疏鬆→劇烈骨痛。汞：水俁病；鉛：神經毒性；鉻：致癌（六價鉻）。",
+    "lawRef": null,
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-006",
+    "year": null,
+    "session": null,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "有機磷農藥中毒的機制及解毒劑為何？",
+    "options": [
+      "A. 抑制膽鹼酯酶（AChE）→ACh蓄積；解毒劑為阿托品（Atropine）+2-PAM",
+      "B. 抑制血紅素合成；解毒劑為EDTA",
+      "C. 抑制細胞色素氧化酶；解毒劑為亞硝酸鈉",
+      "D. 干擾鈣代謝；解毒劑為鈣劑"
+    ],
+    "answer": "A",
+    "explanation": "有機磷農藥抑制乙醯膽鹼酯酶（AChE），導致乙醯膽鹼（ACh）蓄積→副交感神經過度興奮（瞳孔縮小、流涎、肌肉顫抖）。解毒：阿托品（拮抗毒蕈鹼效應）+ 2-PAM（氯解磷定，恢復AChE活性）。",
+    "lawRef": null,
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-007",
+    "year": null,
+    "session": null,
+    "category": "F",
+    "categoryName": "暴露風險分級與管理",
+    "question": "「生物暴露指標（BEI）」與「職業暴露限值（OEL）」的主要差異為何？",
+    "options": [
+      "A. BEI量測空氣中濃度，OEL量測生物檢體",
+      "B. BEI量測生物檢體（血液、尿液、呼氣），反映體內實際吸收量；OEL量測作業環境空氣濃度",
+      "C. 兩者完全相同",
+      "D. BEI只適用於噪音"
+    ],
+    "answer": "B",
+    "explanation": "職業暴露限值（OEL/PEL）：量測工作場所空氣中有害物濃度。生物暴露指標（BEI）：量測生物檢體（血液、尿液、呼氣）中有害物或代謝物，反映經所有途徑（吸入+皮膚+食入）的總吸收量，更能評估個人實際暴露。",
+    "lawRef": "勞工健康保護規則附表",
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-008",
+    "year": null,
+    "session": null,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "下列哪種皮膚標示（Skin Notation）化學物質，需特別注意皮膚吸收途徑？",
+    "options": [
+      "A. 碳酸鈣",
+      "B. 二甲基甲醯胺（DMF）",
+      "C. 氮氣",
+      "D. 氬氣"
+    ],
+    "answer": "B",
+    "explanation": "二甲基甲醯胺（DMF）具有明顯皮膚吸收性，勞工作業場所容許暴露標準中標注「皮膚（Skin）」者，應特別注意皮膚防護，避免以空氣濃度低估實際暴露。",
+    "lawRef": "勞工作業場所容許暴露標準",
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-009",
+    "year": null,
+    "session": null,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "職業病的確認必須同時符合哪幾個條件？",
+    "options": [
+      "A. 只需有工作暴露即可",
+      "B. 有害物暴露史＋相符的疾病診斷＋暴露與疾病的因果關係",
+      "C. 醫師主觀判斷即可",
+      "D. 只需暴露濃度超標即可確認"
+    ],
+    "answer": "B",
+    "explanation": "職業病認定需同時具備：(1)有確認的職業危害暴露史、(2)符合的疾病診斷（臨床症狀、檢查結果）、(3)暴露與疾病之間的因果關係（含適當潛伏期）、(4)排除其他非職業原因。",
+    "lawRef": "職業安全衛生法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-HEALTH-010",
+    "year": null,
+    "session": null,
+    "category": "F",
+    "categoryName": "暴露風險分級與管理",
+    "question": "依職安法規定，雇主使勞工從事特別危害健康作業，應建立哪種管理制度？",
+    "options": [
+      "A. ISO 9001品質管理系統",
+      "B. 特殊健康檢查及健康追蹤管理制度",
+      "C. 環境管理系統（ISO 14001）",
+      "D. 能源管理系統"
+    ],
+    "answer": "B",
+    "explanation": "職安法§22：雇主對於從事特別危害健康作業之勞工，應建立健康管理制度，包括：實施特殊健康檢查、建立健康管理資料、依健康管理分級採取對應措施（追蹤、就醫、改善工作環境等）。",
+    "lawRef": "職業安全衛生法§22、勞工健康保護規則",
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-001",
+    "year": null,
+    "session": null,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "風險（Risk）的定義公式為何？",
+    "options": [
+      "A. 風險 = 危害 + 暴露",
+      "B. 風險 = 危害嚴重度 × 暴露機率（或頻率）",
+      "C. 風險 = 危害種類 / 控制措施數量",
+      "D. 風險 = 暴露濃度 - 容許濃度"
+    ],
+    "answer": "B",
+    "explanation": "風險（Risk）= 危害嚴重度（Severity/Hazard）× 發生機率（Probability/Likelihood of Exposure）。風險評估目的在量化及優先排序危害，作為控制決策依據。",
+    "lawRef": "職業安全衛生法§5",
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-002",
+    "year": null,
+    "session": null,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "「定性暴露評估」（Qualitative Exposure Assessment）的主要特點為何？",
+    "options": [
+      "A. 必須取得空氣採樣數據",
+      "B. 依據作業特性、危害物性質、暴露情境以分級方式評估（高/中/低風險），不需量測數值",
+      "C. 只適用於噪音評估",
+      "D. 需要生物偵測數據"
+    ],
+    "answer": "B",
+    "explanation": "定性暴露評估：依作業型態、使用量、揮發性、密閉性等因素，以判斷方式將暴露分為高/中/低等級。優點：快速、低成本；缺點：主觀性較高。適合初步篩查。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-003",
+    "year": null,
+    "session": null,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "暴露評估中，「相似暴露族群（SEG, Similar Exposure Group）」的概念為何？",
+    "options": [
+      "A. 暴露完全相同的所有勞工",
+      "B. 具有相似工作特性、暴露模式，可歸為同一組的勞工族群，用於代表性採樣",
+      "C. 只包含同一部門的勞工",
+      "D. 只適用於化學危害評估"
+    ],
+    "answer": "B",
+    "explanation": "相似暴露族群（SEG）：作業方法、作業時間、暴露化學物及暴露模式相近的勞工群組。透過SEG可以用少數代表性樣本（6人/SEG）評估整個族群，提高採樣效率。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-004",
+    "year": null,
+    "session": null,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "致癌物的風險評估，常採用「線性無閾值模型（LNT Model）」，此模型的基本假設為何？",
+    "options": [
+      "A. 低於某劑量就完全無風險",
+      "B. 任何劑量的致癌物暴露都有致癌風險，且劑量與風險呈線性關係",
+      "C. 只有超過閾值才有風險",
+      "D. 風險與暴露無關"
+    ],
+    "answer": "B",
+    "explanation": "線性無閾值（LNT）模型：認為致癌物（尤其是基因毒性致癌物）不存在安全閾值，任何暴露量都有相對應的致癌風險，且劑量-反應呈線性關係。用於游離輻射及化學致癌物的風險評估。",
+    "lawRef": null,
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-005",
+    "year": null,
+    "session": null,
+    "category": "F",
+    "categoryName": "暴露風險分級與管理",
+    "question": "台灣「職場化學品暴露風險分級管理（CCB/Control Banding）」制度，風險分級的依據主要為哪兩個因素？",
+    "options": [
+      "A. 化學品價格與使用頻率",
+      "B. 危害帶（依GHS健康危害分類）與暴露帶（依使用量與揮發性）",
+      "C. 化學品顏色與氣味",
+      "D. 生產國與進口年份"
+    ],
+    "answer": "B",
+    "explanation": "Control Banding（控制分級）：結合(1)危害帶（H帶，依GHS急毒性、刺激性、致癌性等分類）和(2)暴露帶（E帶，依年使用量、物理狀態/揮發性）→矩陣交叉得出控制策略（通風/局排/全面密閉/專家評估）。",
+    "lawRef": "危害性化學品標示及通識規則",
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-006",
+    "year": null,
+    "session": null,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "暴露監測數據的統計分析，通常假設工作場所暴露數據服從何種分布？",
+    "options": [
+      "A. 正態分布（Normal Distribution）",
+      "B. 對數常態分布（Log-normal Distribution）",
+      "C. 均勻分布（Uniform Distribution）",
+      "D. 卜瓦松分布（Poisson Distribution）"
+    ],
+    "answer": "B",
+    "explanation": "工作場所化學物質暴露濃度通常服從對數常態分布（Log-normal Distribution），即濃度取對數後呈常態分布。因此統計分析常用幾何平均值（GM）和幾何標準差（GSD）描述。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-007",
+    "year": null,
+    "session": null,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "「半定量暴露評估」工具（如 EASE、Stoffenmanager）相比純定性評估的優點為何？",
+    "options": [
+      "A. 不需要任何輸入資料",
+      "B. 以量化的評分方式考量多個因子（使用量、揮發性、密閉性等），產生半定量風險指數，比定性評估更客觀",
+      "C. 結果等同於實際量測",
+      "D. 只適用於噪音評估"
+    ],
+    "answer": "B",
+    "explanation": "半定量評估工具（EASE、Stoffenmanager、ROECsafe等）：整合使用量、揮發性、暴露頻率、通風等多因子，計算半定量暴露分數，比定性更系統化，但比實際量測便捷，適合初篩。",
+    "lawRef": "作業環境監測實施辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-RISK-008",
+    "year": null,
+    "session": null,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "「危害辨識」階段常用的工具，下列何者屬於系統性危害辨識方法？",
+    "options": [
+      "A. 直覺判斷",
+      "B. 危害與可操作性研究（HAZOP）",
+      "C. 同事口耳相傳",
+      "D. 僅依賴過去的事故紀錄"
+    ],
+    "answer": "B",
+    "explanation": "系統性危害辨識方法：HAZOP（危害與可操作性研究）、FMEA（失效模式效應分析）、What-if分析、檢查表（Checklist）等。HAZOP尤其適用於製程安全危害辨識。",
+    "lawRef": "職業安全衛生管理辦法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-LAW-016",
+    "year": null,
+    "session": null,
+    "category": "LAW",
+    "categoryName": "法規",
+    "question": "依職業安全衛生法，「承攬」關係中，原事業單位對承攬人所僱用勞工的職業災害補償責任為何？",
+    "options": [
+      "A. 原事業單位完全免責",
+      "B. 由承攬人完全負責，原事業單位無責任",
+      "C. 原事業單位與承攬人連帶負職業災害補償責任",
+      "D. 由政府承擔補償責任"
+    ],
+    "answer": "C",
+    "explanation": "職安法§25：事業單位以其事業招人承攬，如有再承攬時，承攬人或中間承攬人，就各該承攬部分所使用之勞工，均應與最後承攬人，連帶負職業災害補償之責任。",
+    "lawRef": "職業安全衛生法§25",
+    "source": "practice"
+  },
+  {
+    "id": "practice-LAW-017",
+    "year": null,
+    "session": null,
+    "category": "LAW",
+    "categoryName": "法規",
+    "question": "依職業安全衛生管理辦法，職業安全衛生管理計畫應包含哪些主要項目？",
+    "options": [
+      "A. 只包含緊急應變計畫",
+      "B. 工作環境或製程安全評估、安全衛生設施、健康管理、安全衛生教育訓練等",
+      "C. 只包含採購管理",
+      "D. 只包含品質管理"
+    ],
+    "answer": "B",
+    "explanation": "職安管理辦法§12：職業安全衛生管理計畫應包含：(1)工作環境或製程安全評估、(2)安全衛生設施、(3)健康管理、(4)安全衛生教育訓練、(5)緊急應變措施、(6)承攬管理、(7)安全衛生管理自動檢查等。",
+    "lawRef": "職業安全衛生管理辦法§12",
+    "source": "practice"
+  },
+  {
+    "id": "practice-LAW-018",
+    "year": null,
+    "session": null,
+    "category": "COMMON",
+    "categoryName": "共用－職安法規",
+    "question": "依職業安全衛生法，「工作場所負責人」在工作場所有立即發生危險之虞時，應採取何種措施？",
+    "options": [
+      "A. 通知媒體報導後再處理",
+      "B. 立即令停止作業，並使勞工退避至安全場所",
+      "C. 等待雇主指示後才能行動",
+      "D. 繼續生產，等待輪班結束"
+    ],
+    "answer": "B",
+    "explanation": "職安法§18：工作場所有立即發生危險之虞時，雇主或工作場所負責人應即令停止作業，並使勞工退避至安全場所。勞工亦有權自行退避，雇主不得因此對勞工不利。",
+    "lawRef": "職業安全衛生法§18",
+    "source": "practice"
+  },
+  {
+    "id": "practice-LAW-019",
+    "year": null,
+    "session": null,
+    "category": "LAW",
+    "categoryName": "法規",
+    "question": "依「職業安全衛生教育訓練規則」，擔任職業安全衛生管理員需完成多少小時的訓練課程？",
+    "options": [
+      "A. 6小時",
+      "B. 24小時",
+      "C. 42小時",
+      "D. 60小時以上"
+    ],
+    "answer": "C",
+    "explanation": "職業安全衛生管理員訓練：依職安衛教育訓練規則，管理員需完成42小時訓練（含法規、危害辨識、安全管理等科目），並通過測驗取得資格。",
+    "lawRef": "職業安全衛生教育訓練規則",
+    "source": "practice"
+  },
+  {
+    "id": "practice-LAW-020",
+    "year": null,
+    "session": null,
+    "category": "COMMON",
+    "categoryName": "共用－節能減碳",
+    "question": "溫室氣體中，「全球暖化潛勢（GWP）」最高的氣體為何？",
+    "options": [
+      "A. 二氧化碳（CO₂，GWP=1）",
+      "B. 甲烷（CH₄，GWP=28）",
+      "C. 六氟化硫（SF₆，GWP=23,900）",
+      "D. 氧化亞氮（N₂O，GWP=265）"
+    ],
+    "answer": "C",
+    "explanation": "六氟化硫（SF₆）GWP≈23,900（百年），是GWP最高的常見溫室氣體；常用於電力設備（高壓開關）。依序：SF₆>N₂O(265)>CH₄(28)>CO₂(1)。",
+    "lawRef": "氣候變遷因應法",
+    "source": "practice"
+  },
+  {
+    "id": "practice-LAW-021",
+    "year": null,
+    "session": null,
+    "category": "COMMON",
+    "categoryName": "共用－環境保護",
+    "question": "「職業安全衛生管理系統（OSHMS）」導入的國際標準規範為何？",
+    "options": [
+      "A. ISO 9001",
+      "B. ISO 14001",
+      "C. ISO 45001",
+      "D. ISO 50001"
+    ],
+    "answer": "C",
+    "explanation": "ISO 45001（2018年）：職業安全衛生管理系統國際標準，取代原OHSAS 18001；要求組織建立系統性的危害辨識、風險評估、法規遵循、持續改善機制。ISO 14001為環境管理，ISO 9001為品質管理。",
+    "lawRef": "職業安全衛生管理辦法",
+    "source": "practice"
   }
 ]
