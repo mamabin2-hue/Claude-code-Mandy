@@ -23,19 +23,69 @@ const TOPIC_STUDY_TIPS = {
 
 const PREDICT_HOT = ['PSY', 'HEALTH', 'MONITOR', 'PHYS', 'CONFINED', 'SYSTEM']
 
+function FullQuestionModal({ question, onClose }) {
+  if (!question) return null
+  return (
+    <div className="fixed inset-0 bg-black/60 z-50 flex items-end justify-center p-0" onClick={onClose}>
+      <div
+        className="bg-white w-full max-w-xl rounded-t-3xl max-h-[85vh] overflow-y-auto"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="sticky top-0 bg-white px-5 pt-5 pb-3 border-b border-slate-100 flex items-center justify-between">
+          <div>
+            <p className="text-xs text-slate-400">{question.exam} 術科 第{question.q}題</p>
+            <p className="font-bold text-slate-800 text-sm mt-0.5">{question.topic}</p>
+          </div>
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-2xl leading-none cursor-pointer">×</button>
+        </div>
+        <div className="px-5 py-4">
+          <div className="bg-slate-50 rounded-2xl p-4">
+            <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">{question.fullText}</p>
+          </div>
+          {question.keyLaws && question.keyLaws.length > 0 && (
+            <div className="mt-4">
+              <p className="text-xs font-bold text-slate-500 mb-2">📋 相關法規</p>
+              <div className="flex flex-wrap gap-2">
+                {question.keyLaws.map((law, i) => (
+                  <span key={i} className="text-xs px-2.5 py-1 bg-purple-50 text-purple-700 border border-purple-200 rounded-full">{law}</span>
+                ))}
+              </div>
+            </div>
+          )}
+          <div className="mt-4 p-3 bg-amber-50 rounded-xl border border-amber-200">
+            <p className="text-xs text-amber-800">💡 術科答題提醒：每題20分，請按(一)(二)(三)分點作答，引用法規要寫條次</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function ShukeyiGuide() {
   const [data, setData] = useState(null)
+  const [fullQuestions, setFullQuestions] = useState([])
   const [selected, setSelected] = useState(null)
+  const [modalQ, setModalQ] = useState(null)
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + 'data/shukeyi_analysis.json')
-      .then(r => r.json()).then(setData)
+    Promise.all([
+      fetch(import.meta.env.BASE_URL + 'data/shukeyi_analysis.json').then(r => r.json()),
+      fetch(import.meta.env.BASE_URL + 'data/shukeyi_questions.json').then(r => r.json()),
+    ]).then(([analysis, qs]) => {
+      setData(analysis)
+      setFullQuestions(qs)
+    })
   }, [])
 
   if (!data) return null
 
   const topicMap = {}
   data.analysis.forEach(t => { topicMap[t.code] = t })
+
+  function getFullQuestion(exam, q) {
+    const [year, session] = exam.split('-').map(Number)
+    return fullQuestions.find(x => x.year === year && x.session === session && x.questionNum === q) || null
+  }
 
   const selectedTopics = data.allTopics.filter(t => t.code === selected)
 
@@ -114,16 +164,31 @@ export default function ShukeyiGuide() {
                 {isSelected && (
                   <div className="mt-3 pt-3 border-t border-current/20">
                     <p className="text-sm font-semibold text-slate-700 mb-3">{TOPIC_STUDY_TIPS[code]}</p>
-                    <p className="text-xs font-bold text-slate-500 mb-2">歷年術科考題：</p>
+                    <p className="text-xs font-bold text-slate-500 mb-2">歷年術科考題（點擊查看題目內容）：</p>
                     <div className="space-y-1.5">
-                      {selectedTopics.map((t, i) => (
-                        <div key={i} className="bg-white/60 rounded-xl px-3 py-2 border border-white">
-                          <div className="flex items-center gap-2">
-                            <span className="text-xs font-bold text-slate-600 flex-shrink-0">{t.exam} 第{t.q}題</span>
-                            <span className="text-xs text-slate-700">{t.brief}</span>
-                          </div>
-                        </div>
-                      ))}
+                      {selectedTopics.map((t, i) => {
+                        const fullQ = getFullQuestion(t.exam, t.q)
+                        return (
+                          <button
+                            key={i}
+                            onClick={e => {
+                              e.stopPropagation()
+                              if (fullQ) setModalQ({ ...t, fullText: fullQ.fullText, keyLaws: fullQ.keyLaws, topic: fullQ.topic || t.topic })
+                            }}
+                            className={`w-full text-left bg-white/60 rounded-xl px-3 py-2.5 border border-white transition-all ${
+                              fullQ ? 'hover:bg-white hover:shadow-sm hover:border-slate-200 cursor-pointer' : 'opacity-60 cursor-default'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between gap-2">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <span className="text-xs font-bold text-slate-600 flex-shrink-0">{t.exam} 第{t.q}題</span>
+                                <span className="text-xs text-slate-600 truncate">{t.brief}</span>
+                              </div>
+                              {fullQ && <span className="text-xs text-blue-500 flex-shrink-0">查看 →</span>}
+                            </div>
+                          </button>
+                        )
+                      })}
                     </div>
                     <Link
                       to="/knowledge"
@@ -152,6 +217,9 @@ export default function ShukeyiGuide() {
           </ul>
         </div>
       </div>
+
+      {/* Full question modal */}
+      <FullQuestionModal question={modalQ} onClose={() => setModalQ(null)} />
     </div>
   )
 }
