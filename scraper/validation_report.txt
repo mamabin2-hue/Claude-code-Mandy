@@ -1,0 +1,109 @@
+======================================================================
+MERGE AND VALIDATE - 職業衛生管理甲級技術士 題庫
+======================================================================
+
+Step 1: Loading parsed exam questions...
+  Loaded 2171 total questions from 19 files
+
+  Per-file breakdown:
+    106-1.json: 80
+    106-2.json: 79
+    106-3.json: 80
+    107-1.json: 80
+    107-2.json: 80
+    107-3.json: 80
+    108-1.json: 80
+    108-2.json: 80
+    108-3.json: 80
+    109-1.json: 80
+    109-2.json: 80
+    109-3.json: 80
+    110-1.json: 80
+    110-2.json: 80
+    110-3.json: 80
+    111-1.json: 80
+    111-2.json: 80
+    111-3.json: 80
+    bank-22100.json: 732
+
+Step 2: Running law amendment validation...
+  Exam questions: 1439
+  Bank questions: 732
+  Valid: 2171
+  Deprecated (outdated law ref): 0
+  With non-critical warnings: 4
+
+  Questions with warnings (first 20):
+    [108-2-034]: [注意] 舊罰鍰金額（職安法2026修正前）: 職安法2026修正後罰鍰提高，原3~15萬部分條文已調整，考試時注意年份
+    [109-3-002]: [注意] 舊罰鍰金額（職安法2026修正前）: 職安法2026修正後罰鍰提高，原3~15萬部分條文已調整，考試時注意年份
+    [111-3-055]: [注意] 舊罰鍰金額（職安法2026修正前）: 職安法2026修正後罰鍰提高，原3~15萬部分條文已調整，考試時注意年份
+    [bank-01-0075]: [注意] 舊罰鍰金額（職安法2026修正前）: 職安法2026修正後罰鍰提高，原3~15萬部分條文已調整，考試時注意年份
+
+Step 3: Deduplicating parsed questions...
+  Before dedup: 2171
+  After dedup: 1198
+  Removed as duplicates: 973
+
+Step 4: Loading existing questions.json...
+  Existing total: 266
+    Official: 92
+    Practice/other: 174
+
+Step 5: Merging with existing questions...
+  New questions added: 1174
+  Already existed (skipped): 24
+  Total after merge: 1440
+
+Step 6: Finalizing question IDs...
+Step 7: Final breakdown by year/source:
+  By year:
+    106: 189
+    107: 128
+    108: 117
+    109: 160
+    110: 118
+    111: 209
+    115: 80
+    2021: 1
+    2022: 2
+    2023: 3
+    2024: 6
+    2025: 57
+    None: 370
+
+  By source:
+    bank: 253
+    official: 1013
+    practice: 174
+
+  By category:
+    A: 394
+    B: 165
+    C: 57
+    COMMON: 87
+    D: 85
+    E: 156
+    F: 15
+    LAW: 481
+
+Step 8: Writing output files...
+  Written: /home/user/Claude-code-Mandy/public/data/questions.json
+  Total questions: 1440
+
+  Deprecated questions archived: /home/user/Claude-code-Mandy/scraper/parsed/_deprecated_questions.json
+  Total deprecated: 0
+
+======================================================================
+SUMMARY
+======================================================================
+PDFs processed: 19
+Questions extracted from PDFs: 2171
+After law validation (deprecated removed): 2171
+After deduplication: 1198
+New questions added to bank: 1174
+Final questions.json total: 1440
+  - Official exam questions: 1013
+  - Question bank (22100_): 253
+  - Practice questions: 174
+Questions deprecated (outdated law): 0
+Questions with non-critical warnings: 4

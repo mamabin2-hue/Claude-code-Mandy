@@ -1,0 +1,1522 @@
+[
+  {
+    "id": "106-1-001",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "室內粉塵作業場所依規定至少多少時間應清掃1 次以上？",
+    "options": [
+      "A. 每日",
+      "B. 每週",
+      "C. 每月",
+      "D. 每年"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-002",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列敘述何者錯誤？",
+    "options": [
+      "A. 清掃煙國工人易罹盾、陰囊癌",
+      "B. 長期接觸煤渣產物的工人易引起皮膚癌",
+      "C. 硫酸霧滴長期暴露易致膀脫癌",
+      "D. 勞工暴露於多環芳香碳氫化合物(polycyclic aromatic hydrocarbons, PAHs) 環境時易致肺癌"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-003",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列何者不適用新設鍋爐( 屬危險性設備) 時所需之檢查？",
+    "options": [
+      "A. 構造檢查",
+      "B. 使用檢查",
+      "C. 重新檢查",
+      "D. 竣工檢查"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-004",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "局部排氣裝置依規定應多久定期實施自動檢查1 次？",
+    "options": [
+      "A. 每季",
+      "B. 每6 個月",
+      "C. 每年",
+      "D. 每2 年"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-005",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依職業安全衛生設施規則規定，極精細儀器組合作業之人工照明，其照度至 少為多少米燭光？",
+    "options": [
+      "A. 200",
+      "B. 300",
+      "C. 500",
+      "D. 1000"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-006",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "在定壓下，將體積為1 公升的乾淨空氣由原來的25oC 加熱至37oC，試問該 空氣的體積約變成多少公升？",
+    "options": [
+      "A. 25/37",
+      "B. 285/273",
+      "C. 310/298",
+      "D. 37/25"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-007",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "人體計測中，下列何者適用於最小母群體值的設計( 極小設計) ？",
+    "options": [
+      "A. 大門",
+      "B. 觸控距離",
+      "C. 電梯",
+      "D. 轍腿"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-008",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "同一導管之長度縮短而其他流動條件不變峙，所造成之壓力損失，下列敘述 何者正確？",
+    "options": [
+      "A. 變大",
+      "B. 變小",
+      "C. 恒為定值",
+      "D. 等於0"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-009",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依缺氧症預防規則規定，一般作業場所缺氧係指空氣中氧含量未滿多少% ？",
+    "options": [
+      "A. 14",
+      "B. 16",
+      "C. 18",
+      "D. 20"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-010",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "研磨機於更換研磨輪後，依職業安全衛生設施規則規定應先試轉幾分鐘以 上？",
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 5"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-011",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "訓練單位擬定陳報主管機關之職業安全衛生教育訓練計畫內容可不包括下列 何種事項？",
+    "options": [
+      "A. 訓練種類",
+      "B. 訓練時間",
+      "C. 訓練費用",
+      "D. 訓總場所"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-012",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "用以計算WBGT( 室外有日曬) 的公式為下列何者？",
+    "options": [
+      "A. WBGT=0.7(WBT)+0.3(GBT)",
+      "B. WBGT=0.7(WBT)+O.2(GBT)+0.1(DBT)",
+      "C. WBGT=O.6(WBT)+O.2(GBT)+O.2(DBT)",
+      "D. WBGT=0.7(WBT)+0.1(GBT)+0.2(DBT)。 (WBT：自然濕球溫度，GBT：黑球溫度，DBT：乾球溫度)"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-013",
+    "year": 106,
+    "session": 1,
+    "category": "COMMON",
+    "categoryName": "共用工作項目",
+    "question": "下列何者為哈姆立克急救法？",
+    "options": [
+      "A. 對昏迷患者暢通呼吸道",
+      "B. 對哽噎成人患者之背部拍擊",
+      "C. 對中暑患者急救",
+      "D. 利用瞬間壓力使呼吸道內異物噴出"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-014",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "下列何者非屬危害性化學品標示及通識規則規定雇主應辦理之項目？",
+    "options": [
+      "A. 危害性化學晶清單之製作",
+      "B. 危害通識計畫之擬定",
+      "C. 危害性化學品容器標示",
+      "D. 決定危害性化學品容器之包裝材質"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-015",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "職業安全衛生法所稱有母性健康危害之虞之工作，不包括下列何種工作型 態？",
+    "options": [
+      "A. 長時間站立姿勢作業",
+      "B. 人力提舉、搬運及推拉重物",
+      "C. 輪班及夜間工作",
+      "D. 駕駛運輸車輛"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-016",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "勞工在何種情況下，雇主得不經預告終止勞動契約？",
+    "options": [
+      "A. 確定被法院判刑6 個月以內並諭知緩刑超過1 年以上者",
+      "B. 不服指揮對雇主暴力相向者",
+      "C. 經常遲到早退者",
+      "D. 非連續曠工但1 個月內累計達3 日以上者"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-017",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "有氧產能作用(aerobic energy yield)平均每分子的葡萄糖可產生多少分子的三 磷酸腺官酸(ATP) ？",
+    "options": [
+      "A. 7 ～9",
+      "B. 17 ～19",
+      "C. 27 ～29",
+      "D. 37 ～39"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-018",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "職業災害於下列何種法令中有定義？",
+    "options": [
+      "A. 勞動基準法",
+      "B. 勞資爭議處理法",
+      "C. 勞工保險條例",
+      "D. 職業安全衛生法"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-019",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依職業安全衛生管理辦法規定，定期檢查及重點檢查等自動檢查紀錄至少應 保存多少年？",
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-020",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "依暫時全失能損失日數之計算，下列何者正確？",
+    "options": [
+      "A. 以6000 天計",
+      "B. 以1800 天計",
+      "C. 依損失之機能百分率計",
+      "D. 按受傷所經過之總損失日數計，但不包括受傷當日及恢復工作當日"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-021",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "職場上遭受主管或鬧事利用職務或地位上的優勢所受的言語暴力，可歸類為 下列何種危害？",
+    "options": [
+      "A. 物理性",
+      "B. 化學性",
+      "C. 社會心理性",
+      "D. 人體工學性"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-022",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "促進大型組織上下溝通的良性發展，較不宜採取下列何種組織設計模式？",
+    "options": [
+      "A. 事業部方式",
+      "B. 利潤中心方式",
+      "C. 增加管理層級方式",
+      "D. 組織扁平化方式"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-023",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "評估勞工噪音暴露測定時，噪音計採用下列何種權衡電網？",
+    "options": [
+      "A. A",
+      "B. B",
+      "C. C",
+      "D. F"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-024",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "雇主使勞工從事夜間工作，長時間工作等作業，為避免勞工因異常工作負荷 促發疾病，應採取疾病預防措施，作成執行紀錄並留存多少年？",
+    "options": [
+      "A. 1",
+      "B. 3",
+      "C. 5",
+      "D. 20"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-025",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "下列何者非屬局限空問作業定義？",
+    "options": [
+      "A. 非供勞工在其內部從事經常性作業之空間",
+      "B. 動火作業場所",
+      "C. 勞工進出方法受限制之空間",
+      "D. 無法以自然通風來維持充分、清淨空氣之空間"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-026",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "下列何種機械換氣裝置之效果較佳？",
+    "options": [
+      "A. 排氣法",
+      "B. 供氣法",
+      "C. 供排氣併用方法",
+      "D. 空調冷凍方法"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-027",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列何種照明的效率最差？",
+    "options": [
+      "A. 直接照明",
+      "B. 間接照明",
+      "C. 半直接照明",
+      "D. 全般擴散照明"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-028",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "採用濕式作業較可控制下列何種物質引起之危害？",
+    "options": [
+      "A. 一氧化碳",
+      "B. 蒸氣",
+      "C. 粉塵",
+      "D. 二氧化碳"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-029",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "設置整體換氣裝置以控制氣態之有害物濃度時，必要換氣量與下列何者無 關？",
+    "options": [
+      "A. 有害物單位時間使用量或消費量之多寡",
+      "B. 有害物之容許濃度",
+      "C. 門窗等開啟之大小",
+      "D. 有害物之分子量"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-030",
+    "year": 106,
+    "session": 1,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "某勞工暴露於85 分貝4 小時，95 分貝1 小時，100 分貝1 小時，75 分貝2 小時，請問該勞工8 小時日時量平均音壓級為多少分貝？",
+    "options": [
+      "A. 88",
+      "B. 90",
+      "C. 92",
+      "D. 95"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-031",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列何者非屬物料之危害特性？",
+    "options": [
+      "A. 危險性",
+      "B. 能量",
+      "C. 腐蝕性",
+      "D. 有害性"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-032",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "我國計算死亡職業傷害之損失日數時，以多少天計？",
+    "options": [
+      "A. 150",
+      "B. 1200",
+      "C. 1350",
+      "D. 6000"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-033",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "流行病學實證研究顯示，輪班、夜間及長時間工作與心肌模塞、高血壓、睡 眠障礙、憂鬱等的罹病風險之相關性一般為何？",
+    "options": [
+      "A. 無",
+      "B. 負",
+      "C. 正",
+      "D. 可正可負"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-034",
+    "year": 106,
+    "session": 1,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "評估勞工噪音暴露以下列何者表示最適當？",
+    "options": [
+      "A. Leq",
+      "B. L50",
+      "C. LTWA",
+      "D. Ldn0"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-035",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "虛驚事故報告較屬於下列何項勞工安全衛生管理活動之內容？",
+    "options": [
+      "A. 緊急應變",
+      "B. 事故調查",
+      "C. 安全衛生政策",
+      "D. 安全衛生管理責任"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-036",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依危害性化學品標示及通識規則規定，易燃液體之圖式符號應使用何種顏 色？",
+    "options": [
+      "A. 紅色",
+      "B. 黑色",
+      "C. 黃色",
+      "D. 橘色"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-037",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "患有骨儲肌肉系統疾病者，不宜從事下列何種作業？",
+    "options": [
+      "A. 振動作業",
+      "B. 有機溶劑作業",
+      "C. 特定化學物質作業",
+      "D. 粉塵作業"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-038",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "補充空氣最好送至作業場所之何種高度？",
+    "options": [
+      "A. 4 公尺以上",
+      "B. 2.4 至3 公尺",
+      "C. 1.5 公尺左右",
+      "D. 0.5 公尺左右"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-039",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "有關導管內搬運風速之敘述，下列何者正確？",
+    "options": [
+      "A. 愈大愈好",
+      "B. 愈小愈好",
+      "C. 視導管大小決定",
+      "D. 以不造成有害物沉降或輸送空氣滯流決定其必要之大小"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-040",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "設安全作業標準表須包含5 要素：a. 安全措施；b. 工作方法；c. 事故處理；d. 工 作步驟；e. 不安全因素，製作此表時應按下列何種順序說明探討此5 要素？",
+    "options": [
+      "A. debca",
+      "B. deabc",
+      "C. daecb",
+      "D. dbeac0"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-041",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依危害性化學品標示及通識規則規定，盛有危害性化學品之容器，其容積在 多少公升以下者，得僅標示其名稱、危害圖式及警示語？",
+    "options": [
+      "A. 0.01",
+      "B. 0.1",
+      "C. 1",
+      "D. 100"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-042",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依有機溶劑中毒預防規則規定，勞工使用輸氣管面罩為個人防護具時，每次 連續使用之時間最長不得超過多久？",
+    "options": [
+      "A. 30 分鐘",
+      "B. l 小時",
+      "C. 2 小時",
+      "D. 1 班次"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-043",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依職業安全衛生設施規則規定，下列何種情況下，雇主應指定作業管理人員 負責執行管理？",
+    "options": [
+      "A. 物料集合體之物料積操作業地點高差在2.5 公尺以上時",
+      "B. 於載貨台從事單一之重量超越100 公斤以上物料裝卸時",
+      "C. 設置衝剪機械5 台以上時",
+      "D. 從事危險物製造或處置之作業"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-044",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "大專院校辦理特殊作業職業安全衛生教育訓練，應於15日前檢附相關資料報 請何單位備查？",
+    "options": [
+      "A. 教育部",
+      "B. 當地主管機關",
+      "C. 勞動部勞動力發展署",
+      "D. 勞動郁"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-045",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "體外出血時，一般都優先採用下列何種止血方法？",
+    "options": [
+      "A. 直接壓迫法",
+      "B. 間接壓迫法",
+      "C. 止血點止血法",
+      "D. 止血帶法"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-046",
+    "year": 106,
+    "session": 1,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "石綿採樣濾紙的有效採樣面積約為多少mrn2 ？",
+    "options": [
+      "A. 275",
+      "B. 385",
+      "C. 465",
+      "D. 535"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-047",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "有關高風險或高負荷、夜間工作之安排或防護措施，下列何者不恰當？",
+    "options": [
+      "A. 若受威脅或加害時，在加害人離闊前觸動警報系統，激怒加害人，使對 方抓狂",
+      "B. 參照醫師之適性配工建議",
+      "C. 考量人力或性別之適任性",
+      "D. 獨自作業，宜考彙潛在危害，如性暴力"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-048",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列敘述何者為誤？",
+    "options": [
+      "A. 個人行為的結果，可決定未來的行為",
+      "B. 一般而言，工作的自然結果是遵守安全守則，因為較方便舒適",
+      "C. 安全行為通常需要增加一些結果來誘導",
+      "D. 技術的不足，可由改變主作或換人來解決"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-049",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列有關防毒面罩濾罐之處置，何者錯誤？",
+    "options": [
+      "A. 應考慮濾罐的破出時間",
+      "B. 應打開掛吊於土作現場",
+      "C. 應用塑膠密封，放置於作業場所",
+      "D. 應考慮作業場所氧氣濃度"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-050",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "事業單位擴充產能時，下列何項較不可能引起潛在職業衛生危害？",
+    "options": [
+      "A. 新進人員訓練不足所致之危害",
+      "B. 有害物增加逸散之危害",
+      "C. 製晶堆置場所不足所致之危害",
+      "D. 工時縮想所致之危害"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-051",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "吸菸對石綿之致癌力之影響為何？",
+    "options": [
+      "A. 無影響",
+      "B. 吸菸減少石綿之致癌力",
+      "C. 吸菸對石綿之致癌力其加成效應",
+      "D. 吸菸對石綿之致癌力具相乘作用"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-052",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "正常健康男性活動時，最大心跳率每分鐘約不超過幾下為正常？",
+    "options": [
+      "A. 150",
+      "B. 200",
+      "C. 250",
+      "D. 300"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-053",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "下列何種因子或疾病不會引起如一般感冒類似的症狀？",
+    "options": [
+      "A. 錳的金屬燻煙",
+      "B. 鐵弗龍(Tef1on) 的聚合物高溫加熱後之燻煙",
+      "C. 清洗水塔工人的退伍軍人症",
+      "D. 使用玻璃纖維工人的過敏性皮膚炎"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-054",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "下列何者適用個人資料保護法之規定？",
+    "options": [
+      "A. 自然人為單純個人活動目的，而將其個人照片或電話，於社群網站分享 予其他友人等利用行為",
+      "B. 與公司往來客戶資料庫之個人資料",
+      "C. 將家人或朋友的電話號碼抄寫整理成電話本或輸入至手機通訊",
+      "D. 自然人基於保障其自身或居家權益在之個人或家庭活動目的，而公布大 樓或宿舍監視錄影器中涉及個人資料畫面之行為"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-055",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "同一導管，空氣在導管內流動速度愈大，其所造成之壓力損失，下列敘述何 者正確？",
+    "options": [
+      "A. 愈大",
+      "B. 愈小",
+      "C. 恒為定值",
+      "D. 0"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-056",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "事業單位內員工於高架作業時有甚多人員未配掛安全帶，下列何項與可能的 原因較不相關？",
+    "options": [
+      "A. 缺乏對墜落之危險意識",
+      "B. 許多處所未有掛置安全帶之裝置",
+      "C. 未規定作業中物料之置放場所",
+      "D. 主管末嚴格執行墜落災害防止計畫"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-057",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "下列何種游離輻射之穿透力最強？",
+    "options": [
+      "A. α 粒子",
+      "B. β 粒子",
+      "C. γ 射線",
+      "D. 中子"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-058",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依危險性工作場所審查及檢查辦法規定'T類危險性工作場所應於使勞工作業 多少日前，向當地勞動檢查機構申請審查合格？",
+    "options": [
+      "A. 30",
+      "B. 45",
+      "C. 60",
+      "D. 90"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-059",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依勞動基準法規定，一般事業之勞工除正常工作時間外，雇主延長勞工之工 作時間，每月不得超過多少小時？",
+    "options": [
+      "A. 20",
+      "B. 24",
+      "C. 42",
+      "D. 46"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-060",
+    "year": 106,
+    "session": 1,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "下列4 個主作安全分析項目，何者應優先進行？",
+    "options": [
+      "A. 將工作分成幾個步驟",
+      "B. 決定要分析的工作",
+      "C. 發琨潛在危險及可能的危害",
+      "D. 決定安全的工作方法"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-061",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "請問我國為保護智慧財產權所制定的法律，並不包括下列何者？",
+    "options": [
+      "A. 個人資料保護法",
+      "B. 積體電路電路布局保護法",
+      "C. 植物品種及種苗法",
+      "D. 營業秘密法"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-062",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依職業安全衛生管理辦法規定，有關事業單位設置之職業安全衛生委員會， 下列敘述何者錯誤？",
+    "options": [
+      "A. 委員7 人以上",
+      "B. 委員任期3 年，連選得連任",
+      "C. 雇主為主任委員",
+      "D. 勞工代表應佔委員人數113 以上"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-063",
+    "year": 106,
+    "session": 1,
+    "category": "COMMON",
+    "categoryName": "共用工作項目",
+    "question": "某離職同事請求在職員工將離職前所製作之某份文件傳送給他，請問下列回 應方式何者正確？",
+    "options": [
+      "A. 由於該項文件係由該離職員工製作，因此可以傳送文件",
+      "B. 若其目的僅為保留檔案備份，便可以傳送文件",
+      "C. 可能構成對於營業秘密之侵害，應予拒絕並請他直接向公司提出請求",
+      "D. 視彼此交情決定是否傳送文件"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-064",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "對休克症狀的描述，下列何者為非？",
+    "options": [
+      "A. 皮膚冷而潮",
+      "B. 臉色蒼白",
+      "C. 常併發意識不清",
+      "D. 呼吸慢而深"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-065",
+    "year": 106,
+    "session": 1,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "我國職業災害經統計分析，其最主要原因為下列何者？",
+    "options": [
+      "A. 不安全動作",
+      "B. 不安全設備",
+      "C. 不安全環境",
+      "D. 意外"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-066",
+    "year": 106,
+    "session": 1,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "如同一件職業災害有1 人死亡、2 人重傷，計算失能傷害頻率時之失能傷害 次數為多少人次？",
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-067",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "下列何種物品無需依危害性化學品標未及通識規則規定，辦理標示？",
+    "options": [
+      "A. 火藥",
+      "B. 易燃液體",
+      "C. 急毒性物質",
+      "D. 有害事業廢棄物"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-068",
+    "year": 106,
+    "session": 1,
+    "category": "B",
+    "categoryName": "危害辨識與認知",
+    "question": "粒狀有害物濃度之表示方法，下列何者最適當？",
+    "options": [
+      "A. %",
+      "B. ppm",
+      "C. mg/m3",
+      "D. p.p( 分壓)"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-069",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "有關人員資訊處理模式，以文/ 數字而言，在活性記憶中能保留的最大容量 約為多少？",
+    "options": [
+      "A. 3±2",
+      "B. 5±2",
+      "C. 7±2",
+      "D. 9±2"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-070",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依職業安全衛生設施規則規定，雇主架設之通道下列敘述何者錯誤？",
+    "options": [
+      "A. 傾斜超過15 度以上者應設置踏條",
+      "B. 有墜落之虞之場所應置備75 公分以上之堅固扶手",
+      "C. 傾斜應保持在30 度以下",
+      "D. 如用漏空格條製成，其縫間隙不超過40 公崖，超過時應置鐵絲網防護"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-071",
+    "year": 106,
+    "session": 1,
+    "category": "C",
+    "categoryName": "危害暴露風險評估",
+    "question": "LD50 係指下列何者？",
+    "options": [
+      "A. 立即致死濃度",
+      "B. 立即危害健康濃度",
+      "C. 半數致死濃度",
+      "D. 半數致死劑量"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-072",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "職業災害補償標準規定於下列何項法律？",
+    "options": [
+      "A. 職業安全衛生法",
+      "B. 勞動基準法",
+      "C. 職業安全衛生法施行細則",
+      "D. 職主福利金條例"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-073",
+    "year": 106,
+    "session": 1,
+    "category": "E",
+    "categoryName": "危害控制",
+    "question": "有關局部排氣裝置風壓之敘述，下列何者有誤？",
+    "options": [
+      "A. 全壓為動壓與靜壓之和",
+      "B. 排氣機上游管段之全壓為負值",
+      "C. 排氣機下游管段之全壓為正值",
+      "D. 空氣流動速度愈大，動壓愈小"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-074",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依職業安全衛生法規定，具有危險性之機械設備，下列敘述何者有誤？",
+    "options": [
+      "A. 經檢查機構檢查合格後即可使用",
+      "B. 經勞動部指定之代行檢查機構檢查合格後即可使用",
+      "C. 經地方主管機關指定之代行檢查機構檢查合格後即可使用",
+      "D. 超過使用有效期限者，應經再檢查合格後才可使用"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-075",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "人體關節轉動的舒適角度，通常僅是其活動範圓的幾分之一？",
+    "options": [
+      "A. 2",
+      "B. 4",
+      "C. 6",
+      "D. 10"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-076",
+    "year": 106,
+    "session": 1,
+    "category": "A",
+    "categoryName": "職業衛生危害控制概論",
+    "question": "人體對氧的依賴性最高的是那個器官？",
+    "options": [
+      "A. 心",
+      "B. 肝",
+      "C. 腦",
+      "D. 胃"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-077",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依勞工作業環境監測實施辦法規定，雇主對於坑內作業場戶斤，應每隔多久 測定粉塵、二氧化碳之濃度1 次以上？",
+    "options": [
+      "A. 半個月",
+      "B. 1 個月",
+      "C. 3 個月",
+      "D. 6 個月"
+    ],
+    "answer": "D",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-078",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "浮子流量計屬於採樣設備流率量測的第幾級標準？",
+    "options": [
+      "A. 0",
+      "B. 1",
+      "C. 2",
+      "D. 3"
+    ],
+    "answer": "C",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-079",
+    "year": 106,
+    "session": 1,
+    "category": "LAW",
+    "categoryName": "職業安全衛生法規",
+    "question": "依職業安全衛生設施規則規定，作業場所面積過大致需人工照明時，下列對 照明規定之敘述何者錯誤？",
+    "options": [
+      "A. 室外走道應在20 米燭光以上",
+      "B. 廁所、更衣室應在50 米燭光以上",
+      "C. 一般辦公場所應在300 米燭光以上",
+      "D. 印刷品校對應在1000 米燭光以上"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  },
+  {
+    "id": "106-1-080",
+    "year": 106,
+    "session": 1,
+    "category": "D",
+    "categoryName": "作業環境監測",
+    "question": "實施工作安全分析時，分析者應由何人擔任較適當？",
+    "options": [
+      "A. 領班或基層主管",
+      "B. 安全衛生管理人員",
+      "C. 操作人員",
+      "D. 高級主管"
+    ],
+    "answer": "A",
+    "explanation": "",
+    "lawRef": "",
+    "source": "official",
+    "type": "single"
+  }
+]

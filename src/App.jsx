@@ -7,6 +7,7 @@ import Flashcard from './pages/Flashcard'
 import KnowledgeBank from './pages/KnowledgeBank'
 import LawChanges from './pages/LawChanges'
 import Predictions from './pages/Predictions'
+import ShukeyiGuide from './pages/ShukeyiGuide'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/knowledge" element={<KnowledgeBank />} />
         <Route path="/laws" element={<LawChanges />} />
         <Route path="/predictions" element={<Predictions />} />
+        <Route path="/shukeyi" element={<ShukeyiGuide />} />
       </Routes>
     </BrowserRouter>
   )
