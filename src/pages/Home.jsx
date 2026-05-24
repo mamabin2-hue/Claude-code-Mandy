@@ -4,7 +4,8 @@ import { useProgress } from '../hooks/useProgress'
 const FEATURES = [
   { to: '/practice', icon: '📝', label: '練習模式', desc: '依年份或類別選題練習', color: 'bg-blue-600 hover:bg-blue-700' },
   { to: '/mock', icon: '⏱️', label: '模擬考試', desc: '計時作答，模擬正式考試', color: 'bg-purple-600 hover:bg-purple-700' },
-  { to: '/shukeyi', icon: '✍️', label: '術科輔導', desc: '歷年術科題型分析與重點', color: 'bg-rose-600 hover:bg-rose-700', badge: 'NEW' },
+  { to: '/shukeyi', icon: '✍️', label: '術科輔導', desc: '歷年術科題型分析與重點', color: 'bg-rose-600 hover:bg-rose-700', badge: 'HOT' },
+  { to: '/stats', icon: '📊', label: '考題分析', desc: '術科主題熱圖 × 法令時間軸', color: 'bg-sky-600 hover:bg-sky-700', badge: 'NEW' },
   { to: '/wrong', icon: '🔁', label: '錯題本', desc: '複習答錯的題目', color: 'bg-red-500 hover:bg-red-600' },
   { to: '/flashcard', icon: '🃏', label: '翻牌練習', desc: '快速翻牌複習，適合通勤', color: 'bg-teal-600 hover:bg-teal-700' },
   { to: '/knowledge', icon: '📚', label: '知識卡片', desc: '依知識點分類，術科必備', color: 'bg-amber-500 hover:bg-amber-600' },

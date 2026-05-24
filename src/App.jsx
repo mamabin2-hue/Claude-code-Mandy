@@ -8,6 +8,7 @@ import KnowledgeBank from './pages/KnowledgeBank'
 import LawChanges from './pages/LawChanges'
 import Predictions from './pages/Predictions'
 import ShukeyiGuide from './pages/ShukeyiGuide'
+import ExamStats from './pages/ExamStats'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/laws" element={<LawChanges />} />
         <Route path="/predictions" element={<Predictions />} />
         <Route path="/shukeyi" element={<ShukeyiGuide />} />
+        <Route path="/stats" element={<ExamStats />} />
       </Routes>
     </BrowserRouter>
   )
