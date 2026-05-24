@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FlashCard from '../components/FlashCard'
 import { useProgress } from '../hooks/useProgress'
+import { getCategoryInfo } from '../utils/categories'
 
 export default function FlashcardPage() {
   const [allCards, setAllCards] = useState([])
@@ -68,17 +69,30 @@ export default function FlashcardPage() {
             <div>
               <label className="text-sm font-semibold text-slate-600 block mb-2">類別</label>
               <div className="flex flex-wrap gap-2">
-                {['ALL', ...categories].map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => setCategory(cat)}
-                    className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
-                      category === cat ? 'bg-teal-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                    }`}
-                  >
-                    {cat === 'ALL' ? '全部' : cat}
-                  </button>
-                ))}
+                <button
+                  onClick={() => setCategory('ALL')}
+                  className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
+                    category === 'ALL' ? 'bg-teal-700 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  }`}
+                >
+                  全部
+                </button>
+                {categories.map(cat => {
+                  const info = getCategoryInfo(cat)
+                  const shortName = info.name.split('（')[0].replace('職安衛', '').trim()
+                  const isActive = category === cat
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => setCategory(cat)}
+                      className={`px-3 py-1.5 rounded-xl text-sm font-medium border transition-colors cursor-pointer ${
+                        isActive ? info.color + ' font-bold' : 'bg-slate-100 text-slate-600 border-transparent hover:bg-slate-200'
+                      }`}
+                    >
+                      {info.icon} {shortName}
+                    </button>
+                  )
+                })}
               </div>
             </div>
 
