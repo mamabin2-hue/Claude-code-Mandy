@@ -90,6 +90,13 @@ function PredictionModal({ pred, onClose }) {
               <p className="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">{pred.question}</p>
             </div>
           </div>
+          {/* Plain text summary */}
+          {pred.plainText && (
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-4">
+              <p className="text-xs font-bold text-green-700 mb-1">💬 白話重點</p>
+              <p className="text-sm text-green-800 leading-relaxed">{pred.plainText}</p>
+            </div>
+          )}
           {/* Answer framework */}
           <div>
             <p className="text-xs font-bold text-slate-500 mb-2">✅ 參考答案架構</p>

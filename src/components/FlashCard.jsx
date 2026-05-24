@@ -56,9 +56,15 @@ export default function FlashCard({ card, onMastered, isMastered }) {
             <div className="text-slate-800 space-y-1">
               {renderBack(card.back)}
             </div>
+            {card.plainText && (
+              <div className="mt-3 p-3 bg-green-50 rounded-lg border border-green-200">
+                <p className="text-xs font-bold text-green-700 mb-1">💬 白話說明</p>
+                <p className="text-xs text-green-800 leading-relaxed">{card.plainText}</p>
+              </div>
+            )}
             {card.note && (
-              <div className="mt-3 p-2 bg-yellow-50 rounded-lg border border-yellow-200">
-                <p className="text-xs text-yellow-800">{card.note}</p>
+              <div className="mt-2 p-2 bg-yellow-50 rounded-lg border border-yellow-200">
+                <p className="text-xs text-yellow-800">📌 {card.note}</p>
               </div>
             )}
           </div>
