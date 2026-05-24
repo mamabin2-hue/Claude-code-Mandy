@@ -41,7 +41,16 @@ export default function MockExam() {
   }, [])
 
   function selectAnswer(letter) {
-    setAnswers(prev => ({ ...prev, [session[idx].id]: letter }))
+    const q = session[idx]
+    if (q.type === 'multiple') {
+      setAnswers(prev => {
+        const cur = prev[q.id] || []
+        const next = cur.includes(letter) ? cur.filter(l => l !== letter) : [...cur, letter]
+        return { ...prev, [q.id]: next }
+      })
+    } else {
+      setAnswers(prev => ({ ...prev, [q.id]: letter }))
+    }
   }
 
   function nextQ() {
@@ -56,11 +65,20 @@ export default function MockExam() {
     setElapsed(used)
     const results = session.map(q => {
       const selected = answers[q.id]
-      const correct = selected === q.answer
+      let correct
+      if (q.type === 'multiple') {
+        const selStr = Array.isArray(selected) ? [...selected].sort().join('') : ''
+        const ansStr = [...(q.answer || '')].sort().join('')
+        correct = selStr === ansStr
+      } else {
+        correct = selected === q.answer
+      }
       recordAnswer(q.id, correct)
       return { question: q, correct, selected }
     })
-    const score = Math.round(results.filter(r => r.correct).length / session.length * 100)
+    const totalPoints = results.reduce((s, r) => s + (r.question.type === 'multiple' ? 2 : 1), 0)
+    const earnedPoints = results.reduce((s, r) => s + (r.correct ? (r.question.type === 'multiple' ? 2 : 1) : 0), 0)
+    const score = Math.round(earnedPoints / totalPoints * 100)
     saveScore({ score, total: session.length, correct: results.filter(r=>r.correct).length, time: used })
     setPhase('result')
     setSession(results)
@@ -115,7 +133,8 @@ export default function MockExam() {
   }
 
   const q = session[idx]
-  const answered = !!answers[q?.id]
+  const rawAns = answers[q?.id]
+  const answered = Array.isArray(rawAns) ? rawAns.length > 0 : !!rawAns
 
   return (
     <div className="min-h-screen bg-slate-50 px-4 py-4">
@@ -134,7 +153,7 @@ export default function MockExam() {
               onClick={() => setIdx(i)}
               className={`w-6 h-6 rounded text-xs font-bold cursor-pointer transition-colors ${
                 i === idx ? 'bg-blue-700 text-white'
-                : answers[sq.id] ? 'bg-purple-200 text-purple-700'
+                : (Array.isArray(answers[sq.id]) ? answers[sq.id].length > 0 : !!answers[sq.id]) ? 'bg-purple-200 text-purple-700'
                 : 'bg-slate-200 text-slate-500'
               }`}
             >
@@ -145,16 +164,22 @@ export default function MockExam() {
 
         {/* Question */}
         <div className="bg-white rounded-2xl shadow-md p-5 mb-4">
-          <div className="flex gap-2 mb-3">
+          <div className="flex flex-wrap gap-2 mb-3">
             <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">{q.categoryName}</span>
+            {q.type === 'multiple' && (
+              <span className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full font-semibold">複選題（可多選）</span>
+            )}
           </div>
           <p className="font-semibold text-slate-800 mb-4 leading-relaxed">{q.question}</p>
           <div className="space-y-2">
             {q.options.map(opt => {
               const letter = opt.charAt(0)
               const sel = answers[q.id]
+              const isSelected = q.type === 'multiple'
+                ? (Array.isArray(sel) && sel.includes(letter))
+                : sel === letter
               let style = 'bg-white border-slate-200 hover:border-blue-400 hover:bg-blue-50'
-              if (sel === letter) style = 'bg-blue-700 border-blue-700 text-white'
+              if (isSelected) style = 'bg-blue-700 border-blue-700 text-white'
               return (
                 <button
                   key={opt}
