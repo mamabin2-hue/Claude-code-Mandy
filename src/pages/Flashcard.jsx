@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FlashCard from '../components/FlashCard'
 import { useProgress } from '../hooks/useProgress'
-import { getCategoryInfo } from '../utils/categories'
+import { getCategoryInfo, resolveCode } from '../utils/categories'
 
 export default function FlashcardPage() {
   const [allCards, setAllCards] = useState([])
@@ -34,8 +34,10 @@ export default function FlashcardPage() {
     })
   }, [])
 
-  const categories = [...new Set([...allCards, ...allQ].map(c => c.category))]
-  const filtered = [...allCards, ...allQ].filter(c => category === 'ALL' || c.category === category)
+  const allCombined = [...allCards, ...allQ]
+  // Deduplicate categories by resolving old codes (A→SYSTEM, B→CHEM…) to canonical codes
+  const categories = [...new Set(allCombined.map(c => resolveCode(c.category)))]
+  const filtered = allCombined.filter(c => category === 'ALL' || resolveCode(c.category) === category)
   const nonMastered = filtered.filter(c => !masteredIds.includes(c.id))
 
   function startDeck() {

@@ -50,3 +50,8 @@ export function getCategoryInfo(code) {
     icon: '📌'
   }
 }
+
+// Normalize old codes (A/B/C...) to canonical new codes
+export function resolveCode(code) {
+  return LEGACY_MAP[code] || code
+}
