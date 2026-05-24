@@ -515,5 +515,47 @@
     "note": "注意年份：2015年宣布，2030年為目標；勿與2000年MDGs混淆",
     "lawRef": null,
     "relatedQuestionIds": []
+  },
+  {
+    "id": "kc-COMMON-004",
+    "type": "summary",
+    "category": "COMMON",
+    "categoryName": "共用工作項目（環保・節能・倫理）",
+    "topic": "ESG 報告與 GRI 準則概覽",
+    "front": "什麼是 ESG 報告？金管會有何要求？GRI 是什麼？",
+    "back": "【ESG 定義】\nE = Environmental 環境責任\nS = Social 社會責任（含職業健康與安全、勞動權益、薪酬福利）\nG = Governance 公司治理\n\n【金管會要求】\n我國上市上櫃公司之企業永續報告（ESG 報告）須參照\nGRI（The Global Reporting Initiative，全球永續性報告協會）等準則撰寫，\n並公開具體績效，以回應和接軌聯合國 2030 永續發展目標（SDGs）。\n\n【GRI 與職業衛生相關準則】\n・GRI 401：就業（Employment）\n・GRI 402：勞資關係（Labor/Management Relations）\n・GRI 403：職業健康與安全（Occupational Health & Safety）★最重要\n・GRI 412：人權評估（Human Rights Assessment）\n\n→ 勞動相關事項大多放在 ESG 報告的「S（社會責任）」類議題中",
+    "note": "考試重點：GRI 403 = 職業健康與安全，是甲級職業衛生管理師必考的GRI準則編號",
+    "lawRef": null,
+    "relatedQuestionIds": [
+      "practice-COMMON-004",
+      "practice-COMMON-005"
+    ]
+  },
+  {
+    "id": "kc-COMMON-005",
+    "type": "summary",
+    "category": "COMMON",
+    "categoryName": "共用工作項目（環保・節能・倫理）",
+    "topic": "GRI 403 職業健康與安全 — 10項子準則",
+    "front": "GRI 403（職業健康與安全）包含哪10項子準則？",
+    "back": "【GRI 403：職業健康與安全 — 10項子準則】\n\n403-1　職業安全衛生管理系統\n403-2　危害辨識、風險評估及事故調查\n403-3　職業健康服務\n403-4　工作者對於職業健康與安全之參與、諮商與溝通\n403-5　工作者職業健康與安全教育訓練\n403-6　工作者健康促進\n403-7　預防及降低與企業直接關聯者之職業健康與安全衝擊\n403-8　職業安全衛生管理系統所涵蓋之工作者\n403-9　職業傷害\n403-10　工作相關疾病\n\n【記憶技巧】\n管系統→辨危害→健服務→參溝通→教訓練→健促進→降衝擊→涵工作者→職傷害→職病\n（403-1到403-10依序）\n\n【考題出處】\n甲衛-113.11.11（8分）：除403-8、403-9、403-10外，再列舉4項\n→ 答案可選 403-1、403-2、403-3、403-4、403-5、403-6、403-7 任四項",
+    "note": "高頻考題！甲衛-113年考過，要能背出10項子準則的名稱",
+    "lawRef": null,
+    "relatedQuestionIds": [
+      "practice-COMMON-006",
+      "practice-COMMON-007"
+    ]
+  },
+  {
+    "id": "kc-COMMON-006",
+    "type": "summary",
+    "category": "COMMON",
+    "categoryName": "共用工作項目（環保・節能・倫理）",
+    "topic": "SDGs 17項在 ESG 框架的分類（S/E/G）",
+    "front": "SDGs 17項目標如何對應到 ESG 的三大面向（S社會、E環境、G治理）？",
+    "back": "【S（Social 社會責任）】\n涵蓋與人有關的目標：\nSDG 1 終結貧窮\nSDG 2 消除飢餓\nSDG 3 健康與福祉 ← 職業衛生最相關\nSDG 4 優質教育\nSDG 8 合適的工作及經濟成長 ← 職業衛生最相關\n\n【E（Environment 環境責任）】\n涵蓋自然環境目標：\nSDG 6 淨水及衛生、SDG 7 潔淨能源\nSDG 11 永續城鄉、SDG 13 氣候行動\nSDG 14 保育海洋生態、SDG 15 保育陸域生態\nSDG 17 多元夥伴關係（跨E/G）\n\n【G（Governance 公司治理）】\n涵蓋制度與平等目標：\nSDG 5 性別平等、SDG 9 工業化創新\nSDG 10 減少不平等、SDG 12 責任消費及生產\nSDG 16 和平正義及健全制度\n\n【核心記憶】\n職業衛生 → S類：SDG 3、SDG 8\nGRI 403 揭露 → S類議題",
+    "note": "ESG+SDGs交叉考題重點：職業衛生在S類，GRI 403對應SDG 3、8",
+    "lawRef": null,
+    "relatedQuestionIds": []
   }
 ]

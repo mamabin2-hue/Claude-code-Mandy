@@ -1895,5 +1895,71 @@
     "totalPoints": 20,
     "keyLaws": [],
     "source": "official"
+  },
+  {
+    "id": "112-3-ESG",
+    "year": 112,
+    "session": 3,
+    "questionNum": 19,
+    "topic": "ESG報告與GRI準則",
+    "topicCode": "COMMON",
+    "fullText": "（一）金管會要求我國上市上櫃公司之企業永續報告（ESG 報告）須參照GRI（The Global Reporting Initiative）等準則撰寫，並公開具體績效，以回應和接軌聯合國2030 年永續發展目標（Sustainable Development Goals，SDGs）。\n\n1. 請問GRI 準則中的GRI 403 是有關哪方面的準則？（1 分）\n\n答：依據「GRI 準則」規定：GRI 403 是有關職業健康與安全方面的準則。\n\n2. 與勞動相關的事項大多會放在ESG 報告中的社會責任（Social, S）類議題中。",
+    "subQuestions": [
+      {
+        "num": 1,
+        "text": "請問GRI準則中的GRI 403是有關哪方面的準則？",
+        "points": 1,
+        "answer": "GRI 403 是有關「職業健康與安全（Occupational Health and Safety）」方面的準則。"
+      }
+    ],
+    "totalPoints": 1,
+    "keyLaws": [
+      "GRI 403 職業健康與安全準則"
+    ],
+    "source": "official"
+  },
+  {
+    "id": "113-11-ESG-1",
+    "year": 113,
+    "session": 11,
+    "questionNum": 3,
+    "topic": "ESG報告與GRI準則（職業健康與安全）",
+    "topicCode": "COMMON",
+    "fullText": "（一）金管會要求我國上市上櫃公司之企業永續報告（ESG 報告）須參照GRI（The Global Reporting Initiative）等準則撰寫，並公開具體績效，以回應和接軌聯合國2030 年永續發展目標（Sustainable Development Goals，SDGs）。\n\n一、金管會所列管上市上櫃公司依 GRI 準則揭露永續發展報告書（ESG），其中包含職業健康與安全、勞動權益、薪酬、福利及其他社會面等勞動議題，揭露的參考準則計有 GRI 401、402、403 與 412 等，請問那一個 GRI 準則與「職業健康與安全」最為相關？（2 分）\n\n答：一、GRI 403 準則：職業健康與安全。",
+    "subQuestions": [
+      {
+        "num": 1,
+        "text": "GRI 401、402、403、412中，哪個GRI準則與「職業健康與安全」最為相關？",
+        "points": 2,
+        "answer": "GRI 403 準則，正式名稱為「職業健康與安全（Occupational Health and Safety）」。"
+      }
+    ],
+    "totalPoints": 2,
+    "keyLaws": [
+      "GRI 403 職業健康與安全準則"
+    ],
+    "source": "official"
+  },
+  {
+    "id": "113-11-ESG-2",
+    "year": 113,
+    "session": 11,
+    "questionNum": 11,
+    "topic": "GRI 403 職業健康與安全 10項子準則",
+    "topicCode": "COMMON",
+    "fullText": "二、「職場永續健康與安全 SDGs 揭露實務建議指南」分有 10 項內容，包含「職業安全衛生管理系統所涵蓋之工作者」、「職業傷害」、「工作相關疾病」，請再列舉 4 項（提示：請思考主動、預防措施）。（各 2 分，共 8 分）\n\n答：依職場永續健康與安全 SDGs 揭露實務建議指南，GRI 403：職業健康與安全準則內容如下：\n\n403-1 職業安全衛生管理系統\n403-2 危害辨識、風險評估及事故調查\n403-3 職業健康服務\n403-4 工作者對於職業健康與安全之參與、諮商與溝通\n403-5 工作者職業健康與安全教育訓練\n403-6 工作者健康促進\n403-7 預防及降低與企業直接關聯者之職業健康與安全衝擊\n403-8 職業安全衛生管理系統所涵蓋之工作者（題目已給）\n403-9 職業傷害（題目已給）\n403-10 工作相關疾病（題目已給）\n\n【需列舉之4項】（從403-1至403-7任選4項）",
+    "subQuestions": [
+      {
+        "num": 1,
+        "text": "除「職業安全衛生管理系統所涵蓋之工作者（403-8）」、「職業傷害（403-9）」、「工作相關疾病（403-10）」外，再列舉GRI 403其他4項內容。",
+        "points": 8,
+        "answer": "可列舉以下任4項（各2分）：\n1. 職業安全衛生管理系統（403-1）\n2. 危害辨識、風險評估及事故調查（403-2）\n3. 職業健康服務（403-3）\n4. 工作者對於職業健康與安全之參與、諮商與溝通（403-4）\n5. 工作者職業健康與安全教育訓練（403-5）\n6. 工作者健康促進（403-6）\n7. 預防及降低與企業直接關聯者之職業健康與安全衝擊（403-7）"
+      }
+    ],
+    "totalPoints": 8,
+    "keyLaws": [
+      "GRI 403 職業健康與安全準則"
+    ],
+    "source": "official"
   }
 ]
