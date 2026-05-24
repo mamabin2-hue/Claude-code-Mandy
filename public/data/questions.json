@@ -27599,5 +27599,59 @@
     "explanation": "依異常工作負荷評估流程，評估「10年內心血管疾病發病風險（表一）」時，指定使用：\n\n1. Framingham Cardiac Risk Score\n　（美國Framingham心臟研究發展的預測工具，考量血壓、膽固醇、吸菸、糖尿病等風險因子）\n\n2. WHO/ISH心血管風險預測圖\n　（世衛組織/國際高血壓學會聯合開發的10年心血管風險預測工具）\n\n兩者皆可用於評估10年內心血管疾病發病風險，結果對應表一：\n<10%（低度）/ 10-20%（中度）/ 20-30%（高度）/ >30%（極高）\n\n過勞量表是用來評估工作負荷（表二），不是心血管風險。",
     "lawRef": "勞工健康保護規則",
     "source": "practice"
+  },
+  {
+    "id": "practice-ERGO-001",
+    "year": 0,
+    "session": 0,
+    "category": "ERGO",
+    "categoryName": "人因工程與肌肉骨骼疾病",
+    "question": "關鍵指標法（KIM）於2019年由德國聯邦職業安全與健康研究所（BAuA）更新，從原本幾個評估工具新增為幾個？",
+    "options": [
+      "A. 從2個增為4個",
+      "B. 從3個增為6個",
+      "C. 從4個增為8個",
+      "D. 從5個增為10個"
+    ],
+    "answer": "B",
+    "explanation": "關鍵指標法（Key Indicator Methods，KIM）由德國聯邦職業安全與健康研究所（BAuA）於2019年更新版本：\n・原有：3個評估工具\n・更新後：6個評估工具\n\n六個工具：\n① KIM-LHC（抬舉/握持/搬運）\n② KIM-MHO（手工物料作業）\n③ KIM-PP（推/拉作業）\n④ KIM-ABP（不良姿勢作業）\n⑤ KIM-BF（全身施力作業）\n⑥ KIM-BM（身體活動作業）",
+    "lawRef": null,
+    "source": "practice"
+  },
+  {
+    "id": "practice-ERGO-002",
+    "year": 0,
+    "session": 0,
+    "category": "ERGO",
+    "categoryName": "人因工程與肌肉骨骼疾病",
+    "question": "依關鍵指標法（KIM），「KIM-ABP」適用於評估下列哪種作業型態？",
+    "options": [
+      "A. 倉儲員工抬舉重物作業",
+      "B. 作業員推拉台車搬移物料",
+      "C. 電焊工長時間彎腰蹲踞於狹窄空間施工",
+      "D. 員工以手工方式組裝精密電子零件"
+    ],
+    "answer": "C",
+    "explanation": "KIM六個工具的適用範圍：\n・KIM-LHC：抬舉/握持/搬運作業（選A）\n・KIM-MHO：手工物料作業，強調手部/上肢精細操作（選D）\n・KIM-PP：推/拉作業（選B）\n・KIM-ABP：不良姿勢作業（Awkward Body Postures）→ 長時間彎腰、蹲踞、扭轉等姿勢（選C ✓）\n・KIM-BF：全身施力作業\n・KIM-BM：身體活動作業\n\n電焊工長時間彎腰蹲踞 = 不良姿勢 → KIM-ABP",
+    "lawRef": null,
+    "source": "practice"
+  },
+  {
+    "id": "practice-ERGO-003",
+    "year": 0,
+    "session": 0,
+    "category": "ERGO",
+    "categoryName": "人因工程與肌肉骨骼疾病",
+    "question": "下列關於關鍵指標法（KIM）的敘述，何者錯誤？",
+    "options": [
+      "A. KIM由德國聯邦職業安全與健康研究所（BAuA）發布",
+      "B. 2019年版KIM共有6個評估工具",
+      "C. KIM-PP用於評估推/拉作業的人因危害",
+      "D. KIM-LHC的全名是「Key Indicator Method for Lower Hazard Control」"
+    ],
+    "answer": "D",
+    "explanation": "各選項分析：\n\nA ✓ 正確：KIM由德國BAuA（Bundesanstalt für Arbeitsschutz und Arbeitsmedizin，德國聯邦職業安全與健康研究所）發布\n\nB ✓ 正確：2019年更新版從3個擴充為6個評估工具\n\nC ✓ 正確：KIM-PP（Pushing and Pulling）= 推/拉作業\n\nD ✗ 錯誤：KIM-LHC的正確全名是「Lifting, Holding and Carrying」（抬舉、握持、搬運），不是「Lower Hazard Control」",
+    "lawRef": null,
+    "source": "practice"
   }
 ]

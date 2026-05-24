@@ -623,5 +623,32 @@
     "note": "注意：表三噪音門檻是80分貝（非85dB）；月加班時數是表二的判斷，不是表三",
     "lawRef": "勞工健康保護規則",
     "relatedQuestionIds": []
+  },
+  {
+    "id": "kc-ERGO-002",
+    "type": "summary",
+    "category": "ERGO",
+    "categoryName": "人因工程與肌肉骨骼疾病",
+    "topic": "關鍵指標法 KIM — 6個評估工具",
+    "front": "關鍵指標法（KIM）是什麼？2019年更新後有哪6個評估工具？各自縮寫為何？",
+    "back": "【KIM 基本資料】\n全名：Key Indicator Methods（關鍵指標法）\n發布機構：德國聯邦職業安全與健康研究所（BAuA）\n更新時間：2019年（從原3個工具擴充為6個）\n\n【六個評估工具】\n\n① KIM-LHC　抬舉 / 握持 / 搬運作業\n　(Lifting, Holding and Carrying)\n\n② KIM-MHO　手工物料作業\n　(Manual Handling Operations)\n\n③ KIM-PP　推 / 拉作業\n　(Pushing and Pulling)\n\n④ KIM-ABP　不良姿勢作業\n　(Awkward Body Postures)\n\n⑤ KIM-BF　全身施力作業\n　(Body Force Exertion)\n\n⑥ KIM-BM　身體活動作業\n　(Body Movement)\n\n【記憶口訣】\nLHC抬搬、MHO手工、PP推拉、ABP姿勢、BF施力、BM活動",
+    "note": "考試重點：2019年BAuA更新版；原3個→新6個；各工具縮寫與對應作業類型",
+    "lawRef": null,
+    "relatedQuestionIds": [
+      "practice-ERGO-001",
+      "practice-ERGO-002"
+    ]
+  },
+  {
+    "id": "kc-ERGO-003",
+    "type": "qa",
+    "category": "ERGO",
+    "categoryName": "人因工程與肌肉骨骼疾病",
+    "topic": "KIM 適用作業類型辨別",
+    "front": "以下各種作業情境，應使用KIM的哪個評估工具？\n① 倉儲員工每日搬運20kg紙箱300次\n② 作業員以手工方式組裝精密電子零件\n③ 清潔人員推著清潔車於走道清掃\n④ 電焊工長時間彎腰於狹窄空間施工\n⑤ 林業工人持電鋸全身出力砍伐作業",
+    "back": "【各情境對應KIM工具】\n\n① 搬運20kg紙箱300次\n→ KIM-LHC（抬舉/握持/搬運作業）\n　重複性的抬舉與搬運，是KIM-LHC的核心評估對象\n\n② 手工組裝精密電子零件\n→ KIM-MHO（手工物料作業）\n　強調「手部/上肢」精細操作，不是整體搬運\n\n③ 推清潔車清掃\n→ KIM-PP（推/拉作業）\n　推拉設備或推車，水平方向施力\n\n④ 電焊工彎腰於狹窄空間\n→ KIM-ABP（不良姿勢作業）\n　長時間維持彎腰、扭轉等不良姿勢\n\n⑤ 持電鋸全身出力砍伐\n→ KIM-BF（全身施力作業）\n　涉及全身肌力出力（非單純搬運或推拉）",
+    "note": "KIM-LHC vs KIM-MHO：前者強調整體搬移，後者強調手/上肢精細操作",
+    "lawRef": null,
+    "relatedQuestionIds": []
   }
 ]
