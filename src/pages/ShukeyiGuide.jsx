@@ -23,37 +23,108 @@ const TOPIC_STUDY_TIPS = {
 
 const PREDICT_HOT = ['PSY', 'HEALTH', 'MONITOR', 'PHYS', 'CONFINED', 'SYSTEM']
 
+function parseSubQuestions(text) {
+  const parts = text.split(/(?=（[一二三四五六七八九十]）|\([一二三四五六七八九十]\))/)
+  if (parts.length <= 1) return null
+  return parts.filter(p => p.trim())
+}
+
 function FullQuestionModal({ question, onClose }) {
+  const [showAnswer, setShowAnswer] = useState(false)
   if (!question) return null
+  const subParts = parseSubQuestions(question.fullText || '')
+  const subs = question.subQuestions || []
+  const hasAnswers = Array.isArray(subs) && subs.length > 0 && subs[0] && typeof subs[0] === 'object' && subs[0].answer
+  const totalPts = question.totalPoints || 20
+
   return (
     <div className="fixed inset-0 bg-black/60 z-50 flex items-end justify-center p-0" onClick={onClose}>
-      <div
-        className="bg-white w-full max-w-xl rounded-t-3xl max-h-[85vh] overflow-y-auto"
-        onClick={e => e.stopPropagation()}
-      >
-        <div className="sticky top-0 bg-white px-5 pt-5 pb-3 border-b border-slate-100 flex items-center justify-between">
-          <div>
-            <p className="text-xs text-slate-400">{question.exam} 術科 第{question.q}題</p>
-            <p className="font-bold text-slate-800 text-sm mt-0.5">{question.topic}</p>
-          </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-2xl leading-none cursor-pointer">×</button>
-        </div>
-        <div className="px-5 py-4">
-          <div className="bg-slate-50 rounded-2xl p-4">
-            <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">{question.fullText}</p>
+      <div className="bg-white w-full max-w-xl rounded-t-3xl max-h-[92vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+
+        {/* Header */}
+        <div className="sticky top-0 bg-white px-5 pt-4 pb-3 border-b border-slate-100">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs px-2 py-0.5 bg-slate-700 text-white rounded-full font-bold">{question.exam} 術科 第{question.q}題</span>
+                <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full font-semibold">{totalPts}分</span>
+                {hasAnswers && <span className="text-xs px-2 py-0.5 bg-green-100 text-green-700 rounded-full font-semibold">✓ 有解析</span>}
+              </div>
+              <p className="font-bold text-slate-800 text-base mt-1.5">{question.topic}</p>
+            </div>
+            <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-2xl leading-none mt-1 cursor-pointer flex-shrink-0">×</button>
           </div>
           {question.keyLaws && question.keyLaws.length > 0 && (
-            <div className="mt-4">
-              <p className="text-xs font-bold text-slate-500 mb-2">📋 相關法規</p>
-              <div className="flex flex-wrap gap-2">
-                {question.keyLaws.map((law, i) => (
-                  <span key={i} className="text-xs px-2.5 py-1 bg-purple-50 text-purple-700 border border-purple-200 rounded-full">{law}</span>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              {question.keyLaws.map((law, i) => (
+                <span key={i} className="text-xs px-2.5 py-1 bg-purple-100 text-purple-700 border border-purple-200 rounded-full font-semibold">📋 {law}</span>
+              ))}
             </div>
           )}
-          <div className="mt-4 p-3 bg-amber-50 rounded-xl border border-amber-200">
-            <p className="text-xs text-amber-800">💡 術科答題提醒：每題20分，請按(一)(二)(三)分點作答，引用法規要寫條次</p>
+        </div>
+
+        <div className="px-5 py-4 space-y-4">
+          {/* Question text */}
+          <div>
+            <p className="text-xs font-bold text-slate-500 mb-2">📝 題目內容</p>
+            {subParts && subParts.length > 1 ? (
+              <div className="space-y-2">
+                {subParts.map((part, i) => {
+                  const isSubQ = /^（[一二三四五六七八九十]）|\([一二三四五六七八九十]\)/.test(part.trim())
+                  return isSubQ ? (
+                    <div key={i} className="bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-3">
+                      <p className="text-sm text-slate-800 leading-relaxed">{part.trim()}</p>
+                    </div>
+                  ) : (
+                    <div key={i} className="bg-slate-50 rounded-xl p-3">
+                      <p className="text-sm text-slate-700 leading-relaxed">{part.trim()}</p>
+                    </div>
+                  )
+                })}
+              </div>
+            ) : (
+              <div className="bg-slate-50 rounded-2xl p-4">
+                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">{question.fullText}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Answers */}
+          {hasAnswers ? (
+            <div>
+              <button
+                onClick={() => setShowAnswer(v => !v)}
+                className="w-full py-3 bg-emerald-600 text-white rounded-xl font-bold text-sm hover:bg-emerald-700 transition-colors cursor-pointer flex items-center justify-center gap-2"
+              >
+                {showAnswer ? '▲ 收起參考解析' : '✅ 展開參考解析（含法條）'}
+              </button>
+              {showAnswer && (
+                <div className="mt-3 space-y-3">
+                  {subs.map((sub, i) => sub && sub.answer ? (
+                    <div key={i} className="rounded-2xl overflow-hidden border border-emerald-200">
+                      <div className="bg-emerald-600 text-white px-4 py-2 flex items-center justify-between">
+                        <span className="font-bold text-sm">（{['一','二','三','四','五'][i]}）{sub.text ? sub.text.slice(0,30)+'…' : ''}</span>
+                        {sub.points && <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">{sub.points}分</span>}
+                      </div>
+                      <div className="bg-emerald-50 p-4">
+                        <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">{sub.answer}</p>
+                      </div>
+                    </div>
+                  ) : null)}
+                  <p className="text-xs text-slate-400 text-center">⚠️ 解析僅供參考，請以官方法規原文為準</p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+              <p className="text-sm font-bold text-amber-700 mb-1">📖 解析建置中</p>
+              <p className="text-xs text-amber-600">此題目尚未加入解析。可參考右方「AI術科猜題」中相同類別的答題架構，或自行依法規研擬答案。</p>
+            </div>
+          )}
+
+          {/* Tip */}
+          <div className="p-3 bg-slate-100 rounded-xl">
+            <p className="text-xs text-slate-600">💡 <strong>答題提醒：</strong>每題{totalPts}分，按(一)(二)(三)分點作答，引用法規務必寫出條次（如§324-3）</p>
           </div>
         </div>
       </div>
