@@ -1,0 +1,699 @@
+{
+  "analysis": [
+    {
+      "code": "HEALTH",
+      "topicName": "異常工作負荷促發疾病",
+      "totalCount": 11,
+      "exams": [
+        "106-2",
+        "107-1",
+        "107-3",
+        "108-2",
+        "108-3",
+        "109-2",
+        "113-2",
+        "113-3",
+        "114-3"
+      ],
+      "recentCount": 5
+    },
+    {
+      "code": "PHYS",
+      "topicName": "噪音點音源衰減計算",
+      "totalCount": 10,
+      "exams": [
+        "106-2",
+        "106-3",
+        "107-1",
+        "107-2",
+        "108-3",
+        "109-1",
+        "113-3",
+        "114-1",
+        "114-2",
+        "114-3"
+      ],
+      "recentCount": 4
+    },
+    {
+      "code": "MONITOR",
+      "topicName": "粉塵暴露容許濃度判斷",
+      "totalCount": 9,
+      "exams": [
+        "106-1",
+        "106-3",
+        "107-1",
+        "107-3",
+        "109-2",
+        "109-3",
+        "113-2",
+        "114-2",
+        "115-1"
+      ],
+      "recentCount": 3
+    },
+    {
+      "code": "LAW",
+      "topicName": "高壓氣體安全規則",
+      "totalCount": 7,
+      "exams": [
+        "106-1",
+        "106-3",
+        "108-2",
+        "109-3",
+        "113-2",
+        "113-3"
+      ],
+      "recentCount": 2
+    },
+    {
+      "code": "CHEM",
+      "topicName": "化學品危害分類評估",
+      "totalCount": 6,
+      "exams": [
+        "107-1",
+        "108-1",
+        "108-3",
+        "109-1",
+        "113-3",
+        "114-1"
+      ],
+      "recentCount": 2
+    },
+    {
+      "code": "CONTROL",
+      "topicName": "外裝式氣罩設計",
+      "totalCount": 6,
+      "exams": [
+        "108-1",
+        "109-2",
+        "109-3",
+        "113-1",
+        "114-3",
+        "115-1"
+      ],
+      "recentCount": 3
+    },
+    {
+      "code": "ASSESS",
+      "topicName": "醫院廢棄物風險評估",
+      "totalCount": 5,
+      "exams": [
+        "106-1",
+        "107-1",
+        "107-2",
+        "113-1",
+        "115-1"
+      ],
+      "recentCount": 2
+    },
+    {
+      "code": "PSY",
+      "topicName": "不法侵害預防計畫建置",
+      "totalCount": 5,
+      "exams": [
+        "109-1",
+        "109-3",
+        "113-1",
+        "114-1",
+        "114-2"
+      ],
+      "recentCount": 3
+    },
+    {
+      "code": "CONFINED",
+      "topicName": "污水槽局限空間/承攬",
+      "totalCount": 4,
+      "exams": [
+        "106-1",
+        "107-2",
+        "109-1",
+        "114-3"
+      ],
+      "recentCount": 1
+    },
+    {
+      "code": "ERGO",
+      "topicName": "人因危害預防計畫",
+      "totalCount": 3,
+      "exams": [
+        "106-1",
+        "109-2",
+        "113-2"
+      ],
+      "recentCount": 1
+    },
+    {
+      "code": "MATERNAL",
+      "topicName": "母性健康保護",
+      "totalCount": 3,
+      "exams": [
+        "106-2",
+        "108-2",
+        "114-1"
+      ],
+      "recentCount": 1
+    },
+    {
+      "code": "FIRSTAID",
+      "topicName": "急救技能CPR+燒燙傷",
+      "totalCount": 2,
+      "exams": [
+        "106-3",
+        "115-1"
+      ],
+      "recentCount": 1
+    },
+    {
+      "code": "PPE",
+      "topicName": "呼吸防護具選用",
+      "totalCount": 1,
+      "exams": [
+        "106-3"
+      ],
+      "recentCount": 0
+    },
+    {
+      "code": "SYSTEM",
+      "topicName": "CNS 45001管理系統",
+      "totalCount": 1,
+      "exams": [
+        "115-1"
+      ],
+      "recentCount": 1
+    }
+  ],
+  "allTopics": [
+    {
+      "exam": "106-1",
+      "q": 1,
+      "code": "ASSESS",
+      "topic": "化學品暴露評估/分級管理",
+      "brief": "正己烷暴露評估+CCR分級"
+    },
+    {
+      "exam": "106-1",
+      "q": 2,
+      "code": "CONFINED",
+      "topic": "局限空間危害防止計畫",
+      "brief": "9大計畫項目"
+    },
+    {
+      "exam": "106-1",
+      "q": 3,
+      "code": "LAW",
+      "topic": "職安衛法規綜合",
+      "brief": "法規問答"
+    },
+    {
+      "exam": "106-1",
+      "q": 4,
+      "code": "ERGO",
+      "topic": "人因工程/肌肉骨骼疾病",
+      "brief": "作業台面設計"
+    },
+    {
+      "exam": "106-1",
+      "q": 5,
+      "code": "MONITOR",
+      "topic": "粉塵採樣監測",
+      "brief": "石英粉塵監測"
+    },
+    {
+      "exam": "106-2",
+      "q": 1,
+      "code": "HEALTH",
+      "topic": "化學品洩漏健康危害",
+      "brief": "酚液暴露急救"
+    },
+    {
+      "exam": "106-2",
+      "q": 2,
+      "code": "MATERNAL",
+      "topic": "母性健康保護",
+      "brief": "女性勞工保護期間"
+    },
+    {
+      "exam": "106-2",
+      "q": 5,
+      "code": "PHYS",
+      "topic": "噪音疊加計算",
+      "brief": "3個95dB音源疊加"
+    },
+    {
+      "exam": "106-3",
+      "q": 1,
+      "code": "LAW",
+      "topic": "職安衛法規",
+      "brief": "法規問答"
+    },
+    {
+      "exam": "106-3",
+      "q": 2,
+      "code": "PPE",
+      "topic": "呼吸防護具選用",
+      "brief": "選用原則"
+    },
+    {
+      "exam": "106-3",
+      "q": 3,
+      "code": "FIRSTAID",
+      "topic": "急救技能",
+      "brief": "休克急救"
+    },
+    {
+      "exam": "106-3",
+      "q": 4,
+      "code": "PHYS",
+      "topic": "異常氣壓作業",
+      "brief": "高壓/潛水作業"
+    },
+    {
+      "exam": "106-3",
+      "q": 5,
+      "code": "MONITOR",
+      "topic": "有機溶劑濃度計算",
+      "brief": "桌面暴露計算"
+    },
+    {
+      "exam": "107-1",
+      "q": 1,
+      "code": "CHEM",
+      "topic": "CCB化學品健康危害分級管理",
+      "brief": "4步驟+限制"
+    },
+    {
+      "exam": "107-1",
+      "q": 2,
+      "code": "ASSESS",
+      "topic": "風險評估四步驟",
+      "brief": "完整說明各步驟"
+    },
+    {
+      "exam": "107-1",
+      "q": 3,
+      "code": "HEALTH",
+      "topic": "職業病配對",
+      "brief": "職業特性vs職業病"
+    },
+    {
+      "exam": "107-1",
+      "q": 4,
+      "code": "PHYS",
+      "topic": "非游離輻射",
+      "brief": "UV/IR/微波等特性"
+    },
+    {
+      "exam": "107-1",
+      "q": 5,
+      "code": "MONITOR",
+      "topic": "混合溶劑暴露計算",
+      "brief": "甲苯+丁酮"
+    },
+    {
+      "exam": "107-2",
+      "q": 1,
+      "code": "PHYS",
+      "topic": "高溫作業WBGT",
+      "brief": "作息時間標準"
+    },
+    {
+      "exam": "107-2",
+      "q": 4,
+      "code": "ASSESS",
+      "topic": "化學品風險評估",
+      "brief": "多廠房化學品評估"
+    },
+    {
+      "exam": "107-2",
+      "q": 5,
+      "code": "CONFINED",
+      "topic": "局限空間換氣計算",
+      "brief": "甲苯洩漏換氣量"
+    },
+    {
+      "exam": "107-3",
+      "q": 3,
+      "code": "MONITOR",
+      "topic": "粉塵發生源監測",
+      "brief": "採樣策略"
+    },
+    {
+      "exam": "107-3",
+      "q": 4,
+      "code": "HEALTH",
+      "topic": "職業性肌肉骨骼疾病診斷",
+      "brief": "泥作勞工職業病"
+    },
+    {
+      "exam": "108-1",
+      "q": 1,
+      "code": "CHEM",
+      "topic": "GHS混合物分類",
+      "brief": "致癌性分類原則"
+    },
+    {
+      "exam": "108-1",
+      "q": 5,
+      "code": "CONTROL",
+      "topic": "有機溶劑換氣量計算",
+      "brief": "三氯乙烷換氣"
+    },
+    {
+      "exam": "108-2",
+      "q": 1,
+      "code": "LAW",
+      "topic": "職安衛設施規則",
+      "brief": "照明/通道/通風規定"
+    },
+    {
+      "exam": "108-2",
+      "q": 2,
+      "code": "MATERNAL",
+      "topic": "母性健康保護",
+      "brief": "辦法規定問答"
+    },
+    {
+      "exam": "108-2",
+      "q": 4,
+      "code": "LAW",
+      "topic": "廠房規劃法規",
+      "brief": "多樓層廠房設施"
+    },
+    {
+      "exam": "108-2",
+      "q": 5,
+      "code": "HEALTH",
+      "topic": "夜間工作健康管理",
+      "brief": "夜班健康評估"
+    },
+    {
+      "exam": "108-3",
+      "q": 1,
+      "code": "CHEM",
+      "topic": "特定化學物質防制",
+      "brief": "特化物規定"
+    },
+    {
+      "exam": "108-3",
+      "q": 3,
+      "code": "HEALTH",
+      "topic": "異常工作負荷促發疾病",
+      "brief": "預防指引應用"
+    },
+    {
+      "exam": "108-3",
+      "q": 5,
+      "code": "PHYS",
+      "topic": "噪音時量平均計算",
+      "brief": "噪音法規計算"
+    },
+    {
+      "exam": "109-1",
+      "q": 1,
+      "code": "CONFINED",
+      "topic": "鍋爐局限空間缺氧危害",
+      "brief": "化學性危害辨識"
+    },
+    {
+      "exam": "109-1",
+      "q": 2,
+      "code": "PSY",
+      "topic": "不法侵害預防措施",
+      "brief": "職安衛設施規則應用"
+    },
+    {
+      "exam": "109-1",
+      "q": 4,
+      "code": "CHEM",
+      "topic": "SDS安全資料表",
+      "brief": "次氯酸鈉SDS應用"
+    },
+    {
+      "exam": "109-1",
+      "q": 5,
+      "code": "PHYS",
+      "topic": "高溫WBGT計算",
+      "brief": "鋼鐵熔煉高溫"
+    },
+    {
+      "exam": "109-2",
+      "q": 1,
+      "code": "HEALTH",
+      "topic": "健康促進計畫規劃",
+      "brief": "醫護共同規劃"
+    },
+    {
+      "exam": "109-2",
+      "q": 2,
+      "code": "ERGO",
+      "topic": "肌肉骨骼疾病預防診斷",
+      "brief": "危險因子+評估工具"
+    },
+    {
+      "exam": "109-2",
+      "q": 4,
+      "code": "CONTROL",
+      "topic": "通風換氣量計算",
+      "brief": "曝氣量計算"
+    },
+    {
+      "exam": "109-2",
+      "q": 5,
+      "code": "MONITOR",
+      "topic": "有機溶劑混合暴露",
+      "brief": "異丙醇+鑄造"
+    },
+    {
+      "exam": "109-3",
+      "q": 1,
+      "code": "PSY",
+      "topic": "職場暴力/不法侵害",
+      "brief": "衝突事件處理"
+    },
+    {
+      "exam": "109-3",
+      "q": 2,
+      "code": "MONITOR",
+      "topic": "異丙醇監測結果分析",
+      "brief": "監測數據判讀"
+    },
+    {
+      "exam": "109-3",
+      "q": 3,
+      "code": "LAW",
+      "topic": "職安衛法規問答",
+      "brief": "綜合法規"
+    },
+    {
+      "exam": "109-3",
+      "q": 5,
+      "code": "CONTROL",
+      "topic": "導管風壓通風",
+      "brief": "局部排氣計算"
+    },
+    {
+      "exam": "113-1",
+      "q": 1,
+      "code": "ASSESS",
+      "topic": "化工廠風險評估",
+      "brief": "硫酸儲槽作業"
+    },
+    {
+      "exam": "113-1",
+      "q": 4,
+      "code": "PSY",
+      "topic": "不法侵害預防指引",
+      "brief": "指引架構應用"
+    },
+    {
+      "exam": "113-1",
+      "q": 5,
+      "code": "CONTROL",
+      "topic": "有機溶劑通風換氣",
+      "brief": "注模工廠換氣"
+    },
+    {
+      "exam": "113-2",
+      "q": 1,
+      "code": "HEALTH",
+      "topic": "鉛作業健康追蹤管理",
+      "brief": "健康分級管理"
+    },
+    {
+      "exam": "113-2",
+      "q": 2,
+      "code": "ERGO",
+      "topic": "人因危害預防計畫",
+      "brief": "OSHA計畫內容"
+    },
+    {
+      "exam": "113-2",
+      "q": 3,
+      "code": "LAW",
+      "topic": "職安衛管理辦法",
+      "brief": "第二類事業管理"
+    },
+    {
+      "exam": "113-2",
+      "q": 4,
+      "code": "HEALTH",
+      "topic": "職業性癌症CMR分類",
+      "brief": "致癌物健康效應"
+    },
+    {
+      "exam": "113-2",
+      "q": 5,
+      "code": "MONITOR",
+      "topic": "混合有機溶劑暴露",
+      "brief": "甲苯+丁酮計算"
+    },
+    {
+      "exam": "113-3",
+      "q": 1,
+      "code": "HEALTH",
+      "topic": "人造石健康保護",
+      "brief": "健康保護記錄"
+    },
+    {
+      "exam": "113-3",
+      "q": 2,
+      "code": "CHEM",
+      "topic": "危害性化學品優先管理",
+      "brief": "公告化學品管理"
+    },
+    {
+      "exam": "113-3",
+      "q": 3,
+      "code": "LAW",
+      "topic": "高壓氣體安全規則",
+      "brief": "壓力設備法規"
+    },
+    {
+      "exam": "113-3",
+      "q": 4,
+      "code": "PHYS",
+      "topic": "高溫戶外作業",
+      "brief": "熱危害預防指引"
+    },
+    {
+      "exam": "114-1",
+      "q": 1,
+      "code": "PSY",
+      "topic": "不法侵害法規罰則",
+      "brief": "未採措施罰則"
+    },
+    {
+      "exam": "114-1",
+      "q": 3,
+      "code": "CHEM",
+      "topic": "化學品危害分類評估",
+      "brief": "GHS分類實務"
+    },
+    {
+      "exam": "114-1",
+      "q": 4,
+      "code": "MATERNAL",
+      "topic": "母性健康保護",
+      "brief": "危害風險評估"
+    },
+    {
+      "exam": "114-1",
+      "q": 5,
+      "code": "PHYS",
+      "topic": "噪音環境評估",
+      "brief": "噪音計算"
+    },
+    {
+      "exam": "114-2",
+      "q": 1,
+      "code": "PSY",
+      "topic": "不法侵害預防計畫建置",
+      "brief": "指引架構實務"
+    },
+    {
+      "exam": "114-2",
+      "q": 4,
+      "code": "PHYS",
+      "topic": "噪音劑量計算",
+      "brief": "連續噪音量測"
+    },
+    {
+      "exam": "114-2",
+      "q": 5,
+      "code": "MONITOR",
+      "topic": "個人採樣結果換算",
+      "brief": "ppm換算mg/m3"
+    },
+    {
+      "exam": "114-3",
+      "q": 1,
+      "code": "CONFINED",
+      "topic": "污水槽局限空間/承攬",
+      "brief": "硫化氫中毒事故"
+    },
+    {
+      "exam": "114-3",
+      "q": 2,
+      "code": "CONTROL",
+      "topic": "有機溶劑工程控制",
+      "brief": "二氯甲烷噴灑"
+    },
+    {
+      "exam": "114-3",
+      "q": 3,
+      "code": "HEALTH",
+      "topic": "職業病診斷五大原則",
+      "brief": "20分考題"
+    },
+    {
+      "exam": "114-3",
+      "q": 4,
+      "code": "HEALTH",
+      "topic": "異常工作負荷促發疾病",
+      "brief": "預防指引"
+    },
+    {
+      "exam": "114-3",
+      "q": 5,
+      "code": "PHYS",
+      "topic": "噪音點音源衰減計算",
+      "brief": "距離倍增"
+    },
+    {
+      "exam": "115-1",
+      "q": 1,
+      "code": "ASSESS",
+      "topic": "醫院廢棄物風險評估",
+      "brief": "生物病原危害"
+    },
+    {
+      "exam": "115-1",
+      "q": 2,
+      "code": "FIRSTAID",
+      "topic": "急救技能CPR+燒燙傷",
+      "brief": "5步驟各2分"
+    },
+    {
+      "exam": "115-1",
+      "q": 3,
+      "code": "SYSTEM",
+      "topic": "CNS 45001管理系統",
+      "brief": "緊急準備與應變"
+    },
+    {
+      "exam": "115-1",
+      "q": 4,
+      "code": "MONITOR",
+      "topic": "粉塵暴露容許濃度判斷",
+      "brief": "石英粉塵新標準"
+    },
+    {
+      "exam": "115-1",
+      "q": 5,
+      "code": "CONTROL",
+      "topic": "外裝式氣罩設計",
+      "brief": "捕捉速度計算"
+    }
+  ]
+}
