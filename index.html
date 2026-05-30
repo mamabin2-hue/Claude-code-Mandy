@@ -16,20 +16,21 @@
     <script type="module" src="/src/main.jsx"></script>
     <script>
       if ('serviceWorker' in navigator) {
+        // controllerchange fires when a new SW takes control (skipWaiting + clients.claim)
+        // This is the definitive signal: new version is live → reload once
+        let reloading = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!reloading) {
+            reloading = true;
+            window.location.reload();
+          }
+        });
+
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/Claude-code-Mandy/sw.js')
             .then(reg => {
-              // Check for updates on every page load
+              // Force-check for a new SW on every single page open
               reg.update();
-              reg.addEventListener('updatefound', () => {
-                const newWorker = reg.installing;
-                newWorker.addEventListener('statechange', () => {
-                  if (newWorker.state === 'activated' && navigator.serviceWorker.controller) {
-                    // New version deployed — reload to get latest
-                    window.location.reload();
-                  }
-                });
-              });
             });
         });
       }

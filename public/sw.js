@@ -1,6 +1,7 @@
 // Service Worker — Network-first for HTML, cache-first for hashed assets
-const CACHE = 'mandy-v1';
+const CACHE = 'mandy-v2';
 
+// skipWaiting: new SW activates immediately without waiting for tabs to close
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', e => {
   e.waitUntil(
