@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>甲衛複習站｜熱危害＋粉塵危害</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #21262d;
+  --border: #30363d;
+  --accent: #f0a500;
+  --red: #ef4444;
+  --green: #22c55e;
+  --blue: #3b82f6;
+  --purple: #a855f7;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --text3: #484f58;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans TC', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========== PAGES ========== */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ========== HOME ========== */
+.home-header {
+  padding: 48px 20px 24px;
+  text-align: center;
+  background: linear-gradient(180deg, #0a0e1a 0%, var(--bg) 100%);
+}
+.home-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  border: 1px solid rgba(240,165,0,0.3);
+  padding: 3px 12px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  background: rgba(240,165,0,0.05);
+}
+.home-title {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+}
+.home-title span { color: var(--accent); }
+.home-sub {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 6px;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 20px 16px 40px;
+}
+
+.home-tile {
+  border-radius: 16px;
+  padding: 20px 16px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  text-align: left;
+  color: #fff;
+}
+.home-tile:active { transform: scale(0.96); }
+
+.home-tile.blue { background: linear-gradient(135deg, #1d4ed8, #2563eb); }
+.home-tile.purple { background: linear-gradient(135deg, #7c3aed, #9333ea); }
+.home-tile.red { background: linear-gradient(135deg, #b91c1c, #dc2626); }
+.home-tile.teal { background: linear-gradient(135deg, #0f766e, #0d9488); }
+.home-tile.green { background: linear-gradient(135deg, #15803d, #16a34a); }
+.home-tile.indigo { background: linear-gradient(135deg, #3730a3, #4338ca); }
+.home-tile.orange { background: linear-gradient(135deg, #c2410c, #ea580c); }
+.home-tile.amber { background: linear-gradient(135deg, #b45309, #d97706); }
+.home-tile.full { grid-column: 1 / -1; }
+
+.home-tile-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+.home-tile-title { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.home-tile-sub { font-size: 11px; opacity: 0.75; line-height: 1.4; }
+
+.tile-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.25);
+  letter-spacing: 0.5px;
+}
+
+/* ========== SUBPAGE HEADER ========== */
+.sub-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 0;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+}
+.btn-back {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text2);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sub-header-title { font-size: 16px; font-weight: 700; }
+.sub-header-sub { font-size: 11px; color: var(--text2); }
+
+/* ========== AUDIO PLAYER (翻牌語音) ========== */
+.player-wrap { padding: 16px; padding-bottom: 160px; }
+
+.filter-tabs {
+  display: flex; gap: 6px; margin-bottom: 14px;
+  overflow-x: auto; padding-bottom: 4px; scrollbar-width: none;
+}
+.filter-tabs::-webkit-scrollbar { display: none; }
+.ftab {
+  flex-shrink: 0; padding: 7px 14px; border-radius: 20px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text2); font-size: 12px; cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif; transition: all 0.2s; white-space: nowrap;
+}
+.ftab.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 700; }
+
+.prog-wrap { margin-bottom: 12px; }
+.prog-bar { height: 3px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-bottom: 8px; }
+.prog-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #fbbf24); transition: width 0.4s; }
+.prog-info { display: flex; justify-content: space-between; align-items: center; }
+.prog-text { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text2); }
+.type-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.tb-k { background: rgba(59,130,246,.15); color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
+.tb-g { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+.tb-r { background: rgba(34,197,94,.15); color: #4ade80; border: 1px solid rgba(34,197,94,.3); }
+.tb-law { background: rgba(168,85,247,.15); color: #c084fc; border: 1px solid rgba(168,85,247,.3); }
+
+.flip-card-outer { perspective: 1000px; margin-bottom: 14px; }
+.flip-card-inner {
+  position: relative; min-height: 260px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(.4,2,.6,1);
+}
+.flip-card-inner.flipped { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute; width: 100%; min-height: 260px;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 16px; border: 1px solid var(--border);
+  padding: 24px 20px 20px;
+}
+.flip-front { background: var(--surface); }
+.flip-back { background: var(--surface2); transform: rotateY(180deg); }
+
+.fc-cat { font-size: 10px; font-family: 'JetBrains Mono', monospace; letter-spacing: 2px; color: var(--text3); margin-bottom: 10px; text-transform: uppercase; }
+.fc-title { font-size: 16px; font-weight: 700; line-height: 1.5; margin-bottom: 14px; }
+.fc-body { font-size: 13px; line-height: 1.9; color: var(--text2); }
+.fc-body strong { color: var(--accent); }
+.fc-body .hl { background: rgba(240,165,0,.12); border: 1px solid rgba(240,165,0,.2); border-radius: 4px; padding: 1px 6px; font-weight: 600; color: #fbbf24; }
+.fc-body .cr { color: #f87171; font-weight: 700; }
+.fc-body .cg { color: #4ade80; font-weight: 700; }
+.fc-body .cb { color: #60a5fa; font-weight: 700; }
+
+.flip-hint { text-align: center; font-size: 11px; color: var(--text3); margin-top: 10px; }
+
+.read-bar { height: 2px; background: var(--border); border-radius: 1px; margin-top: 14px; overflow: hidden; }
+.read-fill { height: 100%; background: var(--accent); width: 0; }
+
+/* Fixed bottom controls */
+.fixed-controls {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  background: linear-gradient(transparent, rgba(13,17,23,.98) 28%);
+  padding: 16px 16px 28px;
+}
+.fc-row1 { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+.fc-row2 { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.fc-row3 { display: flex; justify-content: center; gap: 6px; align-items: center; }
+
+.ctrl-btn {
+  display: flex; align-items: center; justify-content: center;
+  border: none; cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+  transition: all 0.15s; border-radius: 50%;
+}
+.ctrl-icon { width: 44px; height: 44px; background: var(--surface2); border: 1px solid var(--border); color: var(--text2); font-size: 18px; }
+.ctrl-icon:active { transform: scale(0.92); }
+.ctrl-play { width: 58px; height: 58px; background: var(--accent); color: #000; font-size: 22px; box-shadow: 0 0 20px rgba(240,165,0,.35); }
+.ctrl-play:active { transform: scale(0.95); }
+.ctrl-play.on { background: var(--red); box-shadow: 0 0 20px rgba(239,68,68,.35); }
+
+.sm-btn {
+  padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border);
+  background: transparent; color: var(--text2); font-size: 11px; cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif; transition: all 0.15s;
+}
+.sm-btn.on { border-color: var(--accent); color: var(--accent); background: rgba(240,165,0,.08); }
+.sm-btn:active { transform: scale(0.95); }
+.speed-label { font-size: 11px; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+.status-txt { text-align: center; font-size: 11px; color: var(--text3); font-family: 'JetBrains Mono', monospace; margin-bottom: 8px; height: 16px; }
+
+.speak-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 5px; animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* ========== KNOWLEDGE BROWSE ========== */
+.kb-wrap { padding: 12px 16px 40px; }
+.kb-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  padding: 18px 16px; margin-bottom: 10px;
+  cursor: pointer; transition: border-color 0.2s;
+}
+.kb-card:active { border-color: var(--accent); }
+.kb-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.kb-cat { font-size: 10px; font-family: 'JetBrains Mono', monospace; letter-spacing: 1.5px; color: var(--text3); }
+.kb-play-icon { margin-left: auto; font-size: 16px; color: var(--accent); width: 30px; height: 30px; border-radius: 50%; background: rgba(240,165,0,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.kb-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+.kb-body { font-size: 12px; color: var(--text2); line-height: 1.7; }
+.kb-body strong { color: var(--accent); }
+.kb-body .hl { background: rgba(240,165,0,.12); border-radius: 3px; padding: 0 4px; color: #fbbf24; font-weight: 600; }
+.kb-body .cr { color: #f87171; font-weight: 700; }
+.kb-body .cg { color: #4ade80; font-weight: 700; }
+.kb-body .cb { color: #60a5fa; font-weight: 700; }
+
+.kb-now-playing {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(13,17,23,.96); border-top: 1px solid var(--border);
+  padding: 12px 16px 24px;
+  display: none; align-items: center; gap: 12px;
+  backdrop-filter: blur(8px);
+}
+.kb-now-playing.show { display: flex; }
+.kb-np-info { flex: 1; min-width: 0; }
+.kb-np-title { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kb-np-cat { font-size: 11px; color: var(--text2); }
+.kb-np-btn { width: 42px; height: 42px; border-radius: 50%; border: none; background: var(--accent); color: #000; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.kb-stop-btn { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface2); color: var(--text2); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+/* ========== QUIZ ========== */
+.quiz-wrap { padding: 16px; padding-bottom: 40px; }
+.quiz-start { text-align: center; padding: 40px 20px; }
+.quiz-start-icon { font-size: 48px; margin-bottom: 16px; }
+.quiz-start h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+.quiz-start p { font-size: 13px; color: var(--text2); margin-bottom: 24px; line-height: 1.6; }
+.big-btn {
+  display: inline-block; padding: 14px 32px; border-radius: 12px;
+  background: var(--accent); color: #000; font-size: 16px; font-weight: 700;
+  border: none; cursor: pointer; font-family: 'Noto Sans TC', sans-serif;
+  width: 100%; transition: transform 0.15s;
+}
+.big-btn:active { transform: scale(0.97); }
+
+.quiz-question { display: none; }
+.quiz-q-meta { display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 12px; color: var(--text2); font-family: 'JetBrains Mono', monospace; }
+.quiz-q-text { font-size: 15px; font-weight: 600; line-height: 1.6; margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+.quiz-opts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.quiz-opt {
+  padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); font-size: 14px; text-align: left;
+  cursor: pointer; font-family: 'Noto Sans TC', sans-serif; line-height: 1.5;
+  transition: all 0.2s;
+}
+.quiz-opt:active:not([disabled]) { transform: scale(0.98); }
+.quiz-opt.correct { border-color: var(--green); background: rgba(34,197,94,.12); color: #4ade80; }
+.quiz-opt.wrong { border-color: var(--red); background: rgba(239,68,68,.12); color: #f87171; }
+.quiz-explanation {
+  background: var(--surface); border: 1px solid rgba(34,197,94,.3); border-radius: 12px;
+  padding: 16px; margin-bottom: 16px; font-size: 13px; line-height: 1.7; color: var(--text2);
+  display: none;
+}
+.quiz-explanation.show { display: block; }
+.quiz-explanation strong { color: #4ade80; }
+.quiz-next-btn { width: 100%; display: none; }
+.quiz-next-btn.show { display: block; }
+.quiz-result { display: none; text-align: center; padding: 20px 0; }
+.quiz-result-icon { font-size: 52px; margin-bottom: 12px; }
+.quiz-result h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+.quiz-result p { font-size: 14px; color: var(--text2); margin-bottom: 24px; }
+.quiz-score { font-size: 42px; font-weight: 900; color: var(--accent); margin: 12px 0; }
+.quiz-retry { background: var(--surface2); color: var(--text); margin-top: 10px; }
+
+/* ========== GUIDE ========== */
+.guide-wrap { padding: 12px 16px 40px; }
+.guide-section { margin-bottom: 8px; }
+.guide-section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; cursor: pointer; transition: border-color 0.2s;
+}
+.guide-section-head.open { border-radius: 12px 12px 0 0; border-color: var(--accent); }
+.guide-section-head:active { border-color: var(--accent); }
+.guide-section-title { font-size: 14px; font-weight: 700; }
+.guide-section-arrow { font-size: 14px; color: var(--text2); transition: transform 0.3s; }
+.guide-section-arrow.open { transform: rotate(180deg); }
+.guide-section-body {
+  border: 1px solid var(--accent); border-top: none;
+  border-radius: 0 0 12px 12px; padding: 16px; background: var(--surface2);
+  display: none;
+}
+.guide-section-body.open { display: block; }
+.guide-item { font-size: 13px; line-height: 1.9; color: var(--text2); margin-bottom: 8px; }
+.guide-item:last-child { margin-bottom: 0; }
+.guide-item strong { color: var(--text); }
+.guide-item .hl { background: rgba(240,165,0,.12); border: 1px solid rgba(240,165,0,.2); border-radius: 4px; padding: 1px 6px; font-weight: 600; color: #fbbf24; display: inline; }
+.guide-item .cr { color: #f87171; font-weight: 700; }
+.guide-item .cg { color: #4ade80; font-weight: 700; }
+.guide-item .cb { color: #60a5fa; font-weight: 700; }
+.guide-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+.guide-table th { background: rgba(240,165,0,.15); color: var(--accent); padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+.guide-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+.guide-table tr:last-child td { border-bottom: none; }
+
+/* ========== TTS WARNING ========== */
+.tts-warn { background: rgba(240,165,0,.1); border: 1px solid rgba(240,165,0,.3); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #fbbf24; margin: 0 16px 12px; text-align: center; }
+
+@keyframes slideRight { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+.page-enter { animation: slideRight 0.3s ease; }
+</style>
+</head>
+<body>
+
+<!-- ========== HOME ========== -->
+<div class="page active" id="pg-home">
+  <div class="home-header">
+    <div class="home-tag">22100 甲級職業衛生管理師</div>
+    <div class="home-title">熱危害 ＋ 粉塵危害<span>複習站</span></div>
+    <div class="home-sub">知識卡片・猜題・語音輪播・指引速查 · 全在一頁</div>
+  </div>
+  <div class="home-grid">
+    <div class="home-tile blue" onclick="goto('pg-audio')">
+      <span class="home-tile-icon">🎧</span>
+      <div class="home-tile-title">語音輪播</div>
+      <div class="home-tile-sub">翻牌複習＋自動朗讀<br>適合通勤使用</div>
+    </div>
+    <div class="home-tile purple" onclick="goto('pg-quiz')">
+      <span class="home-tile-icon">⏱</span>
+      <div class="home-tile-title">模擬猜題</div>
+      <div class="home-tile-sub">高頻考題作答<br>即時解析答案</div>
+      <span class="tile-badge">HOT</span>
+    </div>
+    <div class="home-tile teal" onclick="goto('pg-kb')">
+      <span class="home-tile-icon">📚</span>
+      <div class="home-tile-title">知識卡片</div>
+      <div class="home-tile-sub">可逐張朗讀<br>依知識點瀏覽</div>
+    </div>
+    <div class="home-tile indigo" onclick="goto('pg-guide')">
+      <span class="home-tile-icon">📋</span>
+      <div class="home-tile-title">指引速查</div>
+      <div class="home-tile-sub">條文重點折疊<br>數字一覽</div>
+    </div>
+    <div class="home-tile green full" onclick="goto('pg-law')">
+      <span class="home-tile-icon">⚖️</span>
+      <div class="home-tile-title">法規條文</div>
+      <div class="home-tile-sub">5大法規完整條文 ✦ 重點標註 ✦ 含114年最新修正<br>高溫作息標準・容許暴露標準・粉塵危害預防標準</div>
+      <span class="tile-badge">NEW</span>
+    </div>
+    <div class="home-tile amber full">
+      <span class="home-tile-icon">🔥</span>
+      <div class="home-tile-title">備考速記</div>
+      <div class="home-tile-sub">【熱危害】第四級≥54.4 ✦ 飲水15-20min/150-200mL ✦ 停工耳溫未適應>38°C｜已適應>38.5°C<br>【粉塵】可呼吸性＜4μm ✦ SiO₂新制0.1mg/m³（116.01.01） ✦ 臨時性作業≦3個月/1年不重覆</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 法規條文 ========== -->
+<div class="page" id="pg-law">
+  <div class="sub-header">
+    <button class="btn-back" onclick="goto('pg-home')">←</button>
+    <div>
+      <div class="sub-header-title">⚖️ 法規條文</div>
+      <div class="sub-header-sub">點標題展開完整條文，重點已標色</div>
+    </div>
+  </div>
+  <div class="guide-wrap" id="lawWrap"></div>
+</div>
+
+<!-- ========== 語音輪播 ========== -->
+<div class="page" id="pg-audio">
+  <div class="sub-header">
+    <button class="btn-back" onclick="goto('pg-home')">←</button>
+    <div>
+      <div class="sub-header-title">🎧 語音輪播複習</div>
+      <div class="sub-header-sub">點播放自動朗讀，左右滑動切換</div>
+    </div>
+  </div>
+  <div id="audioTtsWarn" class="tts-warn" style="display:none;margin-top:12px">⚠️ 請用 Chrome 或 Safari 以啟用朗讀功能</div>
+  <div class="player-wrap">
+    <div class="filter-tabs" id="audioTabs">
+      <button class="ftab active" data-f="all">全部</button>
+      <button class="ftab" data-f="knowledge">📚 知識卡</button>
+      <button class="ftab" data-f="guess">🎯 猜題</button>
+      <button class="ftab" data-f="guide">📋 指引</button>
+      <button class="ftab" data-f="law">⚖️ 法條</button>
+    </div>
+    <div class="prog-wrap">
+      <div class="prog-bar"><div class="prog-fill" id="aProg"></div></div>
+      <div class="prog-info">
+        <span class="prog-text" id="aProgTxt">01 / 30</span>
+        <span class="type-badge tb-k" id="aTypeBadge">知識卡</span>
+      </div>
+    </div>
+    <div class="flip-card-outer" id="flipOuter">
+      <div class="flip-card-inner" id="flipInner" onclick="flipCard()">
+        <div class="flip-face flip-front">
+          <div class="fc-cat" id="fcCat"></div>
+          <div class="fc-title" id="fcTitle"></div>
+          <div class="fc-body" id="fcBody"></div>
+          <div class="read-bar"><div class="read-fill" id="aReadFill"></div></div>
+        </div>
+        <div class="flip-face flip-back">
+          <div style="font-size:11px;color:var(--text3);font-family:JetBrains Mono,monospace;letter-spacing:2px;margin-bottom:10px">✓ ANSWER</div>
+          <div id="fcAnswer" style="font-size:13px;line-height:1.8;color:var(--text2)"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flip-hint" id="flipHint">點卡片翻面查看答案</div>
+  </div>
+  <div class="fixed-controls" id="audioControls">
+    <div class="status-txt" id="aStatus">點播放開始語音複習</div>
+    <div class="fc-row1">
+      <button class="ctrl-btn ctrl-icon" onclick="aShift(-1)">◁</button>
+      <button class="ctrl-btn ctrl-play" id="aPlayBtn" onclick="aToggle()">▶</button>
+      <button class="ctrl-btn ctrl-icon" onclick="aShift(1)">▷</button>
+    </div>
+    <div class="fc-row2">
+      <button class="sm-btn on" id="aBtnAuto" onclick="aToggleAuto()">🔁 自動</button>
+      <button class="sm-btn" id="aBtnShuffle" onclick="aToggleShuffle()">🔀 隨機</button>
+    </div>
+    <div class="fc-row3">
+      <span class="speed-label">速度</span>
+      <button class="sm-btn" data-sp="0.8">0.8x</button>
+      <button class="sm-btn on" data-sp="1.0">1.0x</button>
+      <button class="sm-btn" data-sp="1.2">1.2x</button>
+      <button class="sm-btn" data-sp="1.5">1.5x</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 知識卡片瀏覽 ========== -->
+<div class="page" id="pg-kb">
+  <div class="sub-header">
+    <button class="btn-back" onclick="kbStop();goto('pg-home')">←</button>
+    <div>
+      <div class="sub-header-title">📚 知識卡片</div>
+      <div class="sub-header-sub">點 ▶ 朗讀單張，點標題展開</div>
+    </div>
+  </div>
+  <div class="kb-wrap" id="kbWrap"></div>
+  <div class="kb-now-playing" id="kbNowPlaying">
+    <div class="kb-np-info">
+      <div class="kb-np-title" id="kbNpTitle">–</div>
+      <div class="kb-np-cat" id="kbNpCat">–</div>
+    </div>
+    <button class="kb-stop-btn" onclick="kbStop()">■</button>
+    <button class="kb-np-btn" id="kbNpBtn" onclick="kbToggle()">⏸</button>
+  </div>
+</div>
+
+<!-- ========== 猜題模擬 ========== -->
+<div class="page" id="pg-quiz">
+  <div class="sub-header">
+    <button class="btn-back" onclick="goto('pg-home')">←</button>
+    <div>
+      <div class="sub-header-title">⏱ 模擬猜題</div>
+      <div class="sub-header-sub">高頻考題・即時解析</div>
+    </div>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-start" id="qzStart">
+      <div class="quiz-start-icon">🎯</div>
+      <h2>開始猜題測驗</h2>
+      <p>共 15 題（熱危害10題＋粉塵5題）<br>含111年實際考題及修法重點<br>答完即時顯示解析</p>
+      <button class="big-btn" onclick="qzStart()">▶ 開始作答</button>
+    </div>
+    <div class="quiz-question" id="qzQ">
+      <div class="quiz-q-meta">
+        <span id="qzMeta">第 1 題 / 共 10 題</span>
+        <span id="qzType" style="color:var(--accent)"></span>
+      </div>
+      <div class="quiz-q-text" id="qzText"></div>
+      <div class="quiz-opts" id="qzOpts"></div>
+      <div class="quiz-explanation" id="qzExp"></div>
+      <button class="big-btn quiz-next-btn" id="qzNextBtn" onclick="qzNext()">下一題 →</button>
+    </div>
+    <div class="quiz-result" id="qzResult">
+      <div class="quiz-result-icon" id="qzResultIcon">🏆</div>
+      <h2 id="qzResultTitle">測驗完成！</h2>
+      <div class="quiz-score" id="qzScore"></div>
+      <p id="qzResultMsg"></p>
+      <button class="big-btn" onclick="qzStart()">再試一次</button>
+      <button class="big-btn quiz-retry" onclick="goto('pg-home')">回首頁</button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 指引速查 ========== -->
+<div class="page" id="pg-guide">
+  <div class="sub-header">
+    <button class="btn-back" onclick="goto('pg-home')">←</button>
+    <div>
+      <div class="sub-header-title">📋 指引速查</div>
+      <div class="sub-header-sub">點標題展開條文重點</div>
+    </div>
+  </div>
+  <div class="guide-wrap" id="guideWrap"></div>
+</div>
+
+<script>
+// ========== DATA ==========
+const CARDS = [
+  { type:'knowledge', category:'熱指數定義', title:'熱指數是什麼？', body:`熱指數透過<strong>溫度</strong>及<strong>相對濕度</strong>評估熱壓力。注意：<span class="cr">不考慮風速、輻射熱</span>，這是與WBGT最大差異。`, audio:'熱指數的定義：透過溫度和相對濕度，評估對人體造成熱壓力的指標。特別注意，熱指數只用溫度和相對濕度，不考慮風速或輻射熱，這是與WBGT的重要區別。' },
+  { type:'knowledge', category:'WBGT公式', title:'WBGT公式（必背：室內三七、戶外七二一）', body:`<span class="cb">室內 / 戶外無日曬：</span>0.7×濕球 ＋ 0.3×黑球<br><span class="cr">戶外有日曬：</span>0.7×濕球 ＋ 0.2×黑球 ＋ 0.1×乾球<br><br>口訣：<span class="hl">室內三七、戶外七二一</span>`, audio:'WBGT公式，口訣：室內三七、戶外七二一。室內無日曬：零點七乘濕球加零點三乘黑球。戶外有日曬：零點七乘濕球，加零點二乘黑球，加零點一乘乾球。' },
+  { type:'knowledge', category:'黑球溫度', title:'黑球溫度代表什麼效應？（111年考題）', body:`黑球溫度代表<strong>輻射熱</strong>效應。<br><br>• 自然濕球→<span class="cb">空氣濕度</span>｜黑球→<span class="cr">輻射熱</span>｜乾球→<span class="cg">空氣溫度</span>`, audio:'黑球溫度代表輻射熱效應，這是111年實際考題。三種溫度：自然濕球代表空氣濕度；黑球代表輻射熱；乾球代表空氣溫度。' },
+  { type:'knowledge', category:'風險等級', title:'四個熱危害風險等級', body:`第一級：<span class="hl">26.7～32.2</span> 基本防護<br>第二級：<span class="hl">32.2～40.6</span> 加強認知<br>第三級：<span class="hl">40.6～54.4</span> 避開高溫時段<br>第四級：<span class="hl">54.4 以上</span> 避免戶外作業<br><br>記憶：<strong>26→32→40→54</strong>`, audio:'四個熱危害風險等級。第一級熱指數26點7到32點2，基本防護。第二級32點2到40點6，加強認知。第三級40點6到54點4，避開高溫時段。第四級54點4以上，避免戶外作業。口訣：26、32、40、54。' },
+  { type:'knowledge', category:'等級提升', title:'哪些情況需提升一個風險等級？', body:`① ☀️ 陽光<strong>直接照射</strong>下作業<br>② 穿著<strong>不透氣厚重</strong>或<strong>抗滲透性防護衣</strong><br><br>⚠️ 限制：僅適用<span class="cr">第一至第三級</span>`, audio:'需要提升一個等級的情況有兩種：第一，陽光直接照射下作業；第二，穿著不透氣厚重或抗滲透性防護衣。注意限制：僅適用第一到第三級，第四級已是最高無法再提升。' },
+  { type:'knowledge', category:'飲水補充', title:'飲水頻率與水量（必背數字）', body:`每 <strong>15～20分鐘</strong> 補充一次｜每次 <strong>150～200 mL</strong><br><br>限制情況下最低：每小時 <strong>2～4 杯</strong>（每杯240 mL）<br>❌ 禁止含酒精飲料｜✅ 水溫 <span class="hl">10～15°C</span>`, audio:'飲水建議：每15到20分鐘補充一次，每次150到200毫升。受限情況下最低標準：每小時至少2到4杯，每杯約240毫升。禁止含酒精飲料，建議水溫攝氏10到15度。' },
+  { type:'knowledge', category:'熱適應', title:'熱適應訓練：新進 vs 有經驗勞工', body:`<span class="cb">新進（無高溫經驗）：</span>第1天≤<strong>20%</strong>，每天+20%<br><span class="cr">有高溫經驗：</span>第1天≤50%、第2天60%、第3天80%、<strong>第4天正常</strong>`, audio:'熱適應訓練。新進無高溫經驗：第一天不超過20%，之後每天增加20%。有高溫經驗：第一天50%、第二天60%、第三天80%、第四天恢復正常。' },
+  { type:'knowledge', category:'停工門檻', title:'三個停工標準（全部必背）', body:`① 耳溫：未適應 ><span class="hl">38°C</span>｜已適應 ><span class="hl">38.5°C</span><br>② 作業中心跳 ><span class="hl">180－年齡（次/分）</span><br>③ 停止作業後1分鐘心跳 ><span class="hl">120次/分</span>`, audio:'三個停工標準全部必背。第一，耳溫：未熱適應者超過攝氏38度、已熱適應者超過38點5度。第二，作業中心跳超過180減去年齡，次每分鐘。第三，停止作業後一分鐘，心跳仍超過120次每分鐘。' },
+  { type:'knowledge', category:'工作分類', title:'工作強度分類（111年考：中度工作）', body:`<span class="cg">輕工作</span>：坐/立姿操縱機器<br><span class="cb">中度工作</span>：走動中提舉/推動物體 ← <strong>111年考</strong><br><span class="cr">重工作</span>：鏟、掘、推等全身運動`, audio:'工作分類。輕工作：坐或立姿操縱機器。中度工作：走動中提舉或推動一般重量物體，這是111年考題。重工作：鏟、掘、推等全身運動。' },
+  { type:'knowledge', category:'熱中暑', title:'熱衰竭 vs 熱中暑', body:`<span class="cb">熱衰竭：</span>體溫＜<strong>40°C</strong>、大量出汗皮膚濕冷<br>→ 平躺腳抬高 + 冷敷補水<br><br><span class="cr">熱中暑：</span>體溫＞<strong>40°C</strong>、神志不清、<strong>可能無汗</strong>、皮膚乾燥發紅<br>→ <strong>立即撥打119</strong>`, audio:'熱衰竭體溫低於40度，大量出汗皮膚濕冷，處置是平躺腳抬高加冷敷補水。熱中暑體溫超過40度，神志不清，特別注意可能無汗、皮膚乾燥發紅，必須立即撥打119。' },
+  { type:'knowledge', category:'橫紋肌溶解症', title:'橫紋肌溶解症辨識', body:`關鍵症狀：尿液呈<span class="cr">茶色或可樂色</span>（最具辨識性）<br>成因：過度熱暴露+體能耗竭→骨骼肌分解<br>處置：立即停止→補水→立即就醫（驗<span class="hl">CPK</span>）`, audio:'橫紋肌溶解症，最具辨識性的症狀是尿液呈茶色或可樂色。成因是過度熱暴露加體能耗竭，導致骨骼肌快速分解。處置：立即停止活動、補水、立即就醫，告知醫師需要檢驗肌氨酸激酶即CPK。' },
+  { type:'knowledge', category:'WBGT計算', title:'計算練習：室內WBGT', body:`室內（無日曬）：濕球28°C、黑球35°C<br>公式：0.7×28 ＋ 0.3×35<br>＝ 19.6 ＋ 10.5 ＝ <span class="hl">30.1°C</span>`, audio:'計算練習。室內無日曬，濕球溫度28度、黑球溫度35度。使用室內公式：0點7乘以28等於19點6，加0點3乘以35等於10點5，WBGT等於30點1度。' },
+  { type:'knowledge', category:'重體力作業', title:'重體力作業規定', body:`每小時至少 <strong>20分鐘</strong> 休息<br>第四級：禁止戶外從事 ①不透氣防護衣作業 ②重體力作業`, audio:'重體力作業規定：每小時至少給予20分鐘充足休息。第四級時，除緊急救援外，禁止戶外從事兩種作業：穿著不透氣厚重防護衣，以及重體力作業。' },
+  { type:'guess', category:'高頻猜題★★★', title:'【111年考題】黑球溫度代表何種效應？', body:`①空氣溼度　②空氣流動　③輻射熱　④空氣溫度`, answer:'答案：③輻射熱。黑球為中空黑色球體，吸收環境輻射熱，故代表輻射熱效應。', audio:'猜題，111年實際考題。黑球溫度代表何種效應？答案是第三項，輻射熱。' },
+  { type:'guess', category:'高頻猜題★★★', title:'【111年考題】走動中提舉物體屬哪種工作？', body:`①輕工作　②中度工作　③重工作　④極重度工作`, answer:'答案：②中度工作。走動中提舉或推動一般重量物體＝中度工作。', audio:'猜題，111年考題。走動中提舉或推動一般重量物體，屬於哪種工作？答案是中度工作。' },
+  { type:'guess', category:'高頻猜題★★★', title:'【111年考題】熱衰竭：何者不正確？', body:`①好發於補充適量鹽分者　②與血液供輸量有關　③好發於未適應者　④好發於未補充水分者`, answer:'答案：①。熱衰竭因缺乏鹽分與水分導致，補充適量鹽分者不易發生，故①敘述錯誤。', audio:'猜題，111年考題。熱衰竭敘述何者不正確？答案是第一項。熱衰竭是缺乏鹽分與水分所致，有補充鹽分者反而不易發生，所以第一項敘述是錯的。' },
+  { type:'guess', category:'高頻猜題★★★', title:'【複選】哪些屬「高溫作業勞工作息時間標準」的作業？', body:`①烈陽下營造工程作業<br>②鑄造間處理熔融鋼鐵之作業<br>③灼熱鋼鐵壓軋及鍛造之作業<br>④於蒸汽火車、輪船機房從事之作業`, answer:'答案：②③④。烈陽下營造工程屬「高氣溫戶外作業預防指引」，不在高溫作息時間標準內。', audio:'複選猜題。哪些屬高溫作業勞工作息時間標準的作業？答案是第二、三、四項。烈陽下營造工程作業不在此標準內，它屬於高氣溫戶外作業熱危害預防指引的範疇。' },
+  { type:'guess', category:'高頻猜題★★', title:'高溫作業特殊健檢，哪項「非」應實施？', body:`①作業經歷之調查　②胸部X光攝影　③肺功能檢查　④心電圖檢查`, answer:'答案：②胸部X光。高溫作業健檢含：作業經歷、肺功能、心電圖。X光是粉塵/石綿作業的項目。', audio:'猜題。高溫作業的特殊健康檢查，哪項不應實施？答案是第二項胸部X光攝影。高溫作業健檢包含作業經歷調查、肺功能、心電圖，X光是粉塵或石綿作業才需要的。' },
+  { type:'guess', category:'猜題★★', title:'熱中暑急救，哪個做法錯誤？', body:`①立即撥打119　②冰袋置頸部腋窩鼠蹊部　③鬆開衣物移至陰涼處　④給予含酒精飲料散熱`, answer:'答案：④。任何熱疾病均禁止含酒精飲料。意識清醒者可給電解質飲品（不含酒精、咖啡因）。', audio:'猜題。熱中暑急救哪個做法錯誤？答案是第四項，給予含酒精飲料。任何熱疾病都禁止使用含酒精飲料，這是基本原則。' },
+  { type:'guess', category:'猜題★', title:'衡量空調舒適程度的指標為何？（111年考題）', body:`①等熱收支溫度ECT　②有效溫度ET　③WBGT　④熱應力指數HSI`, answer:'答案：②有效溫度(ET)。WBGT是危害評估指標；ET是空調舒適度指標，功能不同。', audio:'猜題，111年考題。衡量空調舒適程度的指標是哪個？答案是有效溫度ET。WBGT是高溫作業危害評估指標，ET是空調舒適度指標，兩者功能不同。' },
+  { type:'guide', category:'指引第五點', title:'查表規則：無對應值取較高值', body:`現場32.0°C、相對濕度67%<br>→ 以<strong>32.2°C + 70%</strong>評估（取較高值）<br>→ 查表得熱指數 <strong>40.6</strong>（第三級）`, audio:'指引第五點查表規則。若查表時溫度或濕度沒有精確對應值，應取較高數值評估。範例：現場32.0度、相對濕度67%，應以32.2度和70%評估，查表得熱指數40.6，對應第三級。' },
+  { type:'guide', category:'指引第六點', title:'提升等級兩大觸發條件', body:`① 陽光<strong>直接照射</strong>下作業<br>② 穿著<strong>不透氣厚重或抗滲透性防護衣</strong><br><br>適用：第一至第三級（第四級已是最高）`, audio:'指引第六點。提升一級的觸發條件：第一，陽光直接照射；第二，穿著不透氣厚重或抗滲透性防護衣。僅適用第一到第三級。' },
+  { type:'guide', category:'指引第七點', title:'第四級強制設備', body:`① 作業場所：遮陽設施 + 風扇/水霧降溫<br>② 休息場所：冷氣、風扇或自然通風<br>③ 密閉空間（貨櫃屋等）：<strong>必設冷氣機</strong><br>④ 提供充足飲水`, audio:'第四級強制設備。作業場所需設遮陽設施加風扇或水霧。休息場所需有冷氣、風扇或自然通風。若用貨櫃屋等密閉空間作為休息場所且無降溫效果，必須設置冷氣機。並提供充足飲水。' },
+  { type:'guide', category:'氣象署燈號', title:'高溫燈號 vs 熱危害等級', body:`🟡 黃燈：氣溫≥<strong>36°C</strong>（普遍已達第三級以上）<br>🟠 橙燈：36°C持續3天以上；或≥38°C<br>🔴 紅燈：≥<strong>38°C</strong> 且持續3天以上`, audio:'氣象署高溫燈號。黃燈是氣溫達攝氏36度以上，此時普遍已達熱危害第三級以上。橙燈是36度持續3天以上，或達38度以上。紅燈是38度以上且持續3天以上。' },
+
+  // ===== 粉塵危害 知識卡 =====
+  { type:'knowledge', category:'粉塵粒徑分類', title:'粉塵三種粒徑分類（必背數字）', body:`<span class="cb">吸入性粉塵</span>：＜<span class="hl">100 μm</span>，可經口鼻進入呼吸系統<br><span class="cg">胸腔性粉塵</span>：＜<span class="hl">10 μm</span>，穿越咽喉→進入胸腔<br><span class="cr">可呼吸性粉塵</span>：＜<span class="hl">4 μm</span>，可<strong>深入肺部</strong><br><br>口訣：<strong>100口鼻→10胸腔→4入肺</strong>`, audio:'粉塵三種粒徑分類必背數字。吸入性粉塵，粒徑小於100微米，可經口鼻進入呼吸系統。胸腔性粉塵，小於10微米，穿越咽喉進入胸腔。可呼吸性粉塵，小於4微米，可深入肺部。口訣：100進口鼻、10進胸腔、4入肺。' },
+
+  { type:'knowledge', category:'粉塵法規分類', title:'舊制 vs 新制粉塵分類（114年修正）', body:`<span class="cr">舊制（已廢）：</span>第一種SiO₂≥10%、第二種＜10%<br><span class="cg">新制（116.01.01施行）：</span><br>✅ 合併→ <strong>結晶型游離二氧化矽</strong><br>容許濃度：<span class="hl">0.1 mg/m³</span>（可呼吸性）<br>石綿：<span class="hl">0.15 f/cc</span>｜厭惡性：<span class="hl">5/10 mg/m³</span>`, audio:'粉塵法規分類舊制廢除重點。舊制將粉塵依SiO2含量10%為界，分第一種和第二種，114年修正已廢除此分類。新制自116年1月1日施行，合併為結晶型游離二氧化矽，容許濃度統一為0點1毫克每立方公尺，適用可呼吸性粉塵。石綿纖維維持0點15根每立方公分，厭惡性粉塵可呼吸性5、總粉塵10毫克每立方公尺。' },
+
+  { type:'knowledge', category:'附表二定義', title:'附表二四個重要定義（問答題必備）', body:`① <strong>可呼吸性粉塵</strong>：會進入無纖毛呼吸道之粉塵<br>② <strong>總粉塵</strong>：特定體積空氣中全部懸浮粉塵<br>③ <strong>結晶型游離二氧化矽</strong>：指<span class="hl">石英、方矽石及鱗矽石</span><br>④ <strong>石綿粉塵</strong>：纖維長≥<span class="hl">5μm</span>、直徑＜<span class="hl">3μm</span>、長寬比≥<span class="hl">3</span>`, audio:'附表二四個重要定義，問答題必備。第一，可呼吸性粉塵，指會進入無纖毛呼吸道的粉塵。第二，總粉塵，指特定體積空氣中全部懸浮的粉塵。第三，結晶型游離二氧化矽，指石英、方矽石及鱗矽石三種。第四，石綿粉塵，纖維長度在5微米以上、直徑小於3微米、且長寬比在3以上。' },
+
+  { type:'knowledge', category:'用辭定義', title:'三個「作業時間」定義（問答題高頻）', body:`<span class="cb">臨時性作業</span>：正常作業以外，期間≦<span class="hl">3個月</span>，且<span class="hl">1年</span>內不再重覆<br><span class="cg">作業時間短暫</span>：每日≦<span class="hl">1小時</span><br><span class="cr">作業期間短暫</span>：期間≦<span class="hl">1個月</span>，終了後<span class="hl">6個月</span>內不再實施<br><br>⚠️ 三種情況符合其一 ＋ 供給呼吸防護具 → <strong>可免設密閉設備或局排</strong>`, audio:'三個作業時間定義，問答題高頻考點。臨時性作業：正常作業以外，期間不超過三個月，且一年內不再重覆。作業時間短暫：每日作業不超過一小時。作業期間短暫：期間不超過一個月，且終了日起六個月內不再實施。重要：符合三種情況任一，且已供給適當呼吸防護具，可免設置密閉設備或局部排氣裝置。' },
+
+  { type:'knowledge', category:'工程控制', title:'特定粉塵作業三種控制設備', body:`優先順序：<strong>密閉設備 ＞ 局部排氣裝置 ＞ 維持濕潤狀態</strong>（三選一）<br><br>氣罩三型：<br>📦 <span class="cb">包圍型</span>：完全包住發生源，效果最佳<br>🔄 <span class="cg">外裝型</span>：側/上/下吸引，最常用<br>💨 <span class="cr">吹吸型</span>：一側吹、一側吸，適合大面積`, audio:'特定粉塵作業三種控制設備，優先順序為密閉設備最優先，其次局部排氣裝置，最後維持濕潤狀態，三者選一即可。局部排氣裝置的氣罩分三型：包圍型完全包住發生源效果最佳；外裝型在發生源旁側上方或下方吸引，最常用；吹吸型一側吹風另一側吸引，適合較大面積的發生源。' },
+
+  { type:'knowledge', category:'作業管理', title:'粉塵作業管理五重點', body:`① 指定<strong>粉塵作業主管</strong>監督<br>② 公告<strong>禁止飲食、吸菸</strong>於明顯處<br>③ 室內每日清掃<span class="hl">至少1次</span><br>④ 每月以真空吸塵器或水沖洗<span class="hl">至少1次</span>（禁止乾式掃帚清掃）<br>⑤ 使用<strong>輸氣管面罩</strong>連續作業每次≦<span class="hl">1小時</span>`, audio:'粉塵作業管理五重點。第一，應指定粉塵作業主管監督作業。第二，公告禁止飲食及吸菸，揭示於明顯易見處。第三，室內每日清掃至少一次。第四，每月至少一次使用真空吸塵器或水沖洗，禁止用掃帚乾式清掃。第五，使用輸氣管面罩連續作業，每次不得超過一小時。' },
+
+  { type:'knowledge', category:'粉塵爆炸', title:'粉塵爆炸性分類（低頻但需知）', body:`<span class="cr">爆炸性粉塵</span>（與空氣混合遇火源可爆炸）：<br>→ 鋁粉、鎂粉、麵粉、糖粉、煤粉、木粉<br><br><span class="cg">非爆炸性粉塵</span>：<br>→ 矽石、石灰石、水泥、石綿<br><br>記憶：<strong>金屬粉＋有機粉＝多為爆炸性</strong><br>礦物性粉塵＝多為非爆炸性`, audio:'粉塵爆炸性分類。爆炸性粉塵是與空氣混合後遇到火源可能爆炸的粉塵，代表物有鋁粉、鎂粉、麵粉、糖粉、煤粉、木粉。非爆炸性粉塵包括矽石、石灰石、水泥、石綿。記憶口訣：金屬粉末加有機粉末多為爆炸性，礦物性粉塵多為非爆炸性。' },
+
+  // ===== 粉塵 猜題 =====
+  { type:'guess', category:'粉塵猜題★★★', title:'【問答題】請說明「作業期間短暫」之定義', body:`粉塵危害預防標準之用辭定義<br><br>考法：填空或問答，要能完整說出兩個數字條件`, answer:'答：指同一特定粉塵發生源之特定粉塵作業，其作業期間不超過「一個月」，且確知自該作業終了日起「六個月」以內，不再實施該作業者。符合本情形且已供給適當呼吸防護具，可免設密閉設備或局排。', audio:'問答題猜題。作業期間短暫的定義：指同一特定粉塵發生源之特定粉塵作業，其作業期間不超過一個月，且確知自該作業終了日起六個月以內，不再實施該作業者。重點是兩個數字：一個月和六個月，兩個都要答到。' },
+
+  { type:'guess', category:'粉塵猜題★★★', title:'【選擇】可呼吸性粉塵粒徑為何？', body:`①＜100μm　②＜10μm　③＜4μm　④＜1μm<br><br>⚠️ 與容許濃度0.1 mg/m³連結記憶`, answer:'答案：③＜4μm。可呼吸性粉塵可透過離心式等分粒裝置測得，可深入肺部。結晶型游離二氧化矽新制容許濃度0.1mg/m³，即針對此類粉塵管制。', audio:'猜題。可呼吸性粉塵的粒徑為何？答案是第三項，小於4微米。可呼吸性粉塵可透過離心式等分粒裝置測得，能深入肺部，是最危險的粒徑。結晶型游離二氧化矽的容許濃度0點1毫克每立方公尺，就是針對可呼吸性粉塵管制的。' },
+
+  { type:'guess', category:'粉塵猜題★★★', title:'【選擇】結晶型游離二氧化矽新制容許濃度？', body:`①0.01 mg/m³　②0.1 mg/m³　③1 mg/m³　④0.15 f/cc<br><br>修正日期：114.04.11，施行：116.01.01`, answer:'答案：②0.1 mg/m³（可呼吸性粉塵）。注意0.15 f/cc是石綿纖維的容許濃度，不要混淆。', audio:'猜題，114年修法重點。結晶型游離二氧化矽新制容許濃度為何？答案是第二項，0點1毫克每立方公尺，針對可呼吸性粉塵。注意不要和石綿纖維的0點15根每立方公分搞混。' },
+
+  { type:'guess', category:'粉塵猜題★★', title:'【問答】結晶型游離二氧化矽的定義為何？', body:`依勞工作業場所容許暴露標準附表二<br><br>考法：問「包含哪些物質」`, answer:'答：結晶型游離二氧化矽係指「石英、方矽石及鱗矽石」。（附表二說明第四點）', audio:'問答猜題。依容許暴露標準附表二，結晶型游離二氧化矽係指哪些物質？答案是石英、方矽石及鱗矽石三種，三個都要答到。' },
+
+  { type:'guess', category:'粉塵猜題★★', title:'【選擇】下列何者屬「爆炸性粉塵」？', body:`①矽石粉塵　②石灰石粉塵　③鋁粉　④水泥粉塵`, answer:'答案：③鋁粉。金屬粉末（鋁、鎂）及有機粉末（麵粉、糖粉、木粉）為爆炸性粉塵；礦物性粉塵（矽石、石灰石、水泥）為非爆炸性。', audio:'猜題。下列何者屬爆炸性粉塵？答案是第三項，鋁粉。記憶口訣：金屬粉末加有機粉末多為爆炸性，矽石、石灰石、水泥等礦物性粉塵為非爆炸性。' },
+
+  // ===== 法條語音卡 =====
+  { type:'law', category:'職業安全衛生法', title:'職安法第19條：高溫作業工時限制', body:`在高溫場所工作之勞工，雇主不得使其每日工作時間超過<strong>六小時</strong>。<br><br>異常氣壓、高架、精密、重體力勞動或其他特殊危害作業，亦應規定減少工作時間並予適當休息。<br><br>⚠️ 僅適用<span class="cr">高溫作業（室內特定作業）</span>，非戶外高氣溫通用規定`, audio:'職業安全衛生法第19條，高溫作業工時限制。在高溫場所工作之勞工，雇主不得使其每日工作時間超過六小時。異常氣壓、高架、精密、重體力勞動或其他特殊危害作業，亦應規定減少工作時間並予適當休息。特別注意，每日工作不得超過六小時，僅適用高溫作業勞工作息時間標準所定之室內特定高溫作業，不適用於戶外高氣溫作業。' },
+
+  { type:'law', category:'職業安全衛生法', title:'職安法第6條：雇主設施義務（粉塵依據）', body:`雇主對防止原料、材料、氣體、蒸氣、<strong>粉塵</strong>、溶劑、化學品、含毒性物質或缺氧等引起之危害，應有符合規定之必要安全衛生設施及措施。<br><br>→ <span class="hl">粉塵危害預防標準</span>依第6條第3項授權訂定`, audio:'職業安全衛生法第6條，雇主設施義務。雇主對防止原料、材料、氣體、蒸氣、粉塵、溶劑、化學品、含毒性物質或缺氧等引起之危害，應有符合規定之必要安全衛生設施及措施。粉塵危害預防標準即依此條第三項授權訂定。' },
+
+  { type:'law', category:'高溫作業勞工作息時間標準', title:'第2條：高溫作業種類（8大類）', body:`高溫作業須WBGT達第5條連續作業規定值以上，且為以下作業：<br>① 鍋爐房作業　② 灼熱鋼鐵壓軋及鍛造<br>③ 鑄造間處理熔融鋼鐵或其他金屬<br>④ 鋼鐵或金屬加熱或熔煉<br>⑤ 搪瓷、玻璃、電石及熔爐高溫熔料<br>⑥ 蒸汽火車、輪船機房<br>⑦ 蒸汽操作、燒窯<br>⑧ 其他中央主管機關指定<br><br><span class="cr">不含自動化操作且勞工無暴露熱危害之虞者</span>`, audio:'高溫作業勞工作息時間標準第2條，高溫作業8大種類。高溫作業是指勞工工作日時量平均WBGT值達第5條連續作業規定值以上的下列作業：第一，鍋爐房作業。第二，灼熱鋼鐵或其他金屬塊壓軋及鍛造之作業。第三，鑄造間處理熔融鋼鐵或其他金屬之作業。第四，鋼鐵或其他金屬類物料加熱或熔煉之作業。第五，處理搪瓷、玻璃、電石及熔爐高溫熔料之作業。第六，於蒸汽火車、輪船機房從事之作業。第七，從事蒸汽操作、燒窯等作業。第八，其他經中央主管機關指定之高溫作業。不包括已採取自動化操作且勞工無暴露熱危害之虞者。' },
+
+  { type:'law', category:'高溫作業勞工作息時間標準', title:'第3條：WBGT計算公式', body:`<span class="cb">室內 / 戶外無日曬：</span><br>WBGT ＝ 0.7×自然濕球溫度 ＋ 0.3×黑球溫度<br><br><span class="cr">戶外有日曬：</span><br>WBGT ＝ 0.7×自然濕球 ＋ 0.2×黑球 ＋ 0.1×乾球<br><br>口訣：<span class="hl">室內三七、戶外七二一</span>`, audio:'高溫作業勞工作息時間標準第3條，WBGT計算公式。口訣：室內三七、戶外七二一。室內或戶外無日曬：WBGT等於0點7乘以自然濕球溫度，加0點3乘以黑球溫度。戶外有日曬：WBGT等於0點7乘以自然濕球，加0點2乘以黑球，加0點1乘以乾球。' },
+
+  { type:'law', category:'高溫作業勞工作息時間標準', title:'第4條：工作分類定義', body:`<span class="cg">輕工作</span>：僅以坐姿或立姿進行手臂部動作以操縱機器者<br><span class="cb">中度工作</span>：於走動中提舉或推動一般重量物體者 ← <strong>111年考</strong><br><span class="cr">重工作</span>：鏟、掘、推等全身運動之工作者`, audio:'高溫作業勞工作息時間標準第4條，工作分類定義。輕工作，指僅以坐姿或立姿進行手臂部動作以操縱機器者。中度工作，指於走動中提舉或推動一般重量物體者，這是111年實際考題。重工作，指鏟、掘、推等全身運動之工作者。' },
+
+  { type:'law', category:'高溫作業勞工作息時間標準', title:'第5條：WBGT作息分配表（術科計算核心）', body:`<table style="font-size:12px;width:100%;border-collapse:collapse"><tr style="background:rgba(240,165,0,.15)"><td style="padding:5px;border:1px solid #30363d">WBGT(°C)</td><td style="padding:5px;border:1px solid #30363d">連續作業</td><td style="padding:5px;border:1px solid #30363d">75%作/25%休</td><td style="padding:5px;border:1px solid #30363d">50%作/50%休</td><td style="padding:5px;border:1px solid #30363d">25%作/75%休</td></tr><tr><td style="padding:5px;border:1px solid #30363d">輕工作</td><td style="padding:5px;border:1px solid #30363d;color:#4ade80">30.6</td><td style="padding:5px;border:1px solid #30363d">31.4</td><td style="padding:5px;border:1px solid #30363d">32.2</td><td style="padding:5px;border:1px solid #30363d">33.0</td></tr><tr><td style="padding:5px;border:1px solid #30363d">中度工作</td><td style="padding:5px;border:1px solid #30363d;color:#60a5fa">28.0</td><td style="padding:5px;border:1px solid #30363d">29.4</td><td style="padding:5px;border:1px solid #30363d">31.1</td><td style="padding:5px;border:1px solid #30363d">32.6</td></tr><tr><td style="padding:5px;border:1px solid #30363d">重工作</td><td style="padding:5px;border:1px solid #30363d;color:#f87171">25.9</td><td style="padding:5px;border:1px solid #30363d">27.9</td><td style="padding:5px;border:1px solid #30363d">30.0</td><td style="padding:5px;border:1px solid #30363d">32.1</td></tr></table><br>每日工作時間不得超過 <span class="hl">6小時</span>`, audio:'高溫作業勞工作息時間標準第5條，WBGT作息分配表，術科計算核心。輕工作：連續作業30點6度、超過則依序25%休息對應31點4、50%休息對應32點2、75%休息對應33點0度。中度工作：連續28點0、25%休息29點4、50%休息31點1、75%休息32點6度。重工作：連續25點9、25%休息27點9、50%休息30點0、75%休息32點1度。注意：每日工作時間不得超過6小時。' },
+
+  { type:'law', category:'高溫作業勞工作息時間標準', title:'第6條：薪資保障 / 第6-1條：雇主措施', body:`<strong>第6條</strong>：依本標準降低工作時間之勞工，<span class="cr">其原有工資不得減少</span>。<br><br><strong>第6-1條</strong>：雇主使勞工從事高溫作業，應<strong>充分供應飲用水及食鹽</strong>，並採取指導勞工避免高溫作業危害之必要措施。`, audio:'高溫作業勞工作息時間標準第6條及第6之1條。第6條：依本標準降低工作時間之勞工，其原有工資不得減少，這是常見考點。第6之1條：雇主使勞工從事高溫作業，應充分供應飲用水及食鹽，並採取指導勞工避免高溫作業危害之必要措施。' },
+
+  { type:'law', category:'容許暴露標準（114.04.11）', title:'附表二：粉塵容許濃度新制', body:`<span class="cr">結晶型游離二氧化矽</span>（石英、方矽石、鱗矽石）<br>→ 可呼吸性：<span class="hl">0.1 mg/m³</span>，無總粉塵值，符號：瘤<br>→ <span class="cr">自116.01.01施行</span><br><br>石綿纖維：<span class="hl">0.15 f/cc</span>，符號：瘤<br>厭惡性粉塵：可呼吸性<span class="hl">5 mg/m³</span>、總粉塵<span class="hl">10 mg/m³</span><br><br>修正日期：<span class="hl">114.04.11</span>`, audio:'容許暴露標準附表二，粉塵容許濃度新制，114年4月11日修正。結晶型游離二氧化矽，包含石英、方矽石及鱗矽石，可呼吸性粉塵容許濃度為0點1毫克每立方公尺，沒有總粉塵限值，符號為瘤，自116年1月1日施行。石綿纖維容許濃度0點15根每立方公分，符號為瘤。厭惡性粉塵，可呼吸性5毫克、總粉塵10毫克每立方公尺。' },
+
+  { type:'law', category:'容許暴露標準', title:'附表二說明：五個重要定義', body:`① 本表容許濃度均為<strong>八小時日時量平均</strong>容許濃度<br>② <span class="cb">可呼吸性粉塵</span>：會進入<strong>無纖毛呼吸道</strong>之粉塵<br>③ <span class="cg">總粉塵</span>：某特定體積空氣中<strong>全部</strong>懸浮粉塵<br>④ <span class="cr">結晶型游離二氧化矽</span>：指<strong>石英、方矽石及鱗矽石</strong><br>⑤ <span class="cb">石綿粉塵</span>：長≥<span class="hl">5μm</span>、徑＜<span class="hl">3μm</span>、長寬比≥<span class="hl">3</span>`, audio:'容許暴露標準附表二五個說明，全部必背。第一，本表容許濃度均為八小時日時量平均容許濃度。第二，可呼吸性粉塵，指會進入無纖毛呼吸道之粉塵。第三，總粉塵，指在某一特定體積空氣中懸浮之全部粉塵。第四，結晶型游離二氧化矽，係指石英、方矽石及鱗矽石。第五，石綿粉塵，纖維長度在5微米以上，直徑小於3微米，且長寬比在3以上之粉塵。' },
+
+  { type:'law', category:'粉塵危害預防標準', title:'第2條：七個用辭定義（問答核心）', body:`① <strong>粉塵作業</strong>：附表一甲欄所列之作業<br>② <strong>特定粉塵發生源</strong>：附表一乙欄所列之處所<br>③ <strong>密閉設備</strong>：密閉粉塵發生源，使其不致散布之設備<br>④ <strong>局部排氣裝置</strong>：藉動力強制吸引並排出已發散粉塵之設備<br>⑤ <span class="hl">臨時性作業</span>：不超過<strong>3個月</strong>且<strong>1年</strong>內不再重覆<br>⑥ <span class="hl">作業時間短暫</span>：每日不超過<strong>1小時</strong><br>⑦ <span class="hl">作業期間短暫</span>：不超過<strong>1個月</strong>，終了後<strong>6個月</strong>內不再實施`, audio:'粉塵危害預防標準第2條，七個用辭定義，問答核心。第一，粉塵作業，指附表一甲欄所列之作業。第二，特定粉塵發生源，指附表一乙欄所列作業之處所。第三，密閉設備，指密閉粉塵之發生源，使其不致散布之設備。第四，局部排氣裝置，指藉動力強制吸引並排出已發散粉塵之設備。第五，臨時性作業，作業期間不超過三個月，且一年內不再重覆。第六，作業時間短暫，每日作業不超過一小時。第七，作業期間短暫，作業期間不超過一個月，且終了日起六個月以內不再實施。' },
+
+  { type:'law', category:'粉塵危害預防標準', title:'第6條：工程控制（免設條件在第12條）', body:`雇主應依附表一乙欄，分別設置以下任一種設備：<br>① <strong>密閉設備</strong>（最優先）<br>② <strong>局部排氣裝置</strong><br>③ <strong>維持濕潤狀態</strong><br><br>免設條件（第12條）：符合臨時性作業、作業時間短暫或作業期間短暫，且已供給適當<strong>呼吸防護具</strong>`, audio:'粉塵危害預防標準第6條，工程控制規定。雇主為防止特定粉塵發生源的粉塵發散，應依附表一乙欄，分別設置對應設備的任何一種：第一選擇是密閉設備，第二是局部排氣裝置，第三是維持濕潤狀態。免設規定在第12條：符合臨時性作業、作業時間短暫或作業期間短暫任一情形，且已供給勞工適當呼吸防護具，可不適用第6條規定。' },
+
+  { type:'law', category:'粉塵危害預防標準', title:'第20-24條：作業管理重點條文', body:`<strong>第20條</strong>：應指定<span class="hl">粉塵作業主管</span>監督作業<br><strong>第21條</strong>：公告<span class="hl">禁止飲食或吸菸</span>，揭示於明顯易見處<br><strong>第22條</strong>：每日清掃<span class="hl">至少1次</span>；每月以真空吸塵器或水沖洗<span class="hl">至少1次</span><br><strong>第24條</strong>：輸氣管面罩連續作業每次≦<span class="hl">1小時</span>`, audio:'粉塵危害預防標準第20到24條，作業管理重點條文。第20條：僱用勞工從事粉塵作業時，應指定粉塵作業主管，從事監督作業。第21條：應公告粉塵作業場所禁止飲食或吸菸，並揭示於明顯易見之處所。第22條：室內粉塵作業場所至少每日應清掃一次以上；至少每月應使用真空吸塵器或水沖洗等不致揚塵之方法清除一次。第24條：使勞工戴用輸氣管面罩之連續作業時間，每次不得超過一小時。' },
+
+  { type:'law', category:'職安衛設施規則', title:'第303條之1 & 第324條之6（熱危害法源）', body:`<strong>第303條之1</strong>（戶外高氣溫作業）：<br>雇主使勞工於戶外高氣溫作業時，應設置：<br>① 遮陽設施　② 降低暴露溫度設備（風扇/水霧）<br>③ 適當休息場所　④ 充足飲用水<br><br><strong>第324條之6</strong>（預防計畫）：<br>應依高氣溫作業熱危害預防指引訂定<strong>熱危害預防計畫</strong>，並實施教育訓練及緊急應變機制`, audio:'職業安全衛生設施規則第303條之1及第324條之6，高氣溫作業熱危害的法源依據。第303條之1：雇主使勞工於戶外高氣溫作業時，應設置遮陽設施、降低勞工暴露溫度之設備（風扇或水霧）、適當休息場所，並提供充足飲用水。第324條之6：雇主使勞工從事戶外作業，應參照高氣溫作業熱危害預防指引，訂定熱危害預防計畫，對勞工實施教育訓練，並建立緊急醫療、通報及應變處理機制。' },
+];
+
+// ========== NAVIGATION ==========
+function goto(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const pg = document.getElementById(id);
+  pg.classList.add('active');
+  pg.classList.add('page-enter');
+  setTimeout(() => pg.classList.remove('page-enter'), 400);
+  window.scrollTo(0,0);
+  if (id === 'pg-kb') renderKb();
+  if (id === 'pg-guide') renderGuide();
+  if (id === 'pg-law') renderLaw();
+}
+
+// ========== AUDIO PLAYER ==========
+const synth = window.speechSynthesis;
+const hasTTS = !!synth;
+let aCards = [...CARDS];
+let aIdx = 0;
+let aPlaying = false;
+let aAuto = true;
+let aShuffle = false;
+let aSpeed = 1.0;
+let aFilter = 'all';
+let aUtterance = null;
+let aTimeout = null;
+
+if (!hasTTS) document.getElementById('audioTtsWarn').style.display = 'block';
+
+function getFilteredCards(f) {
+  return f === 'all' ? [...CARDS] : CARDS.filter(c => c.type === f);
+}
+
+function aRender(dir = 1) {
+  const c = aCards[aIdx];
+  document.getElementById('fcCat').textContent = c.category.toUpperCase();
+  document.getElementById('fcTitle').textContent = c.title;
+  document.getElementById('fcBody').innerHTML = c.body;
+  const ans = c.answer || c.audio || '';
+  document.getElementById('fcAnswer').textContent = c.answer || '（無翻面內容）';
+  document.getElementById('flipHint').textContent = c.answer ? '點卡片翻面查看答案' : '';
+  document.getElementById('flipInner').classList.remove('flipped');
+
+  const pct = ((aIdx+1)/aCards.length*100);
+  document.getElementById('aProg').style.width = pct + '%';
+  document.getElementById('aProgTxt').textContent = String(aIdx+1).padStart(2,'0') + ' / ' + String(aCards.length).padStart(2,'0');
+
+  const bm = { knowledge:['📚 知識卡','tb-k'], guess:['🎯 猜題','tb-g'], guide:['📋 指引','tb-r'], law:['⚖️ 法條','tb-law'] };
+  const [lbl, cls] = bm[c.type] || ['📄','tb-k'];
+  const b = document.getElementById('aTypeBadge');
+  b.textContent = lbl; b.className = 'type-badge ' + cls;
+}
+
+function flipCard() {
+  document.getElementById('flipInner').classList.toggle('flipped');
+}
+
+function aSpeak(onEnd) {
+  if (!hasTTS) return;
+  synth.cancel();
+  const c = aCards[aIdx];
+  const txt = c.audio || (c.title + '。' + c.body.replace(/<[^>]+>/g,''));
+  aUtterance = new SpeechSynthesisUtterance(txt);
+  aUtterance.lang = 'zh-TW'; aUtterance.rate = aSpeed;
+  const vs = synth.getVoices();
+  const v = vs.find(x => x.lang.startsWith('zh') && (x.name.includes('TW')||x.name.includes('台')||x.name.includes('Mandarin'))) || vs.find(x => x.lang.startsWith('zh'));
+  if (v) aUtterance.voice = v;
+  const len = txt.length;
+  aUtterance.onend = () => { if(onEnd) onEnd(); };
+  aUtterance.onerror = () => { aStop(); if(onEnd) onEnd(); };
+  synth.speak(aUtterance);
+  // reading bar
+  const rf = document.getElementById('aReadFill');
+  const dur = (len / aSpeed) * 130;
+  rf.style.transition = 'none'; rf.style.width = '0';
+  requestAnimationFrame(() => { rf.style.transition = `width ${dur}ms linear`; rf.style.width = '100%'; });
+}
+
+function aStop() {
+  if(hasTTS) synth.cancel();
+  const rf = document.getElementById('aReadFill');
+  rf.style.transition = 'none'; rf.style.width = '0';
+  clearTimeout(aTimeout);
+}
+
+function aPlay() {
+  aPlaying = true;
+  document.getElementById('aPlayBtn').textContent = '⏸';
+  document.getElementById('aPlayBtn').classList.add('on');
+  document.getElementById('aStatus').innerHTML = '<span class="speak-dot"></span>朗讀中…';
+  aSpeak(() => {
+    if (!aPlaying) return;
+    if (aAuto) {
+      aTimeout = setTimeout(() => { if(!aPlaying) return; aShift(1); }, 1000);
+    } else {
+      aPlaying = false;
+      document.getElementById('aPlayBtn').textContent = '▶';
+      document.getElementById('aPlayBtn').classList.remove('on');
+      document.getElementById('aStatus').textContent = '已暫停';
+    }
+  });
+}
+
+function aPause() {
+  aPlaying = false;
+  aStop();
+  document.getElementById('aPlayBtn').textContent = '▶';
+  document.getElementById('aPlayBtn').classList.remove('on');
+  document.getElementById('aStatus').textContent = '已暫停';
+}
+
+function aToggle() { aPlaying ? aPause() : aPlay(); }
+
+function aShift(d) {
+  aStop(); clearTimeout(aTimeout);
+  aIdx = (aIdx + d + aCards.length) % aCards.length;
+  aRender(d);
+  if (aPlaying) setTimeout(() => aPlay(), 400);
+}
+
+function aToggleAuto() {
+  aAuto = !aAuto;
+  document.getElementById('aBtnAuto').classList.toggle('on', aAuto);
+}
+
+function aToggleShuffle() {
+  aShuffle = !aShuffle;
+  document.getElementById('aBtnShuffle').classList.toggle('on', aShuffle);
+  if (aShuffle) {
+    for(let i=aCards.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[aCards[i],aCards[j]]=[aCards[j],aCards[i]];}
+  } else {
+    aCards = getFilteredCards(aFilter);
+  }
+  aIdx = 0; aRender();
+}
+
+document.querySelectorAll('[data-f]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-f]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    aFilter = btn.dataset.f;
+    aPause();
+    aCards = getFilteredCards(aFilter);
+    aIdx = 0; aRender();
+  });
+});
+
+document.querySelectorAll('[data-sp]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    aSpeed = parseFloat(btn.dataset.sp);
+    document.querySelectorAll('[data-sp]').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    if (aPlaying) { aPause(); setTimeout(() => aPlay(), 100); }
+  });
+});
+
+// Touch swipe on flip card
+let touchX = 0;
+document.getElementById('flipOuter').addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+document.getElementById('flipOuter').addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) { if(dx < 0) aShift(1); else aShift(-1); }
+  else flipCard();
+});
+
+aRender();
+
+// ========== KNOWLEDGE BROWSE ==========
+let kbPlaying = false;
+let kbUtt = null;
+let kbCurrentIdx = -1;
+
+function renderKb() {
+  const wrap = document.getElementById('kbWrap');
+  wrap.innerHTML = '';
+  CARDS.forEach((c, i) => {
+    const d = document.createElement('div');
+    d.className = 'kb-card';
+    d.innerHTML = `
+      <div class="kb-card-head">
+        <span class="kb-cat">${c.category.toUpperCase()}</span>
+        <span class="kb-play-icon" data-i="${i}">▶</span>
+      </div>
+      <div class="kb-title">${c.title}</div>
+      <div class="kb-body">${c.body}</div>
+      ${c.answer ? `<div style="margin-top:10px;padding:10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:8px;font-size:12px;color:#4ade80">${c.answer}</div>` : ''}
+    `;
+    d.querySelector('.kb-play-icon').addEventListener('click', e => {
+      e.stopPropagation();
+      kbPlayCard(i);
+    });
+    wrap.appendChild(d);
+  });
+}
+
+function kbPlayCard(i) {
+  if (!hasTTS) return;
+  kbCurrentIdx = i;
+  synth.cancel();
+  const c = CARDS[i];
+  const txt = c.audio || (c.title + '。' + c.body.replace(/<[^>]+>/g,''));
+  kbUtt = new SpeechSynthesisUtterance(txt);
+  kbUtt.lang = 'zh-TW'; kbUtt.rate = 1.0;
+  const vs = synth.getVoices();
+  const v = vs.find(x => x.lang.startsWith('zh')) ;
+  if (v) kbUtt.voice = v;
+  kbPlaying = true;
+  synth.speak(kbUtt);
+  document.getElementById('kbNpTitle').textContent = c.title;
+  document.getElementById('kbNpCat').textContent = c.category;
+  document.getElementById('kbNowPlaying').classList.add('show');
+  document.getElementById('kbNpBtn').textContent = '⏸';
+  kbUtt.onend = () => { kbPlaying = false; document.getElementById('kbNpBtn').textContent = '▶'; };
+}
+
+function kbToggle() {
+  if (kbPlaying) {
+    synth.cancel(); kbPlaying = false;
+    document.getElementById('kbNpBtn').textContent = '▶';
+  } else if (kbCurrentIdx >= 0) {
+    kbPlayCard(kbCurrentIdx);
+  }
+}
+
+function kbStop() {
+  synth.cancel(); kbPlaying = false; kbCurrentIdx = -1;
+  document.getElementById('kbNowPlaying').classList.remove('show');
+}
+
+// ========== QUIZ ==========
+const QUIZ_Q = [
+  { q:'依高溫作業勞工作息時間標準規定，黑球溫度代表下列何者之效應？', opts:['空氣溼度','空氣流動','輻射熱','空氣溫度'], ans:2, exp:'<strong>輻射熱</strong>。黑球為中空黑色球體，能吸收環境輻射熱，故代表輻射熱效應。（111年第1梯次）', tag:'111年考題' },
+  { q:'依高溫作業勞工作息時間標準規定，於走動中提舉或推動一般重量物體者，屬下列何種工作？', opts:['輕工作','中度工作','重工作','極重度工作'], ans:1, exp:'<strong>中度工作</strong>。輕工作是坐/立姿操縱機器；重工作是鏟、掘、推等全身運動。（111年第1梯次）', tag:'111年考題' },
+  { q:'對於熱衰竭危害，下列敘述何者不正確？', opts:['好發於補充適量鹽分者','與血液供輸量有關','好發於未適應者','好發於未補充適量水分者'], ans:0, exp:'<strong>①不正確</strong>。熱衰竭因缺乏水分與鹽分導致，補充適量鹽分者反而不易發生。（111年第2梯次）', tag:'111年考題' },
+  { q:'高溫作業勞工特殊健康檢查，下列何者「非」應實施項目？', opts:['作業經歷之調查','胸部X光攝影','肺功能檢查','心電圖檢查'], ans:1, exp:'<strong>②胸部X光攝影</strong>不在高溫特殊健檢範圍。X光是粉塵/石綿作業的檢查項目。', tag:'高頻考點' },
+  { q:'依高氣溫作業熱危害預防指引，熱指數值達54.4以上屬幾級風險？', opts:['第一級','第二級','第三級','第四級'], ans:3, exp:'<strong>第四級（極度危險）</strong>，熱指數≥54.4，應避免使勞工戶外作業。', tag:'指引核心' },
+  { q:'未曾在高氣溫環境作業之新進勞工，第1天熱暴露時間不可超過正常暴露時間的多少？', opts:['10%','20%','50%','80%'], ans:1, exp:'<strong>20%</strong>。之後每天最多增加正常暴露時間的20%，逐步適應。', tag:'指引核心' },
+  { q:'依高氣溫作業熱危害預防指引，飲水頻率建議為何？', opts:['每30分鐘1次，每次500mL','每15～20分鐘1次，每次150～200mL','每小時1次，每次300mL','感到口渴時再補充'], ans:1, exp:'<strong>每15～20分鐘1次，每次150～200mL</strong>。受限時最低標準：每小時至少2～4杯（每杯240mL）。', tag:'指引核心' },
+  { q:'依指引，室內無日曬環境WBGT公式為何？', opts:['0.7×乾球+0.3×黑球','0.7×濕球+0.3×黑球','0.7×黑球+0.3×濕球','0.5×濕球+0.5×乾球'], ans:1, exp:'<strong>0.7×自然濕球溫度 + 0.3×黑球溫度</strong>。口訣：室內三七。', tag:'計算公式' },
+  { q:'已熱適應之勞工，核心體溫（耳溫）超過幾度應暫停作業？', opts:['37.5°C','38°C','38.5°C','39°C'], ans:2, exp:'<strong>38.5°C</strong>。未熱適應者超過38°C即應停工；已熱適應者標準較寬鬆為38.5°C。', tag:'停工門檻' },
+  { q:'熱中暑的急救措施，下列何者錯誤？', opts:['撥打119求救','冰袋置頸部、腋窩、鼠蹊部','給予含酒精飲料以助散熱','鬆開衣物移至陰涼處'], ans:2, exp:'<strong>③錯誤</strong>。任何熱疾病均禁止含酒精飲料。意識清醒者可給予電解質飲品（不含酒精、咖啡因）。', tag:'熱疾病處置' },
+  // 粉塵題
+  { q:'依粉塵危害預防標準，「作業時間短暫」係指每日作業不超過幾小時？', opts:['30分鐘','1小時','2小時','4小時'], ans:1, exp:'<strong>1小時</strong>。每日作業不超過1小時為作業時間短暫。符合此條件且已供給適當呼吸防護具，可免設密閉設備或局排。', tag:'粉塵定義' },
+  { q:'依容許暴露標準附表二，結晶型游離二氧化矽係指下列何者？', opts:['石英、雲母及石綿','石英、方矽石及鱗矽石','矽藻土、石英及長石','方矽石、長石及雲母'], ans:1, exp:'<strong>石英、方矽石及鱗矽石</strong>（附表二說明第四點）。', tag:'粉塵定義' },
+  { q:'114年修正後，結晶型游離二氧化矽可呼吸性粉塵之容許濃度為何？', opts:['0.01 mg/m³','0.1 mg/m³','1 mg/m³','0.15 f/cc'], ans:1, exp:'<strong>0.1 mg/m³</strong>（自116.01.01施行）。0.15 f/cc是石綿纖維的標準，注意區分。', tag:'粉塵法規' },
+  { q:'可呼吸性粉塵的粒徑定義為何？', opts:['＜100μm','＜10μm','＜4μm','＜1μm'], ans:2, exp:'<strong>＜4μm</strong>，可透過離心式等分粒裝置測得，能深入肺部。吸入性＜100μm；胸腔性＜10μm。', tag:'粉塵粒徑' },
+  { q:'依粉塵危害預防標準，「臨時性作業」的定義，下列何者正確？', opts:['作業期間不超過一個月，且半年內不再重覆','作業期間不超過三個月，且一年內不再重覆','每日作業不超過一小時','作業期間不超過六個月'], ans:1, exp:'<strong>作業期間不超過三個月，且一年內不再重覆</strong>。注意三個月和一年兩個數字，是臨時性作業的完整定義。', tag:'粉塵定義' },
+];
+
+let qzIdx = 0, qzScore = 0, qzAnswered = false, qzOrder = [];
+
+function qzStart() {
+  qzOrder = [...Array(QUIZ_Q.length).keys()].sort(()=>Math.random()-0.5);
+  qzIdx = 0; qzScore = 0; qzAnswered = false;
+  document.getElementById('qzStart').style.display = 'none';
+  document.getElementById('qzResult').style.display = 'none';
+  document.getElementById('qzQ').style.display = 'block';
+  qzRender();
+}
+
+function qzRender() {
+  const q = QUIZ_Q[qzOrder[qzIdx]];
+  qzAnswered = false;
+  document.getElementById('qzMeta').textContent = `第 ${qzIdx+1} 題 / 共 ${QUIZ_Q.length} 題`;
+  document.getElementById('qzType').textContent = q.tag;
+  document.getElementById('qzText').textContent = q.q;
+  const op = document.getElementById('qzOpts');
+  op.innerHTML = '';
+  q.opts.forEach((o,i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-opt';
+    b.textContent = `${['①','②','③','④'][i]} ${o}`;
+    b.addEventListener('click', () => qzAnswer(i, q, b));
+    op.appendChild(b);
+  });
+  document.getElementById('qzExp').textContent = '';
+  document.getElementById('qzExp').classList.remove('show');
+  const nb = document.getElementById('qzNextBtn');
+  nb.classList.remove('show');
+  nb.textContent = qzIdx < QUIZ_Q.length-1 ? '下一題 →' : '查看結果';
+}
+
+function qzAnswer(i, q, btn) {
+  if (qzAnswered) return;
+  qzAnswered = true;
+  const opts = document.querySelectorAll('.quiz-opt');
+  opts.forEach(o => o.disabled = true);
+  if (i === q.ans) {
+    btn.classList.add('correct'); qzScore++;
+  } else {
+    btn.classList.add('wrong');
+    opts[q.ans].classList.add('correct');
+  }
+  const exp = document.getElementById('qzExp');
+  exp.innerHTML = q.exp; exp.classList.add('show');
+  document.getElementById('qzNextBtn').classList.add('show');
+}
+
+function qzNext() {
+  qzIdx++;
+  if (qzIdx >= QUIZ_Q.length) {
+    qzShowResult();
+  } else {
+    qzRender();
+  }
+}
+
+function qzShowResult() {
+  document.getElementById('qzQ').style.display = 'none';
+  document.getElementById('qzResult').style.display = 'block';
+  const pct = Math.round(qzScore/QUIZ_Q.length*100);
+  document.getElementById('qzScore').textContent = `${qzScore} / ${QUIZ_Q.length}`;
+  const icon = pct >= 80 ? '🏆' : pct >= 60 ? '👍' : '💪';
+  document.getElementById('qzResultIcon').textContent = icon;
+  const msgs = { 80:'答對率高！重點概念掌握良好', 60:'不錯！再複習飲水數字和停工門檻', 0:'加油！建議重看知識卡片後再試' };
+  const m = Object.keys(msgs).reverse().find(k => pct >= parseInt(k));
+  document.getElementById('qzResultMsg').textContent = msgs[m];
+}
+
+// ========== GUIDE ==========
+const GUIDE_SECTIONS = [
+  { title:'📊 熱危害風險等級（核心考點）', content:`
+    <table class="guide-table">
+      <tr><th>等級</th><th>熱指數</th><th>管理原則</th></tr>
+      <tr><td><span class="cg">第一級</span></td><td>26.7～32.2</td><td>基本防護；重體力作業提高警覺</td></tr>
+      <tr><td><span class="cb">第二級</span></td><td>32.2～40.6</td><td>實施危害預防措施</td></tr>
+      <tr><td style="color:#fb923c">第三級</td><td>40.6～54.4</td><td>避開高氣溫時段；強化措施</td></tr>
+      <tr><td><span class="cr">第四級</span></td><td>54.4 以上</td><td>避免戶外作業；強制設遮陽降溫設備</td></tr>
+    </table>
+  `},
+  { title:'🌡️ WBGT 計算公式', content:`
+    <div class="guide-item"><strong>室內 / 戶外無日曬：</strong><br>WBGT ＝ <span class="hl">0.7×自然濕球</span> ＋ <span class="hl">0.3×黑球</span></div>
+    <div class="guide-item"><strong>戶外有日曬：</strong><br>WBGT ＝ <span class="hl">0.7×濕球</span> ＋ <span class="hl">0.2×黑球</span> ＋ <span class="hl">0.1×乾球</span></div>
+    <div class="guide-item">口訣：<strong>室內三七、戶外七二一</strong></div>
+  `},
+  { title:'⚠️ 提升等級條件', content:`
+    <div class="guide-item">① 陽光<strong>直接照射</strong>下作業</div>
+    <div class="guide-item">② 穿著<strong>不透氣厚重</strong>或<strong>抗滲透性防護衣</strong>作業</div>
+    <div class="guide-item">⚠️ 適用範圍：<span class="cr">第一至第三級</span>（第四級無法再提升）</div>
+  `},
+  { title:'💧 飲水補充規定', content:`
+    <div class="guide-item">建議：每 <span class="hl">15～20 分鐘</span> 1次，每次 <span class="hl">150～200 mL</span></div>
+    <div class="guide-item">最低標準：每小時至少 <span class="hl">2～4 杯</span>（每杯約 240 mL）</div>
+    <div class="guide-item">水溫建議：<span class="hl">攝氏 10～15 度</span></div>
+    <div class="guide-item"><span class="cr">❌ 禁止</span>：含酒精飲料</div>
+  `},
+  { title:'🔴 停工門檻三標準', content:`
+    <div class="guide-item">① 耳溫：未適應者 ＞ <span class="hl">38°C</span>；已適應者 ＞ <span class="hl">38.5°C</span></div>
+    <div class="guide-item">② 作業中心跳 ＞ <span class="hl">（180 − 年齡）次/分</span></div>
+    <div class="guide-item">③ 停止作業後 1 分鐘心跳仍 ＞ <span class="hl">120 次/分</span></div>
+  `},
+  { title:'🏋️ 熱適應訓練排程', content:`
+    <table class="guide-table">
+      <tr><th>族群</th><th>第1天</th><th>第2天</th><th>第3天</th><th>第4天</th></tr>
+      <tr><td>新進（無高溫經驗）</td><td>≤20%</td><td>≤40%</td><td>≤60%</td><td>≤80%…</td></tr>
+      <tr><td>有高溫作業經驗</td><td>≤50%</td><td>≤60%</td><td>≤80%</td><td><strong>正常</strong></td></tr>
+    </table>
+  `},
+  { title:'🏠 休息場所設置原則', content:`
+    <div class="guide-item">① 鄰近作業場所</div>
+    <div class="guide-item">② 能容納同時最大休息人數</div>
+    <div class="guide-item">③ 具適當遮陽（改變日照方向仍有效）</div>
+    <div class="guide-item">④ 具空調、風扇或涼爽通風</div>
+    <div class="guide-item">⑤ 密閉空間（貨櫃屋等）<strong>必設冷氣機</strong></div>
+    <div class="guide-item">⑥ 非固定作業可用臨時棚架/樹蔭代替</div>
+  `},
+  { title:'🩺 常見熱疾病對照', content:`
+    <table class="guide-table">
+      <tr><th>病症</th><th>關鍵症狀</th><th>處置</th></tr>
+      <tr><td>熱痙攣</td><td>肌肉抽筋</td><td>陰涼休息＋補鹽水</td></tr>
+      <tr><td>熱衰竭</td><td>體溫＜40°C、大量出汗、濕冷皮膚</td><td>平躺腳抬高＋冷敷補水</td></tr>
+      <tr><td><span class="cr">熱中暑</span></td><td>體溫＞40°C、神志不清、可能無汗</td><td><strong>撥打119</strong>＋冰袋頸腋鼠蹊</td></tr>
+      <tr><td>橫紋肌溶解</td><td>尿液呈茶/可樂色</td><td>停止→補水→<strong>立即就醫（驗CPK）</strong></td></tr>
+    </table>
+  `},
+  { title:'📜 法規依據', content:`
+    <div class="guide-item"><strong>職安衛設施規則第303條之1</strong>：戶外高氣溫作業設備要求（遮陽、降溫設備、休息場所、飲水）</div>
+    <div class="guide-item"><strong>職安衛設施規則第324條之6</strong>：戶外作業熱危害預防措施</div>
+    <div class="guide-item">適用對象：所有工作者，含<strong>派遣勞工、自營作業者</strong></div>
+  `},
+  // ===== 粉塵危害預防標準 =====
+  { title:'🌫️ 粉塵粒徑三分類（必背）', content:`
+    <table class="guide-table">
+      <tr><th>類型</th><th>粒徑</th><th>沉降位置</th></tr>
+      <tr><td>吸入性粉塵</td><td><span class="hl">＜100 μm</span></td><td>口鼻→呼吸系統</td></tr>
+      <tr><td>胸腔性粉塵</td><td><span class="hl">＜10 μm</span></td><td>穿越咽喉→胸腔</td></tr>
+      <tr><td><strong>可呼吸性粉塵</strong></td><td><span class="hl">＜4 μm</span></td><td>深入<strong>肺部</strong></td></tr>
+    </table>
+    <div class="guide-item" style="margin-top:8px">口訣：<strong>100口鼻 → 10胸腔 → 4入肺</strong></div>
+  `},
+  { title:'⚗️ 粉塵法規分類：舊制 vs 新制', content:`
+    <table class="guide-table">
+      <tr><th>項目</th><th>舊制（已廢）</th><th>新制（116.01.01施行）</th></tr>
+      <tr><td>第一種</td><td>SiO₂ ≥10%</td><td rowspan="2" style="color:#4ade80"><strong>合併為<br>結晶型游離二氧化矽<br>0.1 mg/m³</strong></td></tr>
+      <tr><td>第二種</td><td>SiO₂ ＜10%</td></tr>
+      <tr><td>石綿（第三種）</td><td colspan="2">維持 <span class="hl">0.15 f/cc</span></td></tr>
+      <tr><td>厭惡性（第四種）</td><td colspan="2">可呼吸性 <span class="hl">5 mg/m³</span>、總粉塵 <span class="hl">10 mg/m³</span></td></tr>
+    </table>
+  `},
+  { title:'📖 附表二定義（問答題必備）', content:`
+    <div class="guide-item">① <strong>可呼吸性粉塵</strong>：會進入<strong>無纖毛呼吸道</strong>之粉塵</div>
+    <div class="guide-item">② <strong>總粉塵</strong>：特定體積空氣中懸浮之<strong>全部粉塵</strong></div>
+    <div class="guide-item">③ <strong>結晶型游離二氧化矽</strong>：指<span class="hl">石英、方矽石及鱗矽石</span></div>
+    <div class="guide-item">④ <strong>石綿粉塵</strong>：纖維長≥<span class="hl">5μm</span>、直徑＜<span class="hl">3μm</span>、長寬比≥<span class="hl">3</span></div>
+  `},
+  { title:'⏱️ 三個作業時間定義（問答高頻）', content:`
+    <table class="guide-table">
+      <tr><th>名稱</th><th>定義</th><th>關鍵數字</th></tr>
+      <tr><td><strong>臨時性作業</strong></td><td>正常作業以外，期間不超過三個月，一年內不再重覆</td><td><span class="hl">3個月 / 1年</span></td></tr>
+      <tr><td><strong>作業時間短暫</strong></td><td>同一特定粉塵發生源，每日作業不超過一小時</td><td><span class="hl">1小時/天</span></td></tr>
+      <tr><td><strong>作業期間短暫</strong></td><td>期間不超過一個月，終了後六個月內不再實施</td><td><span class="hl">1個月 / 6個月</span></td></tr>
+    </table>
+    <div class="guide-item" style="margin-top:8px"><span class="cr">⚠️ 三種情況符合其一 ＋ 已供給適當呼吸防護具 → 可免設密閉設備或局部排氣裝置</span></div>
+  `},
+  { title:'🔧 工程控制三設備 & 氣罩型式', content:`
+    <div class="guide-item"><strong>優先順序：</strong>密閉設備 ＞ 局部排氣裝置 ＞ 維持濕潤狀態（三選一）</div>
+    <table class="guide-table" style="margin-top:8px">
+      <tr><th>氣罩型式</th><th>特色</th><th>適用</th></tr>
+      <tr><td><strong>包圍型</strong></td><td>完全包住發生源，效果最佳</td><td>噴砂室</td></tr>
+      <tr><td><strong>外裝型</strong></td><td>側/上/下吸引，最常用<br>（上方式/下方式/側向式）</td><td>切斷、研磨、搗碎</td></tr>
+      <tr><td><strong>吹吸型</strong></td><td>一側吹、一側吸</td><td>大面積發生源</td></tr>
+    </table>
+  `},
+  { title:'📋 粉塵作業管理重點', content:`
+    <div class="guide-item">① 應指定<strong>粉塵作業主管</strong>監督作業</div>
+    <div class="guide-item">② 公告<strong>禁止飲食、吸菸</strong>，揭示於明顯易見處</div>
+    <div class="guide-item">③ 室內每日清掃至少 <span class="hl">1次</span>（禁止乾式掃帚，避免揚塵）</div>
+    <div class="guide-item">④ 每月至少 <span class="hl">1次</span> 真空吸塵器或水沖洗清除地面設備</div>
+    <div class="guide-item">⑤ 輸氣管面罩連續作業每次不得超過 <span class="hl">1小時</span></div>
+  `},
+  { title:'💥 粉塵爆炸性分類', content:`
+    <table class="guide-table">
+      <tr><th>類別</th><th>代表物質</th></tr>
+      <tr><td><span class="cr">爆炸性粉塵</span></td><td>鋁粉、鎂粉、麵粉、糖粉、煤粉、木粉</td></tr>
+      <tr><td><span class="cg">非爆炸性粉塵</span></td><td>矽石、石灰石、水泥、石綿</td></tr>
+    </table>
+    <div class="guide-item" style="margin-top:8px">口訣：<strong>金屬粉＋有機粉＝爆炸性；礦物性粉塵＝非爆炸性</strong></div>
+  `},
+];
+
+function renderGuide() {
+  const wrap = document.getElementById('guideWrap');
+  if (wrap.innerHTML) return;
+  GUIDE_SECTIONS.forEach((s, i) => {
+    const sec = document.createElement('div');
+    sec.className = 'guide-section';
+    sec.innerHTML = `
+      <div class="guide-section-head" onclick="toggleGuide(${i})">
+        <span class="guide-section-title">${s.title}</span>
+        <span class="guide-section-arrow" id="ga${i}">▾</span>
+      </div>
+      <div class="guide-section-body" id="gb${i}">${s.content}</div>
+    `;
+    wrap.appendChild(sec);
+  });
+}
+
+function toggleGuide(i) {
+  const body = document.getElementById('gb'+i);
+  const arrow = document.getElementById('ga'+i);
+  const head = body.previousElementSibling;
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+  head.classList.toggle('open', !isOpen);
+}
+
+// ========== LAW PAGE ==========
+const LAW_SECTIONS = [
+  {
+    title: '【校正說明】App 知識點與法規核對結果',
+    content: `
+      <div class="guide-item" style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:12px;margin-bottom:10px">
+        <strong style="color:#4ade80">✅ 已驗證正確的知識點</strong><br>
+        <span style="font-size:12px;line-height:2">
+        • 熱危害風險等級數值（26.7/32.2/40.6/54.4）<br>
+        • WBGT公式（室內三七、戶外七二一）<br>
+        • 飲水建議（15-20min/150-200mL）<br>
+        • 停工耳溫門檻（未適應38°C / 已適應38.5°C）<br>
+        • 熱適應排程（新進第1天20%；有經驗第4天正常）<br>
+        • 粉塵粒徑三分類（100/10/4 μm）<br>
+        • 石綿粉塵定義（長≥5μm、徑＜3μm、長寬比≥3）<br>
+        • 結晶型游離二氧化矽新制0.1 mg/m³（116.01.01施行）<br>
+        • 臨時性作業/作業時間短暫/作業期間短暫定義<br>
+        • 工作分類定義（輕/中/重工作）
+        </span>
+      </div>
+      <div class="guide-item" style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:12px">
+        <strong style="color:#fbbf24">⚠️ 重要區分（兩套法規，不要混淆）</strong><br>
+        <span style="font-size:12px;line-height:2">
+        • <strong>高溫作業勞工作息時間標準</strong>：適用室內特定高溫作業（鍋爐/鑄造/熔爐等），以WBGT管制，每日工作≦6小時<br>
+        • <strong>高氣溫作業熱危害預防指引</strong>：適用戶外高氣溫作業（營造/外送等），以熱指數（溫度＋相對濕度）管制
+        </span>
+      </div>
+    `
+  },
+  {
+    title: '【法規1】職業安全衛生法（相關條文）',
+    content: `
+      <div class="guide-item"><span class="hl">法規依據</span>：中華民國102年7月3日公布，最近修正113年8月7日</div>
+      <div class="guide-item"><strong>第6條第1項</strong>（雇主責任）<br>雇主對防止原料、材料、氣體、蒸氣、粉塵、溶劑、化學品、含毒性物質或缺氧等引起之危害，應有符合規定之必要安全衛生設施及措施。</div>
+      <div class="guide-item"><strong>第6條第3項</strong>（授權訂定標準）<br>第一項必要之安全衛生設施及措施之標準，由中央主管機關定之。<br><span style="color:#60a5fa;font-size:12px">→ 粉塵危害預防標準即依此授權訂定</span></div>
+      <div class="guide-item"><strong>第12條第2項</strong>（容許暴露標準）<br>前項之容許暴露標準，由中央主管機關定之。<br><span style="color:#60a5fa;font-size:12px">→ 勞工作業場所容許暴露標準依此訂定</span></div>
+      <div class="guide-item"><strong><span class="hl">第19條第1項</span></strong>（高溫作業工時限制）<br>在高溫場所工作之勞工，雇主不得使其每日工作時間超過<span class="cr">六小時</span>；異常氣壓作業、高架作業、精密作業、重體力勞動或其他對於勞工具有特殊危害之作業，亦應規定減少勞工工作時間，並在工作時間中予以適當之休息。</div>
+      <div class="guide-item"><strong>第19條第2項</strong>（授權訂定標準）<br>前項高溫度、異常氣壓、高架、精密、重體力勞動及其他特殊作業之減少工作時間與休息時間之標準，由中央主管機關定之。<br><span style="color:#60a5fa;font-size:12px">→ 高溫作業勞工作息時間標準依此訂定</span></div>
+    `
+  },
+  {
+    title: '【法規2】高溫作業勞工作息時間標準（103.07.01）',
+    content: `
+      <div class="guide-item"><span class="hl">最新修正</span>：103年7月1日 ｜ 依職業安全衛生法第19條第2項</div>
+      <div class="guide-item"><strong>第2條</strong>（高溫作業種類）<br>本標準所定高溫作業，為勞工工作日<span class="cr">時量平均WBGT達第5條連續作業規定值以上</span>之下列作業：<br>
+      一、<strong>於鍋爐房</strong>從事之作業<br>
+      二、<strong>灼熱鋼鐵或其他金屬塊壓軋及鍛造</strong>之作業<br>
+      三、<strong>於鑄造間處理熔融鋼鐵或其他金屬</strong>之作業<br>
+      四、<strong>鋼鐵或其他金屬類物料加熱或熔煉</strong>之作業<br>
+      五、<strong>處理搪瓷、玻璃、電石及熔爐高溫熔料</strong>之作業<br>
+      六、<strong>於蒸汽火車、輪船機房</strong>從事之作業<br>
+      七、從事<strong>蒸汽操作、燒窯</strong>等作業<br>
+      八、其他經中央主管機關指定之高溫作業<br>
+      <span style="color:#fbbf24;font-size:12px">⚠️ 不包括已採取自動化操作且勞工無暴露熱危害之虞者</span></div>
+      <div class="guide-item"><strong>第3條</strong>（WBGT公式）<br>
+      <span class="cb">室內 / 戶外無日曬：</span>WBGT ＝ <span class="hl">0.7×自然濕球溫度 ＋ 0.3×黑球溫度</span><br>
+      <span class="cr">戶外有日曬：</span>WBGT ＝ <span class="hl">0.7×自然濕球 ＋ 0.2×黑球 ＋ 0.1×乾球</span><br>
+      口訣：<strong>室內三七、戶外七二一</strong></div>
+      <div class="guide-item"><strong>第4條</strong>（工作分類定義）<br>
+      • <span class="cg">輕工作</span>：僅以<strong>坐姿或立姿</strong>進行手臂部動作以<strong>操縱機器</strong>者<br>
+      • <span class="cb">中度工作</span>：於<strong>走動中提舉或推動一般重量物體</strong>者<br>
+      • <span class="cr">重工作</span>：<strong>鏟、掘、推等全身運動</strong>之工作者</div>
+      <div class="guide-item"><strong><span class="hl">第5條</span></strong>（作息時間分配表）<br>
+      <table class="guide-table">
+        <tr><th>WBGT值(°C)</th><th>連續作業</th><th>75%作業/25%休息</th><th>50%作業/50%休息</th><th>25%作業/75%休息</th></tr>
+        <tr><td>輕工作</td><td><span class="cg">30.6</span></td><td>31.4</td><td>32.2</td><td>33.0</td></tr>
+        <tr><td>中度工作</td><td><span class="cb">28.0</span></td><td>29.4</td><td>31.1</td><td>32.6</td></tr>
+        <tr><td>重工作</td><td><span class="cr">25.9</span></td><td>27.9</td><td>30.0</td><td>32.1</td></tr>
+      </table>
+      <span style="color:#fbbf24;font-size:12px">⚠️ 每日工作時間不得超過6小時（職安法第19條）</span></div>
+      <div class="guide-item"><strong>第6條</strong>（薪資保障）<br>依本標準降低工作時間之勞工，<span class="cr">其原有工資不得減少</span>。</div>
+      <div class="guide-item"><strong>第6-1條</strong>（雇主措施）<br>雇主使勞工從事高溫作業，應充分供應飲用水及食鹽，並採取指導勞工避免高溫作業危害之必要措施。</div>
+    `
+  },
+  {
+    title: '【法規3】勞工作業場所容許暴露標準（114.04.11修正）',
+    content: `
+      <div class="guide-item"><span class="hl">修正日期</span>：114年4月11日 ｜ 依職業安全衛生法第12條第2項<br>附表二（粉塵）<span class="cr">自116年1月1日施行</span>，其餘自發布日施行</div>
+      <div class="guide-item"><strong>第2條</strong>（容許濃度定義）<br>
+      • <strong>八小時日時量平均容許濃度（TWA-PEL）</strong>：每天8小時重複暴露，不致有不良反應者<br>
+      • <strong>短時間時量平均容許濃度（STEL-PEL）</strong>：連續暴露任何15分鐘，不致不可逆組織病變<br>
+      • <strong>最高容許濃度（Ceiling-PEL）</strong>：任何時間均不得超過者（附表一「高」字標示）</div>
+      <div class="guide-item"><strong><span class="hl">附表二 粉塵容許濃度（含114年修正）</span></strong>
+      <table class="guide-table">
+        <tr><th>粉塵種類</th><th>可呼吸性粉塵</th><th>總粉塵</th><th>備註</th></tr>
+        <tr><td><span class="cr">結晶型游離二氧化矽</span><br>（石英、方矽石、鱗矽石）</td><td><span class="hl">0.1 mg/m³</span></td><td>－</td><td>符號：瘤<br>自116.01.01施行</td></tr>
+        <tr><td>石綿纖維</td><td><span class="hl">0.15 f/cc</span></td><td>－</td><td>符號：瘤</td></tr>
+        <tr><td>厭惡性粉塵</td><td><span class="hl">5 mg/m³</span></td><td><span class="hl">10 mg/m³</span></td><td>－</td></tr>
+      </table></div>
+      <div class="guide-item"><strong>附表二說明（重要定義）</strong><br>
+      一、本表容許濃度均為<strong>八小時日時量平均容許濃度</strong><br>
+      二、<span class="cb">可呼吸性粉塵</span>：會進入<strong>無纖毛呼吸道</strong>之粉塵（粒徑＜4μm）<br>
+      三、<span class="cg">總粉塵</span>：在某一特定體積空氣中懸浮之<strong>全部粉塵</strong><br>
+      四、<span class="cr">結晶型游離二氧化矽</span>：係指<strong>石英、方矽石及鱗矽石</strong><br>
+      五、<span class="cb">石綿粉塵</span>：纖維長度在<span class="hl">五微米以上</span>，直徑小於<span class="hl">三微米</span>，且長寬比在<span class="hl">三以上</span>之粉塵</div>
+      <div class="guide-item"><strong>114年修正要點</strong><br>
+      一、新增<strong>鋁及其不溶性化合物</strong>容許標準（5 mg/m³）<br>
+      二、修正<strong>甲醛</strong>容許濃度值（<span class="cr">1ppm → 0.75ppm</span>）<br>
+      三、合併第一種與第二種粉塵為<strong>結晶型游離二氧化矽</strong>，容許濃度定為<strong>0.1 mg/m³</strong></div>
+    `
+  },
+  {
+    title: '【法規4】粉塵危害預防標準（103.06.25）',
+    content: `
+      <div class="guide-item"><span class="hl">修正日期</span>：103年6月25日 ｜ 依職業安全衛生法第6條第3項</div>
+      <div class="guide-item"><strong>第2條</strong>（用辭定義）<br>
+      • <strong>粉塵作業</strong>：指附表一甲欄所列之作業<br>
+      • <strong>特定粉塵發生源</strong>：指附表一乙欄所列作業之處所<br>
+      • <strong>特定粉塵作業</strong>：粉塵作業中其粉塵發生源為特定粉塵發生源者<br>
+      • <strong>密閉設備</strong>：密閉粉塵之發生源，使其不致散布之設備<br>
+      • <strong>局部排氣裝置</strong>：藉動力強制吸引並排出已發散粉塵之設備<br>
+      • <strong>整體換氣裝置</strong>：藉動力稀釋已發散粉塵之設備<br>
+      • <span class="hl">臨時性作業</span>：正常作業以外，作業期間不超過<strong>三個月</strong>，且<strong>一年</strong>內不再重覆者<br>
+      • <span class="hl">作業時間短暫</span>：同一特定粉塵發生源之特定粉塵作業，每日作業不超過<strong>一小時</strong>者<br>
+      • <span class="hl">作業期間短暫</span>：作業期間不超過<strong>一個月</strong>，且確知自終了日起<strong>六個月</strong>以內不再實施者</div>
+      <div class="guide-item"><strong><span class="hl">第6條</span></strong>（工程控制）<br>
+      雇主為防止特定粉塵發生源之粉塵發散，應依附表一乙欄所列，分別設置對應設備之任何一種或具同等以上性能之設備：<br>
+      ① <strong>密閉設備</strong>（最優先）<br>
+      ② <strong>局部排氣裝置</strong><br>
+      ③ <strong>維持濕潤狀態</strong></div>
+      <div class="guide-item"><strong>第7條</strong>（氣罩型式規定）<br>
+      局部排氣裝置氣罩分三型：<br>
+      • <span class="cb">包圍型</span>：完全包住發生源，效果最佳<br>
+      • <span class="cg">外裝型</span>：上方吸引式 / 下方吸引式 / 側向吸引式<br>
+      • <span class="cr">吹吸型</span>：一側吹風、另側吸引</div>
+      <div class="guide-item"><strong>第12條</strong>（得免設置設備之條件）<br>
+      符合下列<strong>任一情形</strong>，且已供給適當<strong>呼吸防護具</strong>者，得不適用第6條規定：<br>
+      ① 從事<span class="hl">臨時性作業</span>時<br>
+      ② 從事同一特定粉塵發生源之<span class="hl">作業時間短暫</span>時<br>
+      ③ 從事同一特定粉塵發生源之<span class="hl">作業期間短暫</span>時</div>
+      <div class="guide-item"><strong>第13條</strong>（小型設備得改設整體換氣）<br>
+      下列情形，得設整體換氣裝置（室內）或動力換氣設備（坑內）加呼吸防護具，代替第6條設備：<br>
+      一、使用直徑＜<span class="hl">30cm</span>研磨輪<br>
+      二、搗碎/粉碎機最大能力＜<span class="hl">20kg/hr</span><br>
+      三、篩選機篩選面積＜<span class="hl">700cm²</span><br>
+      四、混合機內容積＜<span class="hl">18公升</span></div>
+      <div class="guide-item"><strong>第15條</strong>（局部排氣裝置規定）<br>
+      一、氣罩宜設置於每一粉塵發生源（外裝型應盡量接近發生源）<br>
+      二、導管長度宜盡量縮短，肘管數盡量減少<br>
+      三、排氣機應置於<strong>空氣清淨裝置後之位置</strong><br>
+      四、<strong>排氣口應設於室外</strong></div>
+      <div class="guide-item"><strong>第19條</strong>（作業管理）<br>
+      使勞工從事粉塵作業時應辦理：<br>
+      一、對通風設備、勞工作業情形、空氣流通效果及粉塵狀況等隨時確認<br>
+      二、預防粉塵危害之必要注意事項通告全體有關勞工</div>
+      <div class="guide-item"><strong>第20條</strong>（作業主管）<br>僱用勞工從事粉塵作業時，應<strong>指定粉塵作業主管</strong>從事監督作業。</div>
+      <div class="guide-item"><strong>第21條</strong>（禁菸禁食）<br>應公告粉塵作業場所<strong>禁止飲食或吸菸</strong>，揭示於明顯易見之處所。</div>
+      <div class="guide-item"><strong>第22條</strong>（清掃）<br>
+      • 室內粉塵作業場所至少每日清掃<span class="hl">一次</span>以上<br>
+      • 至少每月應使用<strong>真空吸塵器或水沖洗</strong>等不致揚塵之方法清除<span class="hl">一次</span>地面及設備<br>
+      <span style="color:#fbbf24;font-size:12px">⚠️ 禁止乾式掃帚清掃（會使粉塵再度揚起）</span></div>
+      <div class="guide-item"><strong>第24條</strong>（輸氣管面罩）<br>使勞工戴用輸氣管面罩之連續作業時間，每次不得超過<span class="hl">一小時</span>。</div>
+    `
+  },
+  {
+    title: '【法規5】高氣溫作業熱危害預防指引（114.06.20第二次修正）',
+    content: `
+      <div class="guide-item"><span class="hl">性質</span>：行政指導（非強制法規），依職安衛設施規則第303條之1及324條之6訂定</div>
+      <div class="guide-item"><strong>第3條</strong>（定義）<br>
+      • <strong>熱指數</strong>：透過<strong>溫度及相對濕度</strong>評估熱壓力之指標（≠WBGT）<br>
+      • <strong>熱壓力</strong>：代謝熱能＋環境因子（溫、濕、風速、輻射熱）＋衣著量對人體的熱負荷<br>
+      • <strong>熱危害風險等級</strong>：特定熱指數值所對應之危害風險等級</div>
+      <div class="guide-item"><strong>第5條</strong>（熱危害風險等級判定）<br>
+      <table class="guide-table">
+        <tr><th>等級</th><th>熱指數值</th><th>風險管理原則</th></tr>
+        <tr><td><span class="cr"><strong>第四級</strong></span></td><td><span class="hl">54.4以上</span></td><td>避免戶外作業；設遮陽降溫設備、休息場所、充足飲水</td></tr>
+        <tr><td><span style="color:#fb923c"><strong>第三級</strong></span></td><td><span class="hl">40.6以上，未達54.4</span></td><td>避開高氣溫時段戶外作業；強化措施</td></tr>
+        <tr><td><span class="cb"><strong>第二級</strong></span></td><td><span class="hl">32.2以上，未達40.6</span></td><td>實施危害預防措施及提升認知</td></tr>
+        <tr><td><span class="cg"><strong>第一級</strong></span></td><td><span class="hl">26.7以上，未達32.2</span></td><td>基本防護；重體力作業提高警覺</td></tr>
+      </table></div>
+      <div class="guide-item"><strong>第6條</strong>（提升等級條件）<br>
+      以下情況需將熱危害風險等級<span class="cr">提升一級</span>（僅適用第一至三級）：<br>
+      ① 陽光<strong>直接照射</strong>下作業<br>
+      ② 穿著<strong>不透氣厚重或抗滲透性防護衣</strong>作業</div>
+      <div class="guide-item"><strong>第7條</strong>（危害預防措施）<br>
+      <span class="cb">（一）勞工作業管理：</span><br>
+      1. 降低勞工暴露溫度（遮陽、風扇、細水霧）<br>
+      2. 現場巡視作業情形（指派專人定期巡視）<br>
+      3. 提供適當休息場所（密閉空間須設冷氣機）<br>
+      4. 提供適當工作服裝（淺色、寬鬆、透氣排汗）<br>
+      5. 提供充足飲水：每<span class="hl">15～20分鐘</span>補充<span class="hl">150～200mL</span>；受限時每小時至少<span class="hl">2～4杯（約240mL/杯）</span><br>
+      6. 調整熱適應能力：新進第1天≦<span class="hl">20%</span>，每天增加20%；有經驗第1天≦50%，第<span class="hl">4</span>天正常<br>
+      7. 調整作業時間（避開高溫時段）<br>
+      8. 個人防護器具（最後一道防線）<br>
+      <span class="cg">（二）勞工健康管理：</span><br>
+      停工門檻三標準：<br>
+      • 耳溫：未適應者＞<span class="hl">38°C</span>，已適應者＞<span class="hl">38.5°C</span><br>
+      • 作業中心跳＞<span class="hl">（180－年齡）次/分</span><br>
+      • 停止作業後1分鐘心跳仍＞<span class="hl">120次/分</span></div>
+      <div class="guide-item"><strong>第8條</strong>（重體力作業）<br>
+      使勞工從事重體力作業時，應給予每小時至少<span class="hl">20分鐘</span>之充足休息，並依各熱危害風險等級採取對應措施。</div>
+      <div class="guide-item"><strong>第9條</strong>（最高等級禁止事項）<br>
+      熱危害風險等級屬最高等級（第四級）者，除有緊急救援之需求外，應避免使勞工於戶外從事：<br>
+      ① 穿著不透氣厚重或抗滲透性防護衣進行作業<br>
+      ② <strong>重體力作業</strong></div>
+    `
+  },
+  {
+    title: '【法規6】職業安全衛生設施規則（相關條文）',
+    content: `
+      <div class="guide-item"><span class="hl">依據</span>：職業安全衛生法第6條第3項授權訂定</div>
+      <div class="guide-item"><strong><span class="hl">第303條之1</span></strong>（戶外高氣溫作業設備要求）<br>
+      雇主使勞工於戶外高氣溫作業時，應視天候狀況採取適當措施，防止熱危害，並應設置：<br>
+      一、<strong>遮陽設施</strong>（或具同等效果之設備）<br>
+      二、<strong>降低勞工暴露溫度之設備</strong>（風扇、水霧或其他）<br>
+      三、<strong>適當休息場所</strong><br>
+      四、<strong>提供充足飲用水</strong><br>
+      <span style="color:#fbbf24;font-size:12px">⚠️ 高氣溫作業熱危害預防指引即依本條訂定</span></div>
+      <div class="guide-item"><strong><span class="hl">第324條之6</span></strong>（戶外作業熱危害預防措施）<br>
+      雇主使勞工從事戶外作業，為防範環境高氣溫引起之熱疾病，應依下列規定辦理：<br>
+      一、參照中央主管機關公告之高氣溫作業熱危害預防指引，訂定高氣溫作業熱危害預防計畫<br>
+      二、對勞工實施熱危害預防安全衛生教育訓練<br>
+      三、建立緊急醫療、通報及應變處理機制</div>
+    `
+  },
+];
+
+function renderLaw() {
+  const wrap = document.getElementById('lawWrap');
+  if (wrap.innerHTML) return;
+  LAW_SECTIONS.forEach((s, i) => {
+    const sec = document.createElement('div');
+    sec.className = 'guide-section';
+    const lid = 'law' + i;
+    sec.innerHTML = `
+      <div class="guide-section-head" onclick="toggleLaw(${i})">
+        <span class="guide-section-title">${s.title}</span>
+        <span class="guide-section-arrow" id="la${i}">▾</span>
+      </div>
+      <div class="guide-section-body" id="lb${i}">${s.content}</div>
+    `;
+    wrap.appendChild(sec);
+  });
+}
+
+function toggleLaw(i) {
+  const body = document.getElementById('lb'+i);
+  const arrow = document.getElementById('la'+i);
+  const head = body.previousElementSibling;
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+  head.classList.toggle('open', !isOpen);
+}
+</script>
+</body>
+</html>
