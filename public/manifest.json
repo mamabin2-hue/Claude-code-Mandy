@@ -1,0 +1,19 @@
+{
+  "name": "職業衛生管理甲級考試",
+  "short_name": "甲衛複習",
+  "description": "職業衛生管理甲級技術士技能檢定考試輔助系統",
+  "start_url": "/Claude-code-Mandy/",
+  "scope": "/Claude-code-Mandy/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1e3a8a",
+  "background_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "/Claude-code-Mandy/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
