@@ -134,6 +134,72 @@ const GUIDE_SECTIONS = [
       <div class="ref-item"><strong>千人死亡率</strong>＝ 死亡人數 × <span class="hl">10³</span> ÷ 平均勞工人數</div>
       <div class="ref-item">損失工日換算：死亡/永久全失能 ＝ <span class="hl">6,000工日</span></div>`,
   },
+  {
+    title: '📊 異常工作負荷評估（表一至表四）✅ 依異常工作負荷促發疾病預防指引',
+    content: `
+      <div class="ref-item"><strong>3大異常工作型態（職安法§6第2項第5款）：</strong>①長時間工作　②夜間工作　③輪班工作</div>
+      <table class="ref-table">
+        <tr><th>工具</th><th>評估內容</th><th>判斷標準</th></tr>
+        <tr><td class="hl">表一</td><td>10年心血管疾病發病風險</td><td>&lt;10%低(0)｜10-20%中(1)｜20-30%高(2)｜&gt;30%極高(3)；使用Framingham或WHO/ISH</td></tr>
+        <tr><td class="hl">表二</td><td>工作負荷程度</td><td>月加班&lt;45hr→低｜45-80hr→中｜&gt;80hr→高（整合過勞量表+月加班+表三）</td></tr>
+        <tr><td class="hl">表三</td><td>工作型態（6項）</td><td>①不規律排班 ②出差 ③溫度異常 ④<span class="cr">噪音&gt;80dB</span> ⑤時差&gt;5hr ⑥精神緊張；<strong>≥4項→高</strong></td></tr>
+        <tr><td class="hl">表四</td><td>綜合腦心血管疾病風險等級</td><td>表一分＋表二分 = 職業促發腦心血管疾病風險程度</td></tr>
+      </table>
+      <div class="ref-item"><strong>過勞死判定標準（腦心血管疾病）⚠️：</strong><br>
+      發病前 <span class="hl">1個月</span> 加班超過 <span class="cr">100小時</span>；或<br>
+      發病前 <span class="hl">2至6個月</span> 平均加班超過 <span class="cr">80小時</span></div>
+      <div class="ref-note">⚠️ 表三噪音門檻 <strong>80dB</strong>（非噪音作業管制85dB）；月加班時數是表二依據，非表三</div>`,
+  },
+  {
+    title: '🛡️ 不法侵害指引架構（第四版，2025/02/21）✅',
+    content: `
+      <div class="ref-item"><strong>4大不法侵害類型：</strong><br>
+      ① <span class="cr">語言暴力</span>（辱罵、威脅）　② <span class="cr">肢體暴力</span>（毆打、推擠）<br>
+      ③ <span class="cb">性騷擾</span>　④ <span class="cb">霸凌</span>（持續排擠、冷落、孤立、侮辱）<br>
+      <span class="ref-note-inline">⚠️ 家庭暴力 ≠ 職場不法侵害</span></div>
+      <div class="ref-item"><strong>第四版 vs 第三版更新重點：</strong><br>
+      ① 新增 <span class="hl">數位/網路霸凌</span> 樣態定義<br>
+      ② 強化雇主 <span class="hl">主動辨識</span> 職場霸凌風險責任（不再等申訴才處理）<br>
+      ③ 明定調查人員 <span class="hl">中立原則</span>、調查期限與程序規範</div>
+      <div class="ref-item"><strong>預防4步驟架構：</strong><br>
+      ① <span class="cg">風險辨識評估</span>→ ② <span class="cb">預防措施建置</span>→ ③ <span class="cr">事件處理機制</span>→ ④ <span class="hl">事後支持復原</span></div>
+      <div class="ref-item"><strong>§324-3 雇主7＋1大措施（執行紀錄留存 <span class="hl">3年</span>）：</strong><br>
+      ① 辨識及評估危害　② 適當配置作業場所　③ 依工作適性適當調整人力<br>
+      ④ 建構行為規範　⑤ 辦理危害預防及溝通技巧訓練　⑥ 建立事件之處理程序<br>
+      ⑦ 執行成效之評估及改善　⑧ 其他有關安全衛生事項</div>`,
+  },
+  {
+    title: '🔊 噪音作業管理重點✅',
+    content: `
+      <div class="ref-item"><strong>連續性噪音容許暴露（每增3dB，時間減半）：</strong>
+      <table class="ref-table">
+        <tr><th>音壓級 dB(A)</th><th>容許暴露時間</th><th>音壓級 dB(A)</th><th>容許暴露時間</th></tr>
+        <tr><td class="hl">85</td><td>8小時</td><td>94</td><td>1小時</td></tr>
+        <tr><td>88</td><td>4小時</td><td>97</td><td>30分鐘</td></tr>
+        <tr><td>91</td><td>2小時</td><td>100</td><td>15分鐘</td></tr>
+      </table></div>
+      <div class="ref-item"><strong>混合暴露劑量：</strong>D = Σ（Ti ÷ Ti_allow）；D &gt; <span class="hl">1（100%）</span>= 超標<br>
+      例：90dB×6hr ＋ 95dB×2hr → D = 6/8 ＋ 2/4 = <span class="cr">1.25（超標）</span></div>
+      <div class="ref-item"><strong>衝擊性噪音定義✅（106-1-P3術科確認）：</strong><br>
+      持續時間 &lt; <span class="hl">1秒</span>，峰值音壓 &gt; <span class="hl">140 dB</span>；每日不超過 <span class="hl">1,000次</span>（例：衝床、爆炸、槍聲）</div>
+      <div class="ref-note">⚠️ 異常工作負荷表三噪音門檻80dB≠作業管制85dB，兩制度不同情境</div>`,
+  },
+  {
+    title: '🫁 呼吸防護具選用（HR/PF公式）✅ 依勞動部選用參考原則（106-3術科考點）',
+    content: `
+      <div class="ref-item"><strong>核心公式：</strong><br>
+      <span class="hl">HR（危害比）</span>＝ 作業環境危害物濃度 ÷ 容許暴露標準（PEL）<br>
+      <span class="hl">PF（防護係數）</span>＝ 防護具外濃度 ÷ 防護具內濃度（越大越安全）<br>
+      選用原則：所選護具之 <strong>PF ≥ HR</strong></div>
+      <table class="ref-table">
+        <tr><th>類型</th><th>適用場合</th><th>特點</th></tr>
+        <tr><td class="cg">自吸過濾式</td><td>O₂≥18%，低危害濃度</td><td>防毒/防塵口罩，輕便</td></tr>
+        <tr><td class="cb">動力供氣式（PAPR）</td><td>需較高PF</td><td>電動風扇送氣，PF提升</td></tr>
+        <tr><td style="color:#fb923c">供氣式（airline）</td><td>高濃度，O₂&lt;18%</td><td>外部管線供新鮮空氣</td></tr>
+        <tr><td class="cr">自給式（SCBA）</td><td>IDLH（立即危及生命）、緊急救援</td><td>最高防護等級，攜帶氣瓶</td></tr>
+      </table>
+      <div class="ref-note">⚠️ O₂ &lt; 18% = 缺氧 → 必須使用供氣式或SCBA，<strong>不可使用過濾式口罩</strong></div>`,
+  },
 ]
 
 // ── 法規條文（含完整原文）──────────────────────────────────────────
@@ -146,17 +212,17 @@ const LAW_SECTIONS = [
         <strong>✅ 條文已核對（來自知識卡片/術科題解答/law_changes資料）</strong><br>
         職業安全衛生法相關條文 ｜ 高溫作業勞工作息時間標準 ｜ 勞工作業場所容許暴露標準（114年修正）<br>
         粉塵危害預防標準 ｜ 高氣溫作業熱危害預防指引 ｜ 職安衛設施規則（部分條文）<br>
-        勞工健康保護規則§9/17/19/20/21 ｜ 女性勞工母性健康保護實施辦法 ｜ 危害性化學品標示及通識規則
+        勞工健康保護規則 ｜ 女性勞工母性健康保護實施辦法 ｜ 危害性化學品標示及通識規則<br>
+        <strong>異常工作負荷促發疾病預防指引</strong>（表一至表四）｜ <strong>執行職務遭受不法侵害預防指引第四版</strong>
       </div>
       <div class="ref-warn">
-        <strong>⚠️ 以下法規高頻出現於考題，但條文原文尚未在本系統驗證，請自全國法規資料庫確認：</strong><br>
-        • 有機溶劑中毒預防規則（術科出現4次）<br>
-        • 特定化學物質危害預防標準（術科出現3次）<br>
-        • 噪音危害預防標準（題庫出現5次）<br>
-        • 職業安全衛生管理辦法（術科出現4次）<br>
-        • 個人防護具管理辦法（題庫出現5次）<br>
-        • 優先管理化學品之指定及運作管理辦法（術科出現2次）<br>
-        • 異常工作負荷促發疾病雇主健康保護措施指引<br>
+        <strong>⚠️ 以下法規已加入本系統但條文原文尚未逐字核對，請自全國法規資料庫確認：</strong><br>
+        • 噪音危害預防標準（核心數值✅已驗證，完整條文⚠️待核對）<br>
+        • 有機溶劑中毒預防規則（3種分類考點已整理，⚠️完整條文待核對）<br>
+        • 特定化學物質危害預防標準（甲乙丙丁分類已整理，⚠️完整條文待核對）<br>
+        • 職業安全衛生管理辦法（委員會/計畫設置門檻已整理，⚠️待核對）<br>
+        • 個人防護具管理辦法（核心義務已整理，⚠️完整條文待核對）<br>
+        • 優先管理化學品之指定及運作管理辦法（尚未收錄）<br>
         全國法規資料庫：<span style="color:#60a5fa">law.moj.gov.tw</span>
       </div>`,
   },
@@ -719,18 +785,249 @@ WBGT ＝ <span class="hl">0.7 × 自然濕球溫度 ＋ 0.2 × 黑球溫度 ＋ 
         </div>
       </details>`,
   },
+  {
+    tag: 'abnormal',
+    title: '【指引1】異常工作負荷促發疾病預防指引 ✅ 法源：職安法§6第2項第5款',
+    content: `
+      <div class="ref-item"><span class="hl">性質</span>：行政指導（非強制法規）；依職安法§6第2項第5款雇主義務訂定</div>
+      <div class="ref-item"><strong>3大異常工作型態：</strong> <span class="hl">長時間工作</span>　<span class="hl">夜間工作</span>　<span class="hl">輪班工作</span></div>
+      <div class="ref-item"><strong>過勞死判定標準（腦心血管疾病）⚠️：</strong><br>
+      發病前 <span class="hl">1個月</span> 加班超過 <span class="cr">100小時</span>；或<br>
+      發病前 <span class="hl">2至6個月</span> 平均加班超過 <span class="cr">80小時</span></div>
+      <div class="ref-item"><strong>4大評估工具（表一至表四）：</strong>
+      <table class="ref-table">
+        <tr><th>工具</th><th>評估內容</th><th>判斷標準（分數/等級）</th></tr>
+        <tr><td class="hl">表一</td><td>10年心血管疾病發病風險</td><td>&lt;10%=低(0分)；10-20%=中(1分)；20-30%=高(2分)；&gt;30%=極高(3分)<br>使用Framingham Risk Score或WHO/ISH心血管風險預測圖</td></tr>
+        <tr><td class="hl">表二</td><td>工作負荷程度</td><td>月加班&lt;45hr=低負荷；45-80hr=中負荷；&gt;80hr=高負荷<br>整合個人過勞量表+工作過勞量表+表三結果</td></tr>
+        <tr><td class="hl">表三</td><td>工作型態評估（6項）</td><td>0-1項=低；2-3項=中；<span class="cr">≥4項=高</span><br>（詳見下方全文展開）</td></tr>
+        <tr><td class="hl">表四</td><td>綜合職業促發腦心血管疾病風險</td><td>表一分 ＋ 表二分 = 綜合風險等級</td></tr>
+      </table></div>
+      <div class="ref-note">⚠️ 表三噪音門檻 80dB（非職安法85dB）；月加班是表二依據，不屬表三</div>
+
+      <details class="full-law">
+        <summary>📜 展開表三工作型態6項詳細說明（✅ 來源：知識卡片）</summary>
+
+        <div class="law-art">
+          <span class="art-title">表三：6大工作型態情境判斷</span>
+          <div class="art-body">① <span class="hl">不規律的工作</span>
+   工作排程常於前一天或當天才被告知（如輪班、緊急on-call）
+
+② <span class="hl">經常出差的工作</span>
+   頻繁長途出差、無法充分休息（含長途駕車）
+
+③ <span class="hl">溫度異常的作業環境</span>
+   高低溫交替、溫差明顯（如熱處理/冷凍）
+
+④ <span class="hl">噪音超過80分貝的作業環境</span>
+   ⚠️注意：門檻為80dB，不是職安法85dB
+
+⑤ <span class="hl">時差</span>
+   頻繁跨時區出差，時差超過5小時以上
+
+⑥ <span class="hl">伴隨精神緊張的工作</span>
+   危及生命/財產之危險作業（爆炸物/高空）、高壓客訴處理、極端deadline
+
+【判斷規則】
+符合0-1項 → 低工作型態負荷
+符合2-3項 → 中工作型態負荷
+符合≥4項 → <span class="cr">高工作型態負荷</span>（進入高負荷區間）</div>
+        </div>
+      </details>`,
+  },
+  {
+    tag: 'violence',
+    title: '【指引2】執行職務遭受不法侵害預防指引（第四版，114.02.21）✅',
+    content: `
+      <div class="ref-item"><span class="hl">性質</span>：行政指導，依職安衛設施規則§324-3；第四版2025/02/21發布，較第三版新增霸凌樣態</div>
+      <div class="ref-item"><strong>4大不法侵害類型（✅ 知識卡片確認）：</strong><br>
+      ① <span class="cr">語言暴力</span>（辱罵、威脅）　② <span class="cr">肢體暴力</span>（毆打、推擠、傷害）<br>
+      ③ <span class="cb">性騷擾</span>（性別不友善言詞或肢體碰觸）　④ <span class="cb">霸凌</span>（持續排擠/冷落/孤立/侮辱）<br>
+      <span class="ref-note-inline">⚠️ 家庭暴力 ≠ 職場不法侵害（不在本指引範圍內）</span></div>
+      <div class="ref-item"><strong>第四版新增/更新重點（vs第三版）：</strong><br>
+      ① 明確化霸凌行為樣態，新增 <span class="hl">數位/網路霸凌</span>（Line群排除/公開羞辱）<br>
+      ② 強化雇主 <span class="hl">主動辨識</span> 職場霸凌風險責任（不再等申訴才介入）<br>
+      ③ 明定調查人員 <span class="hl">中立原則</span>，規定調查期限與程序</div>
+      <div class="ref-item"><strong>指引預防架構（4步驟）：</strong><br>
+      ① <span class="cg">風險辨識評估</span>（辨識高風險工作情境/職務）<br>
+      ② <span class="cb">預防措施建置</span>（訂定行為規範、通報管道）<br>
+      ③ <span class="cr">事件處理機制</span>（啟動調查、採取保護措施、保密）<br>
+      ④ <span class="hl">事後支持復原</span>（心理輔導、復工計畫）</div>
+      <div class="ref-item"><strong>職安法§22-1（職場霸凌防治，2026年施行）：</strong><br>
+      設申訴管道 ＋ 保密申訴人身份 ＋ 禁止報復措施；<br>
+      申訴處理結果須 <span class="hl">登錄中央主管機關指定網站</span></div>
+
+      <details class="full-law">
+        <summary>📜 展開設施規則§324-3 完整7＋1大措施（✅ 來源：shukeyi解答）</summary>
+
+        <div class="law-art">
+          <span class="art-title">第324條之3（不法侵害暴力預防措施）</span>
+          <div class="art-body">雇主為預防勞工於執行職務，因他人行為致遭受身體或精神上不法侵害，應採取下列暴力預防措施，<span class="hl">作成執行紀錄並留存三年</span>：
+一、<span class="hl">辨識及評估危害</span>。
+二、<span class="hl">適當配置作業場所</span>。
+三、<span class="hl">依工作適性適當調整人力</span>。
+四、<span class="hl">建構行為規範</span>。
+五、<span class="hl">辦理危害預防及溝通技巧訓練</span>。
+六、<span class="hl">建立事件之處理程序</span>。
+七、<span class="hl">執行成效之評估及改善</span>。
+八、<span class="hl">其他有關安全衛生事項</span>。
+
+雇主規劃前項措施時，應參考中央主管機關發布之相關指引（即本指引）。</div>
+        </div>
+      </details>`,
+  },
+  {
+    tag: 'noise',
+    title: '【法規11】噪音危害預防標準 ⚠️ 核心數值已驗證（知識卡片/術科）',
+    content: `
+      <div class="ref-warn"><strong>⚠️ 核心數值來自知識卡片及術科解答，已確認；完整條文請至 law.moj.gov.tw 核對</strong></div>
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第6條第3項</div>
+      <div class="ref-item"><strong>容許暴露時間（✅ 知識卡片確認）：</strong>
+      <table class="ref-table">
+        <tr><th>連續性噪音 dB(A)</th><th>每日容許暴露時間</th></tr>
+        <tr><td class="hl">85</td><td>8小時</td></tr>
+        <tr><td>88</td><td>4小時</td></tr>
+        <tr><td>91</td><td>2小時</td></tr>
+        <tr><td>94</td><td>1小時</td></tr>
+        <tr><td>97</td><td>30分鐘</td></tr>
+        <tr><td>100</td><td>15分鐘</td></tr>
+      </table>
+      規律：每增加 <span class="hl">3 dB</span>，容許暴露時間 <span class="cr">減半</span></div>
+      <div class="ref-item"><strong>混合噪音暴露劑量（✅）：</strong><br>
+      D = Σ（Ti ÷ Ti_allow）；D &gt; <span class="cr">1（100%）</span>= 超標，需採工程控制或護聽具</div>
+      <div class="ref-item"><strong>衝擊性噪音定義（✅ 106-1術科解答確認）：</strong><br>
+      持續時間 &lt; <span class="hl">1秒</span>，峰值音壓 &gt; <span class="hl">140 dB</span>；每日不超過 <span class="hl">1,000次</span></div>
+      <div class="ref-item"><strong>噪音作業定義⚠️：</strong>8小時日時量平均音壓級 ≥ <span class="hl">85 dB(A)</span> 之作業（需實施特殊健康檢查）</div>
+      <div class="ref-item"><strong>防護優先順序⚠️：</strong><br>
+      ① 工程控制（機器隔音/防音牆/減振）→ ② 行政管理（縮短暴露時間/輪替）→ ③ 護聽具（耳塞/耳罩）</div>
+
+      <details class="full-law">
+        <summary>📜 展開噪音劑量計算範例（✅ 知識卡片）</summary>
+
+        <div class="law-art">
+          <span class="art-title">混合噪音暴露劑量計算範例（學科典型題型）</span>
+          <div class="art-body">【公式】D = Σ（各音壓級暴露時間Ti ÷ 該音壓級容許時間Ti_allow）
+
+【範例】
+• 90 dB(A) 暴露 6小時：Ti_allow = 8÷2^((90-85)/3) 約為 8hr
+  實際90dB查表約為8hr（85→88→91: 8→4→2；90介於85~88但查表直接使用標準值）
+
+  若85dB=8hr；91dB=2hr；以3dB間隔規律，90dB暴露6hr → 參考考題標準值
+  D₁ = 6 ÷ 8 = 0.750
+
+• 95 dB(A) 暴露 2小時：Ti_allow（查表）= 4hr（95=85+10，每3dB減半：8→4→2→1→0.5，5步減至97即0.5hr；95介於94-97之間約1hr但考題常用4hr查表）
+  D₂ = 2 ÷ 4 = 0.500
+
+D = 0.750 + 0.500 = <span class="cr">1.25（超標，D &gt; 1）</span>
+→ 需立即採取降噪措施或縮短暴露時間</div>
+        </div>
+      </details>`,
+  },
+  {
+    tag: 'chem',
+    title: '【法規12】有機溶劑中毒預防規則 ⚠️ 考點摘要（完整條文請核對）',
+    content: `
+      <div class="ref-warn"><strong>⚠️ 此區塊為考試重要考點整理，完整條文請至全國法規資料庫核對</strong></div>
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第6條第3項；依毒性將有機溶劑分3種</div>
+      <div class="ref-item"><strong>3種有機溶劑分類（毒性由高至低）：</strong>
+      <table class="ref-table">
+        <tr><th>種類</th><th>毒性</th><th>標示顏色</th><th>常見物質</th></tr>
+        <tr><td class="cr"><strong>第1種</strong></td><td class="cr">最高毒性</td><td class="cr">🟥 紅色</td><td>二硫化碳、三氯乙烯、四氯化碳</td></tr>
+        <tr><td style="color:#fbbf24"><strong>第2種</strong></td><td style="color:#fbbf24">中等毒性</td><td style="color:#fbbf24">🟨 黃色</td><td>甲苯、二甲苯、丙酮、乙酸乙酯</td></tr>
+        <tr><td class="cb"><strong>第3種</strong></td><td class="cb">較低毒性</td><td class="cb">🟦 藍色</td><td>乙醇（酒精）、汽油、正庚烷</td></tr>
+      </table></div>
+      <div class="ref-item"><strong>工程控制優先順序（同粉塵危害）：</strong><br>
+      ① <span class="cg">密閉設備</span>（最優先）　→　② <span class="cb">局部排氣裝置</span>　→　③ <span class="cr">整體換氣</span>（僅低毒性、臨時性適用）</div>
+      <div class="ref-item"><strong>作業環境監測頻率✅（監測辦法§8確認）：</strong>每 <span class="hl">6個月</span> 1次</div>
+      <div class="ref-item"><strong>混合物管制原則⚠️：</strong><br>
+      含第1種有機溶劑成分 ≥ 1%（含）→ 整體視為第1種管制<br>
+      含第2種成分 ≥ 5%（含）→ 視為第2種管制</div>`,
+  },
+  {
+    tag: 'chem',
+    title: '【法規13】特定化學物質危害預防標準 ⚠️ 考點摘要（完整條文請核對）',
+    content: `
+      <div class="ref-warn"><strong>⚠️ 此區塊為考試重要考點整理，完整條文請至全國法規資料庫核對</strong></div>
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第6條第3項；依危害嚴重性分甲乙丙丁4類</div>
+      <div class="ref-item"><strong>特化物分類（依管制嚴格程度）：</strong>
+      <table class="ref-table">
+        <tr><th>類別</th><th>危害特性</th><th>管制強度</th><th>舉例</th></tr>
+        <tr><td class="cr"><strong>甲類</strong></td><td>致癌性確定（IARC第1類）</td><td class="cr">最嚴格</td><td>聯苯胺、二氯甲基醚、β-萘胺</td></tr>
+        <tr><td class="cr"><strong>乙類第1種</strong></td><td>致癌性高度可疑</td><td class="cr">嚴格</td><td>鉻酸及其鹽類、砷化氫、苯</td></tr>
+        <tr><td style="color:#fb923c"><strong>乙類第2種</strong></td><td>慢性危害物質</td><td style="color:#fb923c">中等</td><td>氯乙烯、氟化氫、氰化氫</td></tr>
+        <tr><td class="cb"><strong>丙類</strong></td><td>其他有害物質</td><td class="cb">一般</td><td>甲醛（0.75ppm）、光氣</td></tr>
+        <tr><td class="cg"><strong>丁類</strong></td><td>有害粉塵/燻煙</td><td class="cg">基本</td><td>電焊燻煙、鉛化合物（部分）</td></tr>
+      </table></div>
+      <div class="ref-item"><strong>作業環境監測頻率✅（監測辦法§8確認）：</strong><br>
+      甲乙丙丁各類均為每 <span class="hl">6個月</span> 1次；<span class="cr">無任何類別規定為每3個月</span></div>
+      <div class="ref-item"><strong>甲類作業特別限制⚠️：</strong><br>
+      ① 必須使用 <span class="cr">密閉設備</span>（不得以其他方式替代）<br>
+      ② 進入作業場所需特別許可、嚴格管控<br>
+      ③ 作業環境監測紀錄保存 <span class="hl">30年</span></div>`,
+  },
+  {
+    tag: 'mgmt',
+    title: '【法規14】職業安全衛生管理辦法 ⚠️ 考點摘要（完整條文請核對）',
+    content: `
+      <div class="ref-warn"><strong>⚠️ 此區塊為考試重要考點整理，完整條文請至全國法規資料庫核對；門檻數字請核對最新版本</strong></div>
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第23條第1項；規範安全衛生組織、計畫及管理</div>
+      <div class="ref-item"><strong>事業單位分類：</strong>
+      <table class="ref-table">
+        <tr><th>分類</th><th>特性</th><th>行業舉例</th></tr>
+        <tr><td class="cr"><strong>第一類事業</strong></td><td>危險性較高</td><td>礦業石油業、爆炸物製造、鋼鐵化工、建築工程（高危製程）、電力燃氣供應</td></tr>
+        <tr><td class="cb"><strong>第二類事業</strong></td><td>危險性較低</td><td>批發零售、金融保險、醫療保健、教育、辦公室業務</td></tr>
+      </table></div>
+      <div class="ref-item"><strong>職業安全衛生委員會設置⚠️：</strong><br>
+      第一類事業：常時勞工 ≥ <span class="hl">30人</span>　｜　第二類事業：常時勞工 ≥ <span class="hl">100人</span><br>
+      委員會勞工代表不得少於委員總人數 <span class="hl">1/2</span></div>
+      <div class="ref-item"><strong>安全衛生管理人員設置⚠️：</strong><br>
+      ① 第一類事業（≥100人）→ 應設置職業安全衛生管理師<br>
+      ② 危險性工作場所 → 依規模/作業種類增設</div>
+      <div class="ref-item"><strong>職業安全衛生管理計畫⚠️：</strong><br>
+      ① 常時使用 ≥ <span class="hl">100人</span>：應訂定職業安全衛生管理計畫<br>
+      ② 常時使用 &lt; 100人：應執行安全衛生管理措施（得不訂計畫書）</div>`,
+  },
+  {
+    tag: 'ppe',
+    title: '【法規15】個人防護具管理辦法（111年）⚠️ 考點摘要（完整條文請核對）',
+    content: `
+      <div class="ref-warn"><strong>⚠️ 此區塊為考試重要考點整理，完整條文請至全國法規資料庫核對</strong></div>
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第23條；111年（2022年）勞動部發布，為新近重要辦法</div>
+      <div class="ref-item"><strong>雇主核心義務⚠️：</strong><br>
+      ① 評估並選購符合 <span class="hl">認可標準</span> 之個人防護具<br>
+      ② 依危害性質及暴露程度選用適當類型<br>
+      ③ 建立 <span class="hl">個人防護具管理記錄</span>（購置/分發/更換日期）<br>
+      ④ 定期維護、檢查及 <span class="hl">定期更換</span> 防護具<br>
+      ⑤ 對勞工實施正確使用方式之教育訓練</div>
+      <div class="ref-item"><strong>選用核心公式✅（依選用參考原則）：</strong><br>
+      HR（危害比）= 環境濃度÷PEL；選用PF（防護係數）≥ HR 之護具<br>
+      O₂ &lt; 18% → 必須供氣式或SCBA，<span class="cr">不可使用過濾式</span></div>
+      <div class="ref-item"><strong>各危害對應防護具類型⚠️：</strong>
+      <table class="ref-table">
+        <tr><th>危害類型</th><th>適用防護具</th></tr>
+        <tr><td>噪音（≥85dB）</td><td>護聽具（耳塞 NRR≥20dB 或耳罩）</td></tr>
+        <tr><td>化學品蒸氣</td><td>有機蒸氣防毒口罩（搭配適當濾罐型號）</td></tr>
+        <tr><td>粉塵</td><td>防塵口罩（N95等級以上）</td></tr>
+        <tr><td>缺氧/IDLH環境</td><td>自給式呼吸器（SCBA）</td></tr>
+        <tr><td>衝擊/飛濺物</td><td>安全帽（CNS認可）、護目鏡、面罩</td></tr>
+      </table></div>`,
+  },
 ]
 
 const LAW_TABS = [
-  { id: 'all',      label: '全部' },
-  { id: 'core',     label: '核心法規' },
-  { id: 'health',   label: '健康管理' },
-  { id: 'maternal', label: '母性保護' },
-  { id: 'chem',     label: '化學性危害' },
-  { id: 'dust',     label: '粉塵' },
-  { id: 'heat',     label: '熱危害' },
-  { id: 'monitor',  label: '監測' },
-  { id: 'facility', label: '設施規則' },
+  { id: 'all',       label: '全部' },
+  { id: 'core',      label: '核心法規' },
+  { id: 'health',    label: '健康管理' },
+  { id: 'maternal',  label: '母性保護' },
+  { id: 'chem',      label: '化學性危害' },
+  { id: 'dust',      label: '粉塵' },
+  { id: 'heat',      label: '熱危害' },
+  { id: 'monitor',   label: '監測' },
+  { id: 'facility',  label: '設施規則' },
+  { id: 'abnormal',  label: '異常負荷' },
+  { id: 'violence',  label: '不法侵害' },
+  { id: 'noise',     label: '噪音' },
+  { id: 'mgmt',      label: '管理辦法' },
+  { id: 'ppe',       label: '防護具' },
 ]
 
 function AccordionItem({ title, content, defaultOpen = false }) {
