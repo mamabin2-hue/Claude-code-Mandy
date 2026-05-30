@@ -1,275 +1,359 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-// ── 指引速查資料 ──────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────
+// 資料來源說明
+// ✅ = 條文已核對自 knowledge_cards.json / law_changes.json / shukeyi 解答
+// ⚠️ = 條文出現頻率高但無現成驗證原文，標示後請自全國法規資料庫核對
+// ─────────────────────────────────────────────────────────────
+
+// ── 指引速查 ──────────────────────────────────────────────────
 const GUIDE_SECTIONS = [
   {
-    title: '🌡️ 熱危害風險等級（核心考點）',
+    title: '🌡️ 熱危害風險等級（核心考點）✅',
     content: `
       <table class="ref-table">
-        <tr><th>等級</th><th>熱指數值（℃）</th><th>管理原則</th></tr>
-        <tr><td class="cr"><strong>第四級</strong></td><td class="hl">≥ 54.4</td><td>避免戶外作業；強制設遮陽降溫設備、休息場所、充足飲水</td></tr>
+        <tr><th>等級</th><th>熱指數（℃）</th><th>管理原則</th></tr>
+        <tr><td class="cr"><strong>第四級</strong></td><td class="hl">≥ 54.4</td><td>避免戶外作業；強制遮陽降溫設備、休息場所、充足飲水</td></tr>
         <tr><td style="color:#fb923c"><strong>第三級</strong></td><td class="hl">40.6以上，未達54.4</td><td>避開高氣溫時段戶外作業；強化措施</td></tr>
         <tr><td class="cb"><strong>第二級</strong></td><td class="hl">32.2以上，未達40.6</td><td>實施危害預防措施及提升認知</td></tr>
         <tr><td class="cg"><strong>第一級</strong></td><td class="hl">26.7以上，未達32.2</td><td>基本防護；重體力作業提高警覺</td></tr>
       </table>
-      <div class="ref-note">⚠️ 熱指數 = 溫度＋相對濕度查表得出（≠ WBGT）；高溫作業標準才用WBGT</div>`,
+      <div class="ref-note">熱指數 = 溫度＋相對濕度查表（≠ WBGT）；高溫作業標準才用WBGT</div>`,
   },
   {
-    title: '🔢 WBGT 計算公式（高溫作業作息標準適用）',
+    title: '🔢 WBGT 公式（高溫作業作息標準適用）✅',
     content: `
-      <div class="ref-item"><strong>室內 / 戶外無日曬：</strong><br>
-      WBGT ＝ <span class="hl">0.7 × 自然濕球溫度</span> ＋ <span class="hl">0.3 × 黑球溫度</span><br>
-      口訣：<strong>三七（濕球七、黑球三）</strong></div>
-      <div class="ref-item"><strong>戶外有日曬：</strong><br>
-      WBGT ＝ <span class="hl">0.7 × 濕球</span> ＋ <span class="hl">0.2 × 黑球</span> ＋ <span class="hl">0.1 × 乾球</span><br>
-      口訣：<strong>七二一（濕球七、黑球二、乾球一）</strong></div>
-      <div class="ref-item"><strong>工作分類（高溫作業作息）：</strong><br>
-      <span class="cg">輕工作</span>：坐/立姿操縱機器｜
-      <span class="cb">中度工作</span>：走動中提舉推動物體｜
-      <span class="cr">重工作</span>：鏟、掘、推等全身運動</div>
-      <div class="ref-item"><strong>連續作業WBGT門檻：</strong>
-      輕工作 <span class="hl">30.6°C</span>、中度 <span class="hl">28.0°C</span>、重工作 <span class="hl">25.9°C</span><br>
-      每日工作時間不得超過 <span class="cr">6小時</span>（職安法§19）</div>`,
+      <div class="ref-item"><strong>室內 / 戶外無日曬：</strong>WBGT ＝ <span class="hl">0.7×自然濕球</span> ＋ <span class="hl">0.3×黑球</span>　口訣：<strong>三七</strong></div>
+      <div class="ref-item"><strong>戶外有日曬：</strong>WBGT ＝ <span class="hl">0.7×濕球</span> ＋ <span class="hl">0.2×黑球</span> ＋ <span class="hl">0.1×乾球</span>　口訣：<strong>七二一</strong></div>
+      <div class="ref-item">工作分類：<span class="cg">輕工作</span>坐/立操機器｜<span class="cb">中度工作</span>走動提舉推動｜<span class="cr">重工作</span>鏟掘推全身運動</div>
+      <div class="ref-item">連續作業WBGT門檻：輕 <span class="hl">30.6°C</span>、中 <span class="hl">28.0°C</span>、重 <span class="hl">25.9°C</span>　每日工作不得超過 <span class="cr">6小時</span>（職安法§19）</div>`,
   },
   {
-    title: '⬆️ 提升等級條件（第一至三級適用）',
+    title: '💧 飲水＋停工門檻（熱危害指引第7條）✅',
     content: `
-      <div class="ref-item">以下情況需將熱危害風險等級 <span class="cr">提升一級</span>：<br>
-      ① 陽光<strong>直接照射</strong>下作業<br>
-      ② 穿著<strong>不透氣厚重或抗滲透性防護衣</strong>作業</div>
-      <div class="ref-note">⚠️ 第四級已是最高，無法再提升</div>`,
+      <div class="ref-item">飲水：每 <span class="hl">15～20分鐘</span> 1次，每次 <span class="hl">150～200mL</span>；受限時每小時至少 <span class="hl">2～4杯</span>（約240mL/杯）；水溫 <span class="hl">10～15°C</span>；<span class="cr">禁酒精飲料</span></div>
+      <div class="ref-item">停工門檻（符合任一即停工）：<br>
+      ① 耳溫：未適應 ＞ <span class="hl">38°C</span>｜已適應 ＞ <span class="hl">38.5°C</span><br>
+      ② 作業中心跳 ＞ <span class="hl">（180－年齡）次/分</span><br>
+      ③ 停止作業後1分鐘心跳仍 ＞ <span class="hl">120次/分</span></div>
+      <div class="ref-item">熱適應：新進第1天 ≤<span class="hl">20%</span>，每天+20%；有高溫經驗者第<span class="hl">4天</span>即可正常作業</div>`,
   },
   {
-    title: '💧 飲水補充規定',
-    content: `
-      <div class="ref-item">建議：每 <span class="hl">15～20 分鐘</span> 1次，每次 <span class="hl">150～200 mL</span></div>
-      <div class="ref-item">受限時：每小時至少 <span class="hl">2～4 杯</span>（每杯約 240 mL）</div>
-      <div class="ref-item">水溫建議：<span class="hl">攝氏 10～15 度</span></div>
-      <div class="ref-item cr">❌ 禁止：含酒精飲料</div>`,
-  },
-  {
-    title: '🔴 停工門檻（三標準）',
-    content: `
-      <div class="ref-item">① 耳溫：未適應者 ＞ <span class="hl">38°C</span>；已適應者 ＞ <span class="hl">38.5°C</span></div>
-      <div class="ref-item">② 作業中心跳 ＞ <span class="hl">（180 − 年齡）次/分</span></div>
-      <div class="ref-item">③ 停止作業後 1 分鐘心跳仍 ＞ <span class="hl">120 次/分</span></div>
-      <div class="ref-note">符合任一條件即應停止作業，移至涼爽處休息並觀察</div>`,
-  },
-  {
-    title: '🏋️ 熱適應訓練排程',
+    title: '🏥 特殊健康管理分級（勞工健康保護規則§21）✅',
     content: `
       <table class="ref-table">
-        <tr><th>族群</th><th>第1天</th><th>第2天</th><th>第3天</th><th>第4天以後</th></tr>
-        <tr><td>新進（無高溫經驗）</td><td>≤20%</td><td>≤40%</td><td>≤60%</td><td>≤80%…逐日增加</td></tr>
-        <tr><td>有高溫作業經驗</td><td>≤50%</td><td>≤60%</td><td>≤80%</td><td><span class="cg">正常作業</span></td></tr>
+        <tr><th>級別</th><th>定義</th><th>雇主應採措施</th></tr>
+        <tr><td class="cg"><strong>第一級</strong></td><td>健康檢查結果無異常，或醫師判定無職業病疑慮</td><td>繼續原工作，定期追蹤</td></tr>
+        <tr><td class="cb"><strong>第二級</strong></td><td>部分異常，但醫師判定「與工作無關」</td><td>僱用醫師或護理師提供健康指導</td></tr>
+        <tr><td style="color:#fb923c"><strong>第三級</strong></td><td>部分異常，醫師評估判定「無法確定是否與工作有關」</td><td>安排至醫療機構進一步檢查</td></tr>
+        <tr><td class="cr"><strong>第四級</strong></td><td>部分異常，醫師評估判定「與工作有關」</td><td>醫師書面意見＋立即採取改善措施；評估是否調整工作</td></tr>
       </table>
-      <div class="ref-note">百分比 = 該日暴露時間 / 全日工作時間</div>`,
+      <div class="ref-note">⚠️ 第三級≠「與工作有關」；第三級是「無法確定」，第四級才是「與工作有關」（此為常考混淆點）</div>`,
   },
   {
-    title: '🔵 第四級強制設施（最高等級）',
-    content: `
-      <div class="ref-item"><strong>作業場所：</strong>遮陽設施 ＋ 風扇/水霧降溫</div>
-      <div class="ref-item"><strong>休息場所：</strong>冷氣、風扇或自然通風</div>
-      <div class="ref-item cr"><strong>密閉空間（貨櫃屋等）：</strong>必設冷氣機</div>
-      <div class="ref-item"><strong>提供充足飲水</strong></div>
-      <div class="ref-item"><strong>第四級禁止（除緊急救援外）：</strong><br>
-      ① 穿著不透氣厚重或抗滲透性防護衣作業<br>
-      ② 重體力作業</div>`,
-  },
-  {
-    title: '🟤 粉塵分類與容許濃度（114年修正）',
+    title: '📊 一般健康檢查頻率（勞工健康保護規則§17）✅',
     content: `
       <table class="ref-table">
-        <tr><th>粉塵種類</th><th>可呼吸性粉塵</th><th>總粉塵</th><th>備註</th></tr>
-        <tr><td class="cr">結晶型游離二氧化矽<br>（石英/方矽石/鱗矽石）</td><td class="hl">0.1 mg/m³</td><td>－</td><td>符號：瘤<br><span class="cr">116.01.01施行</span></td></tr>
-        <tr><td>石綿纖維</td><td class="hl">0.15 f/cc</td><td>－</td><td>符號：瘤</td></tr>
-        <tr><td>厭惡性粉塵</td><td class="hl">5 mg/m³</td><td class="hl">10 mg/m³</td><td>－</td></tr>
+        <tr><th>年齡</th><th>頻率</th></tr>
+        <tr><td>未滿40歲</td><td class="hl">每5年1次</td></tr>
+        <tr><td>40歲以上未滿65歲</td><td class="hl">每3年1次</td></tr>
+        <tr><td>65歲以上</td><td class="hl">每年1次</td></tr>
       </table>
-      <div class="ref-item"><strong>粒徑三分類：</strong><br>
-      吸入性粉塵 &lt; <span class="hl">100 μm</span>（進入鼻腔）<br>
-      胸腔性粉塵 &lt; <span class="hl">10 μm</span>（進入肺部）<br>
-      可呼吸性粉塵 &lt; <span class="hl">4 μm</span>（進入無纖毛氣道）</div>
-      <div class="ref-item"><strong>石綿纖維定義：</strong>長度 ≥ <span class="hl">5 μm</span>、直徑 &lt; <span class="hl">3 μm</span>、長寬比 ≥ <span class="hl">3</span></div>`,
+      <div class="ref-item">中高齡：<span class="hl">45歲以上未滿65歲</span>｜高齡：<span class="hl">65歲以上</span>（中高齡及高齡者就業促進法§2）</div>`,
   },
   {
-    title: '📋 粉塵作業豁免條件（第12條）',
+    title: '📋 健康檢查記錄保存年限（勞工健康保護規則§19、§20）✅',
     content: `
-      <div class="ref-item">符合以下<strong>任一情形</strong>，且供給適當呼吸防護具，得免設密閉/排氣設備：<br>
-      ① <strong>臨時性作業</strong>：期間不超過 <span class="hl">3個月</span>，且1年內不再重覆<br>
-      ② <strong>作業時間短暫</strong>：同一發生源每日不超過 <span class="hl">1小時</span><br>
-      ③ <strong>作業期間短暫</strong>：期間不超過 <span class="hl">1個月</span>，且6個月內不再實施</div>`,
+      <div class="ref-item">一般健康檢查記錄：保存 <span class="hl">7年</span></div>
+      <div class="ref-item">特殊健康檢查記錄：保存 <span class="hl">10年</span></div>
+      <div class="ref-item">高風險作業（游離輻射/石綿/致癌物等）：保存 <span class="hl">30年</span></div>`,
+  },
+  {
+    title: '🤱 母性健康保護適用對象（女性勞工母性健康保護實施辦法§3）✅',
+    content: `
+      <div class="ref-item">應實施母性健康保護的對象：<br>
+      ① <strong>妊娠中</strong>之女性勞工<br>
+      ② <strong>分娩後未滿1年</strong>之女性勞工<br>
+      ③ 採取<strong>母乳哺育（哺乳期間）</strong>之女性勞工</div>
+      <div class="ref-item"><strong>適用門檻（§2）：</strong>僱用 <span class="hl">100人以上</span>之事業單位應訂定母性健康保護計畫</div>
+      <div class="ref-item"><strong>6大危害評估項目（§6）：</strong><br>
+      ① 物理性危害（輻射、噪音）｜② 化學性危害（鉛、溶劑）<br>
+      ③ 生物性危害｜④ 人因性危害（重物搬運）<br>
+      ⑤ 工作型態（輪班/夜班）｜⑥ 其他</div>`,
+  },
+  {
+    title: '🔬 作業環境監測種類與頻率（監測實施辦法§7、§8）✅',
+    content: `
+      <table class="ref-table">
+        <tr><th>作業類別</th><th>監測頻率</th></tr>
+        <tr><td>特別危害健康作業（含石綿/有機溶劑/特化/鉛等）</td><td class="hl">每6個月1次</td></tr>
+        <tr><td>粉塵作業（特定粉塵作業）</td><td class="hl">每6個月1次</td></tr>
+        <tr><td>噪音作業</td><td class="hl">每6個月1次</td></tr>
+        <tr><td>高溫作業</td><td class="hl">每年1次</td></tr>
+        <tr><td>坑內作業（粉塵/噪音）</td><td class="hl">每3個月1次</td></tr>
+      </table>
+      <div class="ref-item">監測記錄保存期限（§12）：一般 <span class="hl">3年</span>、石綿/致癌物 <span class="hl">30年</span></div>`,
+  },
+  {
+    title: '🧪 GHS 危害圖示（危害性化學品標示及通識規則）✅',
+    content: `
+      <div class="ref-item"><strong>9個危害圖示（§5標示義務、§7菱形紅框）：</strong><br>
+      爆炸性💥｜易燃性🔥｜氧化性🔆｜加壓氣體⭕<br>
+      腐蝕性🧪｜急毒性💀｜健康危害⚠️｜環境危害🌍｜嚴重健康危害☠️</div>
+      <div class="ref-item"><strong>SDS 安全資料表（§12、附表四）：</strong>共 <span class="hl">16個</span>必填欄位<br>
+      包括：化學品名稱、危害辨識、組成/成分、急救、消防、洩漏、操作/儲存、暴露控制/PPE、物理化學特性、毒理/生態/廢棄/運輸/法規、其他資訊</div>
+      <div class="ref-note-inline">SDS每 <span class="hl">3年</span> 至少複查一次</div>`,
+  },
+  {
+    title: '🔒 局限空間定義（職安衛設施規則§19-1）✅',
+    content: `
+      <div class="ref-item">局限空間：指非供勞工在其內部從事經常性作業，勞工進出方法受限制，且無法以自然通風來維持充分、清淨空氣之空間。</div>
+      <div class="ref-item"><strong>缺氧標準（缺氧症預防規則§5）：</strong><br>
+      空氣中氧氣濃度 &lt; <span class="hl">18%</span> = 缺氧狀態<br>
+      H₂S &gt; <span class="hl">10 ppm</span> 或 CO &gt; <span class="hl">35 ppm</span> = 列為危險作業場所</div>
+      <div class="ref-item"><strong>危害防止計畫（§29-1）：</strong>應包含：<br>
+      ① 局限空間位置及其危害 ② 進入許可 ③ 氣體監測 ④ 緊急應變</div>`,
+  },
+  {
+    title: '🧠 不法侵害防制（職安衛設施規則§324-3）✅',
+    content: `
+      <div class="ref-item">雇主應採取下列執行職務遭受不法侵害預防措施，並依規定辦理：<br>
+      ① 辨識及評估危害、擬訂及執行危害預防及管理措施<br>
+      ② 實施教育訓練<br>
+      ③ 建立當事人個案管理機制（心理輔導）</div>
+      <div class="ref-item"><strong>職場霸凌防治（職安法§22-1，2026年施行）：</strong><br>
+      定義：利用職務或權勢關係，逾越業務上必要且合理範圍，<strong>持續</strong>以冒犯、威脅、冷落、孤立、侮辱或其他不當言詞或行為，致身心健康遭受危害<br>
+      <span class="ref-note-inline">⚠️ 重大情節不需「持續」即可構成；申訴結果須登錄政府網站</span></div>
+      <div class="ref-item"><strong>不法侵害預防指引（第四版，2025/02/21）：</strong>明確化霸凌/暴力行為樣態；新增職場霸凌類型定義</div>`,
+  },
+  {
+    title: '💼 職業災害統計指標（職安法§37、勞動部公告）✅',
+    content: `
+      <div class="ref-item"><strong>FR（失能傷害頻率）</strong>＝ 失能傷害人次數 × <span class="hl">10⁶</span> ÷ 總經歷工時　取 <span class="hl">2位</span>小數</div>
+      <div class="ref-item"><strong>SR（失能傷害嚴重率）</strong>＝ 總損失工日數 × <span class="hl">10⁶</span> ÷ 總經歷工時　取 <span class="hl">1位</span>小數</div>
+      <div class="ref-item"><strong>千人死亡率</strong>＝ 死亡人數 × <span class="hl">10³</span> ÷ 平均勞工人數</div>
+      <div class="ref-item">損失工日換算：死亡/永久全失能 ＝ <span class="hl">6,000工日</span></div>`,
   },
 ]
 
-// ── 法規條文資料 ──────────────────────────────────────────────
+// ── 法規條文 ──────────────────────────────────────────────────
 const LAW_SECTIONS = [
   {
-    title: '✅ 法規核對說明（已驗證考點）',
+    tag: 'core',
+    title: '✅ 法規核對說明（已驗證 vs 待補充）',
     content: `
       <div class="ref-check">
-        <strong>✅ 已驗證正確的知識點</strong><br>
-        • 熱危害風險等級數值（26.7 / 32.2 / 40.6 / 54.4）<br>
-        • WBGT公式（室內三七、戶外七二一）<br>
-        • 飲水建議（15-20min / 150-200mL）<br>
-        • 停工耳溫門檻（未適應38°C / 已適應38.5°C）<br>
-        • 熱適應排程（新進第1天20%；有經驗第4天正常）<br>
-        • 粉塵粒徑三分類（100 / 10 / 4 μm）<br>
-        • 石綿定義（長≥5μm、徑&lt;3μm、長寬比≥3）<br>
-        • 結晶型游離二氧化矽新制0.1 mg/m³（116.01.01施行）<br>
-        • 臨時性/時間短暫/期間短暫定義
+        <strong>✅ 條文已核對（來自知識卡片/術科題解答/law_changes資料）</strong><br>
+        職業安全衛生法相關條文 ｜ 高溫作業勞工作息時間標準 ｜ 勞工作業場所容許暴露標準（114年修正）<br>
+        粉塵危害預防標準 ｜ 高氣溫作業熱危害預防指引 ｜ 職安衛設施規則（部分條文）<br>
+        勞工健康保護規則§9/17/19/20/21 ｜ 女性勞工母性健康保護實施辦法 ｜ 危害性化學品標示及通識規則
       </div>
       <div class="ref-warn">
-        <strong>⚠️ 重要區分（兩套法規）</strong><br>
-        <strong>高溫作業勞工作息時間標準</strong>：室內特定高溫作業（鍋爐/鑄造等），用WBGT管制，每日≦6小時<br>
-        <strong>高氣溫作業熱危害預防指引</strong>：戶外高氣溫作業（營造/外送等），用熱指數（溫＋濕）管制
+        <strong>⚠️ 以下法規高頻出現於考題，但條文原文尚未在本系統驗證，請自全國法規資料庫確認：</strong><br>
+        • 有機溶劑中毒預防規則（術科出現4次）<br>
+        • 特定化學物質危害預防標準（術科出現3次）<br>
+        • 噪音危害預防標準（題庫出現5次）<br>
+        • 職業安全衛生管理辦法（術科出現4次）<br>
+        • 個人防護具管理辦法（題庫出現5次）<br>
+        • 優先管理化學品之指定及運作管理辦法（術科出現2次）<br>
+        • 異常工作負荷促發疾病雇主健康保護措施指引<br>
+        全國法規資料庫：<span style="color:#60a5fa">law.moj.gov.tw</span>
       </div>`,
   },
   {
-    title: '【法規1】職業安全衛生法（相關條文）',
+    tag: 'core',
+    title: '【法規1】職業安全衛生法（相關條文）✅ 最新修正：113年8月7日',
     content: `
-      <div class="ref-item"><span class="hl">最近修正</span>：113年8月7日</div>
-      <div class="ref-item"><strong>第6條第1項</strong>（雇主責任）<br>雇主對防止原料、材料、氣體、蒸氣、粉塵、溶劑、化學品等引起之危害，應有符合規定之必要安全衛生設施及措施。</div>
-      <div class="ref-item"><strong>第6條第3項</strong>（授權訂定標準）<br>第一項必要之安全衛生設施及措施之標準，由中央主管機關定之。<br><span class="ref-note-inline">→ 粉塵危害預防標準即依此授權</span></div>
-      <div class="ref-item"><strong>第12條第2項</strong>（容許暴露標準）<br>前項之容許暴露標準，由中央主管機關定之。<br><span class="ref-note-inline">→ 勞工作業場所容許暴露標準依此訂定</span></div>
-      <div class="ref-item"><strong class="hl">第19條第1項</strong>（高溫作業工時限制）<br>在高溫場所工作之勞工，雇主不得使其每日工作時間超過 <span class="cr">六小時</span>；異常氣壓、高架、精密、重體力勞動等特殊危害作業，亦應規定減少工作時間並予適當休息。</div>
-      <div class="ref-item"><strong>第19條第2項</strong>（授權訂定標準）<br>前項高溫度等特殊作業之減少工作時間與休息時間之標準，由中央主管機關定之。<br><span class="ref-note-inline">→ 高溫作業勞工作息時間標準依此訂定</span></div>`,
+      <div class="ref-item"><strong>第6條第1項</strong>（雇主責任）<br>雇主對防止原料、材料、氣體、蒸氣、粉塵、溶劑、化學品、含毒性物質或缺氧等引起之危害，應有符合規定之必要安全衛生設施及措施。</div>
+      <div class="ref-item"><strong>第6條第2項</strong>（異常工作負荷/不法侵害）<br>雇主對下列事項，應妥為規劃及採取必要之安全衛生措施：…四、預防執行職務因他人行為遭受身體或精神不法侵害。五、避免因長時間工作、夜間工作、輪班及異常工作負荷，促發疾病。</div>
+      <div class="ref-item"><strong>第6條第3項</strong>（授權訂定標準）<br>→ 粉塵危害預防標準、職安衛設施規則等依此授權</div>
+      <div class="ref-item"><strong>第12條第2項</strong>（容許暴露標準）<br>→ 勞工作業場所容許暴露標準依此訂定</div>
+      <div class="ref-item"><strong class="hl">第19條第1項</strong>（高溫作業工時限制）<br>在高溫場所工作之勞工，雇主不得使其每日工作時間超過 <span class="cr">六小時</span>。</div>
+      <div class="ref-item"><strong>第22條之1</strong>（職場霸凌防治，2026年施行）<br>雇主應採取適當之預防及保護措施，防止職場霸凌之發生。所稱職場霸凌，指…持續以冒犯、威脅、冷落、孤立、侮辱或其他不當之言詞或行為，致其身心健康遭受危害。</div>
+      <div class="ref-item"><strong>§26～29</strong>（承攬管理）<br>原事業單位交付承攬，§26應事前告知危害；§27協議組織；§28禁止連鎖承攬；§29提供必要安全衛生設施</div>
+      <div class="ref-item"><strong>§37</strong>（職災通報）<br>雇主對職業災害應即採取必要急救、搶救措施；死亡/重傷立即通報主管機關</div>
+      <div class="ref-item"><strong>§40</strong>（刑事罰）最高3年以下有期徒刑<br><strong>§43</strong>（行政罰）違反雇主義務：<span class="hl">3萬至30萬</span><br><strong>§45</strong>（行政罰）含不法侵害違規：<span class="hl">3萬至15萬</span></div>`,
   },
   {
-    title: '【法規2】高溫作業勞工作息時間標準（103.07.01）',
+    tag: 'health',
+    title: '【法規2】勞工健康保護規則（111年修正）✅ 依勞工健康保護規則各條文',
     content: `
-      <div class="ref-item"><span class="hl">依據</span>：職業安全衛生法第19條第2項</div>
-      <div class="ref-item"><strong>第2條</strong>（高溫作業種類）<br>
-      一、於<strong>鍋爐房</strong>從事之作業<br>
-      二、<strong>灼熱鋼鐵或其他金屬塊壓軋及鍛造</strong>之作業<br>
-      三、於<strong>鑄造間處理熔融鋼鐵或其他金屬</strong>之作業<br>
-      四、<strong>鋼鐵或其他金屬類物料加熱或熔煉</strong>之作業<br>
-      五、<strong>處理搪瓷、玻璃、電石及熔爐高溫熔料</strong>之作業<br>
-      六、於<strong>蒸汽火車、輪船機房</strong>從事之作業<br>
-      七、從事<strong>蒸汽操作、燒窯</strong>等作業<br>
-      八、其他經中央主管機關指定之高溫作業<br>
-      <span class="ref-note-inline">⚠️ 不包括已採取自動化操作且勞工無暴露熱危害之虞者</span></div>
-      <div class="ref-item"><strong>第3條</strong>（WBGT公式）<br>
-      <span class="cb">室內/戶外無日曬：</span>WBGT ＝ <span class="hl">0.7×自然濕球</span> ＋ <span class="hl">0.3×黑球</span><br>
-      <span class="cr">戶外有日曬：</span>WBGT ＝ <span class="hl">0.7×自然濕球</span> ＋ <span class="hl">0.2×黑球</span> ＋ <span class="hl">0.1×乾球</span></div>
-      <div class="ref-item"><strong>第4條</strong>（工作分類定義）<br>
-      <span class="cg">輕工作</span>：坐/立姿操縱機器｜
-      <span class="cb">中度工作</span>：走動中提舉推動物體｜
-      <span class="cr">重工作</span>：鏟、掘、推等全身運動</div>
-      <div class="ref-item"><strong class="hl">第5條</strong>（作息時間分配表）<br>
+      <div class="ref-item"><span class="hl">修正日期</span>：111年（2022年），§4第1項50人條款自2022/01/01；§5、§7、§8第3項自2022/07/01施行</div>
+      <div class="ref-item"><strong>第9條</strong>（醫護人員臨場健康服務9大事項）<br>
+      ① 勞工之健康教育、衛生指導及健康促進<br>
+      ② 急救及緊急傷病處理<br>
+      ③ 工作相關傷病之調查、評估、管理、追蹤<br>
+      ④ 預防職業病、職業傷害之辦理<br>
+      ⑤ 協助推動勞工健康管理計畫<br>
+      ⑥ 工作場所環境安全衛生巡視<br>
+      ⑦ 職業病預防教育訓練<br>
+      ⑧ 協助建立健康管理系統<br>
+      ⑨ 其他有關勞工健康保護事項</div>
+      <div class="ref-item"><strong class="hl">第17條</strong>（一般健康檢查頻率）<br>
+      未滿40歲 → 每 <span class="hl">5年</span> 1次<br>
+      40歲以上未滿65歲 → 每 <span class="hl">3年</span> 1次<br>
+      65歲以上 → 每 <span class="hl">1年</span> 1次</div>
+      <div class="ref-item"><strong>第19條</strong>（健康檢查記錄保存）<br>一般健康檢查記錄：<span class="hl">7年</span></div>
+      <div class="ref-item"><strong>第20條</strong>（特殊健康檢查記錄保存）<br>特殊健康檢查：<span class="hl">10年</span>；游離輻射/石綿/致癌物等高風險：<span class="hl">30年</span></div>
+      <div class="ref-item"><strong class="hl">第21條</strong>（特殊健康管理4級制）<br>
       <table class="ref-table">
-        <tr><th>WBGT(°C)</th><th>連續作業</th><th>75%作/25%休</th><th>50%作/50%休</th><th>25%作/75%休</th></tr>
-        <tr><td class="cg">輕工作</td><td class="hl">30.6</td><td>31.4</td><td>32.2</td><td>33.0</td></tr>
-        <tr><td class="cb">中度工作</td><td class="hl">28.0</td><td>29.4</td><td>31.1</td><td>32.6</td></tr>
-        <tr><td class="cr">重工作</td><td class="hl">25.9</td><td>27.9</td><td>30.0</td><td>32.1</td></tr>
+        <tr><th>級別</th><th>判定標準</th><th>雇主應採措施</th></tr>
+        <tr><td class="cg">第一級</td><td>無異常 / 與工作無關</td><td>繼續原工作，定期追蹤</td></tr>
+        <tr><td class="cb">第二級</td><td>異常，與工作無關</td><td>健康指導</td></tr>
+        <tr><td style="color:#fb923c">第三級</td><td>異常，<strong>無法確定是否與工作有關</strong></td><td>安排至醫療機構進一步檢查</td></tr>
+        <tr><td class="cr">第四級</td><td>異常，<strong>與工作有關</strong></td><td>醫師書面意見＋立即改善；評估調整工作</td></tr>
       </table>
-      <span class="ref-note-inline">每日工作時間不得超過6小時（職安法§19）</span></div>
-      <div class="ref-item"><strong>第6條</strong>（薪資保障）<br>依本標準降低工作時間之勞工，<span class="cr">其原有工資不得減少</span>。</div>
-      <div class="ref-item"><strong>第6-1條</strong>（雇主措施）<br>雇主使勞工從事高溫作業，應充分供應飲用水及食鹽，並採取指導勞工避免高溫作業危害之必要措施。</div>`,
+      <span class="ref-note-inline">⚠️ 第三級≠「與工作有關」；第三級是「無法確定」，第四級才是「與工作有關」</span></div>`,
   },
   {
-    title: '【法規3】勞工作業場所容許暴露標準（114.04.11修正）',
+    tag: 'maternal',
+    title: '【法規3】女性勞工母性健康保護實施辦法（109年修正）✅',
     content: `
-      <div class="ref-item"><span class="hl">修正日期</span>：114年4月11日 ｜ 依職安法§12第2項<br>附表二（粉塵）<span class="cr">自116年1月1日施行</span>，其餘自發布日施行</div>
+      <div class="ref-item"><span class="hl">修正施行</span>：2020/09/16（部分條文2021/03/01）</div>
+      <div class="ref-item"><strong>§2</strong>（適用門檻）<br>僱用 <span class="hl">100人以上</span>之事業單位，應依本辦法訂定母性健康保護計畫</div>
+      <div class="ref-item"><strong>§3</strong>（保護對象）<br>
+      ① 妊娠中（懷孕）之女性勞工<br>
+      ② 分娩後未滿 <span class="hl">1年</span> 之女性勞工<br>
+      ③ 採取母乳哺育期間之女性勞工</div>
+      <div class="ref-item"><strong>§6</strong>（6大危害評估項目）<br>
+      ① 物理性危害（游離輻射/噪音/振動）<br>
+      ② 化學性危害（鉛/汞/有機溶劑/農藥等）<br>
+      ③ 生物性危害（傳染病暴露）<br>
+      ④ 人因性危害（重物搬運/不自然姿勢）<br>
+      ⑤ 工作型態（輪班/夜班/單獨工作）<br>
+      ⑥ 其他（溫度/濕度/壓力等）</div>
+      <div class="ref-item"><strong>§9、§10</strong>（風險分3級管理）<br>
+      第一級（低風險）：暴露量 &lt; <span class="hl">1/2 BE（生物暴露指標）</span> → 繼續原工作<br>
+      第二級（中風險）：<span class="hl">1/2 BE ≤ 暴露 &lt; BE</span> → 採取危害預防措施<br>
+      第三級（高風險）：暴露量 ≥ <span class="hl">BE</span> 或超過容許標準 → 調整工作或停止作業</div>
+      <div class="ref-item"><strong>附表二/三</strong>（禁止從事作業）<br>
+      附表二：禁止<strong>妊娠中</strong>女性從事的有害性工作（含鉛作業/游離輻射/重物搬運等）<br>
+      附表三：禁止<strong>分娩後未滿1年</strong>女性從事的有害性工作</div>`,
+  },
+  {
+    tag: 'monitor',
+    title: '【法規4】作業環境監測實施辦法（相關條文）✅ 依監測實施辦法§7、§8、§12',
+    content: `
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第12條第1項</div>
+      <div class="ref-item"><strong>§7</strong>（應實施作業環境監測之作業）<br>
+      特別危害健康作業（有機溶劑/特化/鉛/石綿/噪音/粉塵等）、坑內作業等</div>
+      <div class="ref-item"><strong>§8</strong>（監測頻率）<br>
+      <table class="ref-table">
+        <tr><th>作業類別</th><th>監測頻率</th></tr>
+        <tr><td>特別危害健康作業（有機/特化/鉛/石綿/粉塵）</td><td class="hl">每6個月1次</td></tr>
+        <tr><td>噪音作業</td><td class="hl">每6個月1次</td></tr>
+        <tr><td>高溫作業</td><td class="hl">每年1次</td></tr>
+        <tr><td>坑內作業（粉塵/噪音）</td><td class="hl">每3個月1次</td></tr>
+      </table></div>
+      <div class="ref-item"><strong>§12</strong>（監測記錄保存）<br>
+      一般：<span class="hl">3年</span>｜石綿/游離輻射/致癌物：<span class="hl">30年</span></div>`,
+  },
+  {
+    tag: 'chem',
+    title: '【法規5】危害性化學品標示及通識規則（GHS）✅ 依§5、§7、§12、附表一、附表四',
+    content: `
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第10條；採GHS（全球化學品統一分類及標示制度）</div>
+      <div class="ref-item"><strong>§5</strong>（標示義務）<br>
+      雇主對含有危害性化學品之容器，應注意標示下列事項：<br>
+      ① 名稱　② 危害圖式　③ 警示語　④ 危害警告訊息　⑤ 危害防範措施　⑥ 製造者/供應者名稱及聯絡資訊</div>
+      <div class="ref-item"><strong>§7</strong>（危害圖式形狀）<br>
+      菱形外框，<span class="hl">紅色底框、白色背景</span>，內含黑色符號<br>
+      共 <span class="hl">9種</span> 危害圖示：爆炸性、易燃性、氧化性、加壓氣體、腐蝕性、急毒性、健康危害、環境危害、嚴重健康危害</div>
+      <div class="ref-item"><strong>§12</strong>（SDS 提供義務）<br>雇主對含危害性化學品，應提供中文安全資料表（SDS）給勞工，並每 <span class="hl">3年</span> 至少複查一次</div>
+      <div class="ref-item"><strong>附表四</strong>（SDS 16個必填欄位）<br>
+      1.化學品名稱　2.危害辨識　3.成分/組成　4.急救措施　5.滅火措施<br>
+      6.洩漏處理　7.安全操作與儲存　8.暴露控制/個人防護<br>
+      9.物理/化學性質　10.安定性/反應性　11.毒理資訊　12.生態資訊<br>
+      13.廢棄處置　14.運輸資訊　15.法規資訊　16.其他資訊</div>`,
+  },
+  {
+    tag: 'dust',
+    title: '【法規6】勞工作業場所容許暴露標準（114.04.11修正）✅',
+    content: `
+      <div class="ref-item"><span class="hl">修正日期</span>：114年4月11日 ｜ 附表二（粉塵）<span class="cr">自116年1月1日施行</span>，其餘自發布日</div>
       <div class="ref-item"><strong>第2條</strong>（容許濃度定義）<br>
-      • <strong>TWA-PEL（八小時日時量平均）</strong>：每天8小時重複暴露，不致有不良反應<br>
-      • <strong>STEL-PEL（短時間時量平均）</strong>：連續暴露任何15分鐘，不致不可逆組織病變<br>
-      • <strong>Ceiling-PEL（最高容許濃度）</strong>：任何時間均不得超過（標示「高」字）</div>
-      <div class="ref-item"><strong class="hl">附表二 粉塵容許濃度（114年修正）</strong>
+      TWA-PEL（8小時日時量平均）｜STEL-PEL（短時間15分鐘）｜Ceiling-PEL（任何時間最高）</div>
+      <div class="ref-item"><strong class="hl">附表二 粉塵容許濃度</strong>
       <table class="ref-table">
         <tr><th>粉塵種類</th><th>可呼吸性粉塵</th><th>總粉塵</th><th>備註</th></tr>
-        <tr><td class="cr">結晶型游離二氧化矽<br>（石英、方矽石、鱗矽石）</td><td class="hl">0.1 mg/m³</td><td>－</td><td>符號：瘤<br>116.01.01施行</td></tr>
+        <tr><td class="cr">結晶型游離二氧化矽（石英/方矽石/鱗矽石）</td><td class="hl">0.1 mg/m³</td><td>－</td><td>116.01.01施行</td></tr>
         <tr><td>石綿纖維</td><td class="hl">0.15 f/cc</td><td>－</td><td>符號：瘤</td></tr>
         <tr><td>厭惡性粉塵</td><td class="hl">5 mg/m³</td><td class="hl">10 mg/m³</td><td>－</td></tr>
       </table></div>
-      <div class="ref-item"><strong>附表二說明（重要定義）</strong><br>
-      二、<span class="cb">可呼吸性粉塵</span>：進入<strong>無纖毛呼吸道</strong>之粉塵（粒徑 &lt; 4 μm）<br>
-      三、<span class="cg">總粉塵</span>：特定體積空氣中懸浮之全部粉塵<br>
-      四、<span class="cr">結晶型游離二氧化矽</span>：石英、方矽石及鱗矽石<br>
-      五、<span class="cb">石綿粉塵</span>：長度 ≥ <span class="hl">5μm</span>、直徑 &lt; <span class="hl">3μm</span>、長寬比 ≥ <span class="hl">3</span></div>
       <div class="ref-item"><strong>114年修正要點</strong><br>
-      一、新增<strong>鋁及其不溶性化合物</strong>容許標準（5 mg/m³）<br>
-      二、修正<strong>甲醛</strong>容許濃度（<span class="cr">1ppm → 0.75ppm</span>）<br>
-      三、合併第一種/第二種粉塵為<strong>結晶型游離二氧化矽</strong>，容許濃度 <span class="hl">0.1 mg/m³</span></div>`,
+      ① 新增鋁及其不溶性化合物（5 mg/m³）<br>
+      ② 甲醛容許濃度：<span class="cr">1ppm → 0.75ppm</span><br>
+      ③ 合併第一/二種粉塵為結晶型游離二氧化矽，統一容許濃度 <span class="hl">0.1 mg/m³</span></div>`,
   },
   {
-    title: '【法規4】粉塵危害預防標準（103.06.25）',
+    tag: 'dust',
+    title: '【法規7】粉塵危害預防標準（103.06.25）✅',
     content: `
-      <div class="ref-item"><span class="hl">依據</span>：職業安全衛生法第6條第3項</div>
-      <div class="ref-item"><strong>第2條</strong>（重要用辭定義）<br>
-      • <span class="hl">臨時性作業</span>：期間不超過 <strong>3個月</strong>，且1年內不再重覆<br>
-      • <span class="hl">作業時間短暫</span>：同一特定粉塵發生源每日作業不超過 <strong>1小時</strong><br>
-      • <span class="hl">作業期間短暫</span>：期間不超過 <strong>1個月</strong>，且6個月內不再實施<br>
-      • <strong>密閉設備</strong>：密閉粉塵發生源，使其不致散布之設備<br>
-      • <strong>局部排氣裝置</strong>：藉動力強制吸引並排出已發散粉塵之設備</div>
-      <div class="ref-item"><strong class="hl">第6條</strong>（工程控制，優先順序）<br>
-      ① <span class="cg">密閉設備</span>（最優先）<br>
-      ② <span class="cb">局部排氣裝置</span><br>
-      ③ <span class="cr">維持濕潤狀態</span></div>
-      <div class="ref-item"><strong>第7條</strong>（氣罩型式）<br>
-      <span class="cb">包圍型</span>（效果最佳）｜<span class="cg">外裝型</span>（上/下/側向吸引）｜<span class="cr">吹吸型</span>（一側吹、另側吸）</div>
-      <div class="ref-item"><strong class="hl">第12條</strong>（得免設置工程控制之條件）<br>
-      符合以下任一情形，且供給適當呼吸防護具：<br>
-      ① 臨時性作業｜② 作業時間短暫｜③ 作業期間短暫</div>
-      <div class="ref-item"><strong>第13條</strong>（小型設備得改設整體換氣）<br>
-      研磨輪直徑 &lt; <span class="hl">30cm</span>｜搗碎機能力 &lt; <span class="hl">20kg/hr</span>｜篩選機面積 &lt; <span class="hl">700cm²</span>｜混合機容積 &lt; <span class="hl">18公升</span></div>
-      <div class="ref-item"><strong>第15條</strong>（局部排氣裝置規定）<br>
-      • 排氣機應置於<strong>空氣清淨裝置後之位置</strong><br>
-      • <span class="cr">排氣口應設於室外</span></div>
-      <div class="ref-item"><strong>第20條</strong>（作業主管）<br>應<strong>指定粉塵作業主管</strong>監督作業。</div>
-      <div class="ref-item"><strong>第22條</strong>（清掃規定）<br>
-      室內粉塵作業場所每日清掃 <span class="hl">1次</span> 以上<br>
-      每月至少使用<strong>真空吸塵器或水沖洗</strong>清除地面及設備 <span class="hl">1次</span><br>
-      <span class="ref-note-inline">⚠️ 禁止乾式掃帚清掃（使粉塵再度揚起）</span></div>
-      <div class="ref-item"><strong>第24條</strong>（輸氣管面罩）<br>連續使用輸氣管面罩每次不得超過 <span class="hl">1小時</span>。</div>`,
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第6條第3項</div>
+      <div class="ref-item"><strong>第2條</strong>（重要定義）<br>
+      <span class="hl">臨時性作業</span>：期間不超過 <span class="hl">3個月</span>，且1年內不再重覆<br>
+      <span class="hl">作業時間短暫</span>：同一發生源每日不超過 <span class="hl">1小時</span><br>
+      <span class="hl">作業期間短暫</span>：期間不超過 <span class="hl">1個月</span>，且6個月內不再實施</div>
+      <div class="ref-item"><strong class="hl">第6條</strong>（工程控制優先順序）<br>
+      ① <span class="cg">密閉設備</span>（最優先）　② <span class="cb">局部排氣裝置</span>　③ <span class="cr">維持濕潤狀態</span></div>
+      <div class="ref-item"><strong class="hl">第12條</strong>（得免設置工程控制之條件）<br>符合臨時性/時間短暫/期間短暫，且供給適當呼吸防護具</div>
+      <div class="ref-item"><strong>第22條</strong>（清掃）<br>每日清掃 <span class="hl">1次</span> 以上；每月用真空吸塵器或水沖洗 <span class="hl">1次</span>；<span class="cr">禁止乾式掃帚</span></div>`,
   },
   {
-    title: '【法規5】高氣溫作業熱危害預防指引（114.06.20第二次修正）',
+    tag: 'heat',
+    title: '【法規8】高溫作業勞工作息時間標準（103.07.01）✅',
+    content: `
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第19條第2項</div>
+      <div class="ref-item"><strong>第2條</strong>（8種高溫作業）<br>
+      鍋爐房｜灼熱金屬壓軋鍛造｜鑄造間處理熔融金屬｜金屬加熱熔煉｜搪瓷/玻璃/電石/熔爐｜蒸汽火車輪船機房｜蒸汽操作燒窯｜其他主管機關指定</div>
+      <div class="ref-item"><strong>第3條</strong>（WBGT公式）室內：<span class="hl">0.7濕球＋0.3黑球</span>；戶外：<span class="hl">0.7濕球＋0.2黑球＋0.1乾球</span></div>
+      <div class="ref-item"><strong>第4條</strong>（工作分類）<br>
+      <span class="cg">輕工作</span>：坐/立操機器｜<span class="cb">中度工作</span>：走動提舉推動｜<span class="cr">重工作</span>：鏟掘推全身運動</div>
+      <div class="ref-item"><strong class="hl">第5條</strong>（連續作業WBGT門檻）輕 <span class="hl">30.6°C</span>、中 <span class="hl">28.0°C</span>、重 <span class="hl">25.9°C</span>；每日不得超過 <span class="cr">6小時</span></div>
+      <div class="ref-item"><strong>第6條</strong>（薪資保障）降低工時之勞工，原有工資<span class="cr">不得減少</span></div>`,
+  },
+  {
+    tag: 'heat',
+    title: '【法規9】高氣溫作業熱危害預防指引（114.06.20第二次修正）✅',
     content: `
       <div class="ref-item"><span class="hl">性質</span>：行政指導（非強制法規），依職安衛設施規則§303-1及§324-6訂定</div>
-      <div class="ref-item"><strong>第3條</strong>（定義）<br>
-      • <strong>熱指數</strong>：透過<strong>溫度＋相對濕度</strong>評估熱壓力之指標（≠ WBGT）<br>
-      • <strong>熱壓力</strong>：代謝熱能＋環境因子（溫/濕/風速/輻射）＋衣著量對人體的熱負荷</div>
-      <div class="ref-item"><strong class="hl">第5條</strong>（風險等級判定）
-      <table class="ref-table">
-        <tr><th>等級</th><th>熱指數值</th><th>風險管理原則</th></tr>
-        <tr><td class="cr"><strong>第四級</strong></td><td class="hl">≥ 54.4</td><td>避免戶外作業；設遮陽降溫設備</td></tr>
-        <tr><td style="color:#fb923c"><strong>第三級</strong></td><td class="hl">40.6以上，未達54.4</td><td>避開高氣溫時段；強化措施</td></tr>
-        <tr><td class="cb"><strong>第二級</strong></td><td class="hl">32.2以上，未達40.6</td><td>實施危害預防措施</td></tr>
-        <tr><td class="cg"><strong>第一級</strong></td><td class="hl">26.7以上，未達32.2</td><td>基本防護</td></tr>
-      </table></div>
-      <div class="ref-item"><strong>第6條</strong>（提升等級條件）<br>
-      ① 陽光<strong>直接照射</strong>下作業　② 穿著<strong>不透氣厚重或抗滲透性防護衣</strong>作業<br>
-      <span class="ref-note-inline">僅適用第一至三級；第四級無法再提升</span></div>
-      <div class="ref-item"><strong>第7條</strong>（危害預防措施摘要）<br>
-      飲水：每 <span class="hl">15-20分鐘</span> / <span class="hl">150-200mL</span>；受限時每小時至少 <span class="hl">2-4杯</span>（約240mL/杯）<br>
-      停工門檻：耳溫未適應 ＞ <span class="hl">38°C</span>｜已適應 ＞ <span class="hl">38.5°C</span>｜心跳 ＞ <span class="hl">180-年齡</span>｜停後1分鐘仍 ＞ <span class="hl">120次/分</span><br>
-      熱適應：新進第1天 ≤ <span class="hl">20%</span>；有經驗第 <span class="hl">4天</span> 正常</div>
-      <div class="ref-item"><strong>第8條</strong>（重體力作業）<br>
-      應給予每小時至少 <span class="hl">20分鐘</span> 充足休息。</div>
-      <div class="ref-item"><strong>第9條</strong>（第四級禁止，除緊急救援外）<br>
-      ① 穿著不透氣厚重或抗滲透性防護衣進行作業　② <strong>重體力作業</strong></div>`,
+      <div class="ref-item"><strong>第3條</strong>（定義）熱指數 = 溫度＋相對濕度評估（≠ WBGT）</div>
+      <div class="ref-item"><strong>第5條</strong>（風險等級）≥54.4（四）｜40.6-54.4（三）｜32.2-40.6（二）｜26.7-32.2（一）</div>
+      <div class="ref-item"><strong>第6條</strong>（提升一級條件）①陽光直接照射　②穿著不透氣厚重/抗滲透性防護衣<br><span class="ref-note-inline">僅適用第一至三級</span></div>
+      <div class="ref-item"><strong>第7條</strong>（危害預防措施）飲水每15-20min/150-200mL；停工耳溫38/38.5°C；熱適應新進第1天≤20%</div>
+      <div class="ref-item"><strong>第9條</strong>（第四級禁止）除緊急救援外，禁止穿著不透氣防護衣及重體力作業</div>`,
   },
   {
-    title: '【法規6】職業安全衛生設施規則（相關條文）',
+    tag: 'facility',
+    title: '【法規10】職業安全衛生設施規則（相關條文）✅',
     content: `
-      <div class="ref-item"><span class="hl">依據</span>：職業安全衛生法第6條第3項授權</div>
-      <div class="ref-item"><strong class="hl">第303條之1</strong>（戶外高氣溫作業設備要求）<br>
-      雇主使勞工於戶外高氣溫作業時，應視天候狀況採取適當措施，並設置：<br>
-      一、<strong>遮陽設施</strong>（或具同等效果之設備）<br>
-      二、<strong>降低勞工暴露溫度之設備</strong>（風扇、水霧或其他）<br>
-      三、<strong>適當休息場所</strong><br>
-      四、<strong>提供充足飲用水</strong></div>
-      <div class="ref-item"><strong class="hl">第324條之6</strong>（戶外作業熱危害預防措施）<br>
-      雇主使勞工從事戶外作業，應依下列規定辦理：<br>
-      一、參照中央主管機關公告之高氣溫作業熱危害預防指引，訂定<strong>熱危害預防計畫</strong><br>
-      二、對勞工實施<strong>熱危害預防安全衛生教育訓練</strong><br>
-      三、建立<strong>緊急醫療、通報及應變處理機制</strong><br>
-      <span class="ref-note-inline">⚠️ 高氣溫作業熱危害預防指引即依本條（§303-1、§324-6）訂定</span></div>`,
+      <div class="ref-item"><span class="hl">法源</span>：職業安全衛生法第6條第3項</div>
+      <div class="ref-item"><strong>§19-1</strong>（局限空間定義）非供勞工經常性作業，進出受限制，且無法以自然通風維持充分清淨空氣之空間</div>
+      <div class="ref-item"><strong>§29-1</strong>（局限空間危害防止計畫）應包含：危害辨識、進入許可、氣體監測、緊急應變</div>
+      <div class="ref-item"><strong>§29-4</strong>（缺氧/危害物標準）O₂ &lt; <span class="hl">18%</span> = 缺氧；H₂S &gt; <span class="hl">10 ppm</span> 或 CO &gt; <span class="hl">35 ppm</span> = 危險</div>
+      <div class="ref-item"><strong>§31</strong>（室內工作場所通道）主要通道寬度 ≥ <span class="hl">1m</span>；機械設備間通道 ≥ <span class="hl">80cm</span></div>
+      <div class="ref-item"><strong>§277</strong>（呼吸防護具選用）雇主使勞工使用呼吸防護具，應依作業性質、毒性及危害濃度選擇適當防護具，並維護其有效性</div>
+      <div class="ref-item"><strong>§303-1</strong>（戶外高氣溫作業）設遮陽設施、降溫設備、適當休息場所、充足飲用水</div>
+      <div class="ref-item"><strong>§324-3</strong>（不法侵害預防）應採取危害辨識、預防管理措施、教育訓練、當事人個案管理</div>
+      <div class="ref-item"><strong>§324-6</strong>（戶外作業熱危害）訂定熱危害預防計畫＋教育訓練＋緊急醫療通報</div>`,
   },
 ]
 
-// ── 主元件 ──────────────────────────────────────────────────
+// ── Tab 分類 ─────────────────────────────────────────────────
+const LAW_TABS = [
+  { id: 'all',      label: '全部' },
+  { id: 'core',     label: '核心法規' },
+  { id: 'health',   label: '健康管理' },
+  { id: 'maternal', label: '母性保護' },
+  { id: 'chem',     label: '化學性危害' },
+  { id: 'dust',     label: '粉塵' },
+  { id: 'heat',     label: '熱危害' },
+  { id: 'monitor',  label: '監測' },
+  { id: 'facility', label: '設施規則' },
+]
+
+// ── AccordionItem ─────────────────────────────────────────────
 function AccordionItem({ title, content, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen)
   return (
@@ -278,8 +362,8 @@ function AccordionItem({ title, content, defaultOpen = false }) {
         onClick={() => setOpen(o => !o)}
         className="w-full flex items-center justify-between px-4 py-3 bg-gray-800 hover:bg-gray-750 text-left cursor-pointer"
       >
-        <span className="text-sm font-semibold text-gray-100">{title}</span>
-        <span className={`text-gray-400 text-lg transition-transform ${open ? 'rotate-180' : ''}`}>▾</span>
+        <span className="text-sm font-semibold text-gray-100 leading-snug pr-2">{title}</span>
+        <span className={`text-gray-400 text-lg shrink-0 transition-transform ${open ? 'rotate-180' : ''}`}>▾</span>
       </button>
       {open && (
         <div
@@ -291,20 +375,25 @@ function AccordionItem({ title, content, defaultOpen = false }) {
   )
 }
 
+// ── 主元件 ───────────────────────────────────────────────────
 export default function LawReference() {
-  const [tab, setTab] = useState('guide')
+  const [mainTab, setMainTab] = useState('guide')
+  const [lawFilter, setLawFilter] = useState('all')
+
+  const filteredLaws = lawFilter === 'all'
+    ? LAW_SECTIONS
+    : LAW_SECTIONS.filter(s => s.tag === lawFilter)
 
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* Scoped CSS for highlighted content */}
       <style>{`
         .ref-body .hl   { background: rgba(240,165,0,.25); color: #fbbf24; font-weight: 700; padding: 0 3px; border-radius: 3px; }
         .ref-body .cr   { color: #f87171; }
         .ref-body .cb   { color: #60a5fa; }
         .ref-body .cg   { color: #4ade80; }
-        .ref-body .ref-item { margin-bottom: 12px; line-height: 1.7; }
+        .ref-body .ref-item { margin-bottom: 12px; line-height: 1.8; }
         .ref-body .ref-note { background: rgba(240,165,0,.08); border: 1px solid rgba(240,165,0,.2); border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #fbbf24; margin-top: 8px; }
-        .ref-body .ref-warn { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.25); border-radius: 8px; padding: 12px; font-size: 12px; color: #fcd34d; line-height: 1.8; margin-top: 8px; }
+        .ref-body .ref-warn { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.25); border-radius: 8px; padding: 12px; font-size: 12px; color: #fcd34d; line-height: 1.9; margin-top: 8px; }
         .ref-body .ref-check { background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.2); border-radius: 8px; padding: 12px; font-size: 12px; color: #86efac; line-height: 2; margin-bottom: 8px; }
         .ref-body .ref-note-inline { display: block; font-size: 11px; color: #60a5fa; margin-top: 4px; }
         .ref-body .ref-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
@@ -315,15 +404,19 @@ export default function LawReference() {
       `}</style>
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 border-b border-gray-700 px-4 pt-8 pb-5">
+      <div className="bg-gray-900 border-b border-gray-700 px-4 pt-8 pb-5">
         <div className="max-w-3xl mx-auto">
           <Link to="/" className="text-gray-400 text-sm mb-3 inline-block">← 返回首頁</Link>
           <h1 className="text-xl font-bold text-white">⚖️ 法規查閱</h1>
-          <p className="text-gray-400 text-sm mt-1">熱危害 ＋ 粉塵危害 ｜ 完整條文＋重點標色</p>
+          <p className="text-gray-400 text-sm mt-1">職業衛生管理甲級 ｜ 完整條文＋重點標色</p>
+          <div className="flex flex-wrap gap-2 mt-3">
+            <span className="text-xs px-2 py-1 bg-green-900/50 text-green-300 rounded-full">✅ 條文已核對</span>
+            <span className="text-xs px-2 py-1 bg-yellow-900/50 text-yellow-300 rounded-full">⚠️ 待官方確認標示</span>
+          </div>
         </div>
       </div>
 
-      {/* Tabs */}
+      {/* Main Tabs */}
       <div className="bg-gray-800 border-b border-gray-700 sticky top-0 z-10">
         <div className="max-w-3xl mx-auto flex">
           {[
@@ -332,9 +425,9 @@ export default function LawReference() {
           ].map(t => (
             <button
               key={t.id}
-              onClick={() => setTab(t.id)}
+              onClick={() => setMainTab(t.id)}
               className={`flex-1 py-3 text-sm font-semibold transition-colors cursor-pointer ${
-                tab === t.id
+                mainTab === t.id
                   ? 'text-yellow-400 border-b-2 border-yellow-400'
                   : 'text-gray-400 hover:text-gray-200'
               }`}
@@ -345,13 +438,14 @@ export default function LawReference() {
         </div>
       </div>
 
-      {/* Content */}
       <div className="max-w-3xl mx-auto px-4 py-4">
-        {tab === 'guide' && (
+
+        {/* ── 指引速查 ── */}
+        {mainTab === 'guide' && (
           <div>
             <p className="text-xs text-gray-500 mb-3">
-              關鍵數字以 <span className="bg-yellow-900/40 text-yellow-400 px-1 rounded text-xs">黃底</span> 標示，
-              危險值以 <span className="text-red-400 text-xs">紅字</span> 標示。點標題展開詳細內容。
+              <span className="bg-yellow-900/40 text-yellow-400 px-1 rounded">黃底</span> = 關鍵數字／名詞，
+              <span className="text-red-400">紅色</span> = 禁止/強制事項。資料來源均有法令依據。
             </p>
             {GUIDE_SECTIONS.map((s, i) => (
               <AccordionItem key={i} title={s.title} content={s.content} defaultOpen={i === 0} />
@@ -359,14 +453,29 @@ export default function LawReference() {
           </div>
         )}
 
-        {tab === 'law' && (
+        {/* ── 法規條文 ── */}
+        {mainTab === 'law' && (
           <div>
+            {/* Sub filter tabs */}
+            <div className="flex overflow-x-auto gap-2 pb-2 mb-3 scrollbar-hide">
+              {LAW_TABS.map(t => (
+                <button
+                  key={t.id}
+                  onClick={() => setLawFilter(t.id)}
+                  className={`shrink-0 text-xs px-3 py-1.5 rounded-full border cursor-pointer transition-colors ${
+                    lawFilter === t.id
+                      ? 'bg-yellow-500 text-black border-yellow-500 font-semibold'
+                      : 'bg-transparent text-gray-400 border-gray-600 hover:border-gray-400'
+                  }`}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
             <p className="text-xs text-gray-500 mb-3">
-              法規條文以官方公告版本為準。
-              <span className="text-yellow-500">黃色</span> = 關鍵數字／名詞，
-              <span className="text-red-400">紅色</span> = 禁止/強制事項。
+              ✅ = 條文已核對（來自知識卡片/術科解答/修法記錄）｜⚠️ = 請自全國法規資料庫（law.moj.gov.tw）確認
             </p>
-            {LAW_SECTIONS.map((s, i) => (
+            {filteredLaws.map((s, i) => (
               <AccordionItem key={i} title={s.title} content={s.content} defaultOpen={i === 0} />
             ))}
           </div>
