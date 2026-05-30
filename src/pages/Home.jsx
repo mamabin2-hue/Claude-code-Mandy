@@ -86,6 +86,19 @@ export default function Home() {
           ))}
         </div>
 
+        {/* Audio review - external HTML page */}
+        <a
+          href="/Claude-code-Mandy/heat-hazard-audio-review.html"
+          className="mt-3 flex items-center gap-4 bg-violet-600 hover:bg-violet-700 rounded-2xl p-5 text-white transition-all hover:scale-[1.02] shadow-md"
+        >
+          <div className="text-3xl">🎧</div>
+          <div>
+            <p className="font-bold text-base">語音複習</p>
+            <p className="text-white/80 text-xs mt-0.5">熱危害＋粉塵危害法條語音輪播</p>
+          </div>
+          <span className="ml-auto text-white/60 text-sm">→</span>
+        </a>
+
         <p className="text-center text-blue-300 text-xs mt-8">
           資料來源：考選部歷年試題 | AI預測題均附原文法條來源
         </p>
