@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { EXAM_PROBLEMS, WBGT_PROBLEMS, TOPICS } from '../data/examProblems'
+import { EXAM_PROBLEMS, WBGT_PROBLEMS, GENERAL_PROBLEMS, TOPICS } from '../data/examProblems'
 
 const FORMULA_REF = [
   { topic: 'Lw（音功率級）', formula: 'Lw = 10×log₁₀(W/W₀)，W₀=10⁻¹² W', note: '✅' },
@@ -20,25 +20,31 @@ const FORMULA_REF = [
 const TOPIC_TABS = [
   { key: 'noise', label: '噪音 Q1–Q24 + 照度 Q25', color: 'blue' },
   { key: 'wbgt', label: '高溫WBGT Q1–Q11', color: 'orange' },
+  { key: 'general', label: '術科綜合 G1–G3', color: 'purple' },
 ]
 
 const TOPIC_COLOR = {
   '噪音': 'bg-blue-100 text-blue-700',
   '照度': 'bg-yellow-100 text-yellow-700',
   '高溫WBGT': 'bg-orange-100 text-orange-700',
+  '通風計算': 'bg-sky-100 text-sky-700',
+  '化學監測': 'bg-purple-100 text-purple-700',
+  '法規應用': 'bg-rose-100 text-rose-700',
 }
 
 function ProblemCard({ prob, revealed, onToggle }) {
   const [openSub, setOpenSub] = useState(null)
   const [imgError, setImgError] = useState(false)
   const isWBGT = prob.topic === '高溫WBGT'
+  const isGeneral = ['通風計算', '化學監測', '法規應用'].includes(prob.topic)
+  const accentColor = isWBGT ? 'orange' : isGeneral ? 'purple' : 'blue'
 
   return (
     <div className={`bg-white rounded-2xl shadow-sm border overflow-hidden ${
-      isWBGT ? 'border-orange-100' : 'border-gray-100'
+      isWBGT ? 'border-orange-100' : isGeneral ? 'border-purple-100' : 'border-gray-100'
     }`}>
       {/* Header */}
-      <div className={`px-4 py-3 border-b ${isWBGT ? 'border-orange-50 bg-orange-50/30' : 'border-gray-50'}`}>
+      <div className={`px-4 py-3 border-b ${isWBGT ? 'border-orange-50 bg-orange-50/30' : isGeneral ? 'border-purple-50 bg-purple-50/30' : 'border-gray-50'}`}>
         <div className="flex items-center gap-2 flex-wrap mb-1">
           <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${TOPIC_COLOR[prob.topic]}`}>
             {prob.topic}
@@ -93,7 +99,7 @@ function ProblemCard({ prob, revealed, onToggle }) {
           className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-colors ${
             revealed
               ? 'bg-green-100 text-green-700 hover:bg-green-200'
-              : `${isWBGT ? 'bg-orange-600 hover:bg-orange-700' : 'bg-blue-700 hover:bg-blue-800'} text-white`
+              : `${isWBGT ? 'bg-orange-600 hover:bg-orange-700' : isGeneral ? 'bg-purple-700 hover:bg-purple-800' : 'bg-blue-700 hover:bg-blue-800'} text-white`
           }`}
         >
           {revealed ? '✓ 收起解析' : '▶ 查看職業衛生師解析'}
@@ -104,9 +110,9 @@ function ProblemCard({ prob, revealed, onToggle }) {
       {revealed && (
         <div className="px-4 pb-4 space-y-2">
           {/* Answer badge */}
-          <div className={`rounded-xl p-3 border-l-4 ${isWBGT ? 'bg-orange-50 border-orange-500' : 'bg-green-50 border-green-500'}`}>
+          <div className={`rounded-xl p-3 border-l-4 ${isWBGT ? 'bg-orange-50 border-orange-500' : isGeneral ? 'bg-purple-50 border-purple-500' : 'bg-green-50 border-green-500'}`}>
             <p className="text-xs font-bold text-gray-500 mb-0.5">最終答案</p>
-            <p className={`text-sm font-semibold ${isWBGT ? 'text-orange-900' : 'text-green-900'}`}>{prob.answer}</p>
+            <p className={`text-sm font-semibold ${isWBGT ? 'text-orange-900' : isGeneral ? 'text-purple-900' : 'text-green-900'}`}>{prob.answer}</p>
           </div>
 
           {/* Sub-answers */}
@@ -158,7 +164,9 @@ export default function WorkedExamples() {
   const toggleReveal = (id) =>
     setRevealedIds(prev => ({ ...prev, [id]: !prev[id] }))
 
-  const allProblems = activeSection === 'noise' ? EXAM_PROBLEMS : WBGT_PROBLEMS
+  const allProblems = activeSection === 'noise' ? EXAM_PROBLEMS
+    : activeSection === 'wbgt' ? WBGT_PROBLEMS
+    : GENERAL_PROBLEMS
 
   const filtered = searchText.trim()
     ? allProblems.filter(p =>
@@ -194,6 +202,7 @@ export default function WorkedExamples() {
             <span className="text-xs px-2.5 py-0.5 bg-blue-600/60 rounded-full">噪音 Q1–Q24</span>
             <span className="text-xs px-2.5 py-0.5 bg-orange-500/70 rounded-full">高溫WBGT Q1–Q11</span>
             <span className="text-xs px-2.5 py-0.5 bg-yellow-500/70 rounded-full">照度 Q25</span>
+            <span className="text-xs px-2.5 py-0.5 bg-purple-500/70 rounded-full">術科綜合 G1–G3</span>
           </div>
           <p className="text-blue-300 text-xs mt-2">
             ✅ = 依法令原文/官方答案驗算　⚠️ = 依公式推算，請核對老師版本
@@ -232,7 +241,9 @@ export default function WorkedExamples() {
               onClick={() => { setActiveSection(t.key); setSearchText('') }}
               className={`flex-1 py-2.5 rounded-xl font-semibold text-sm transition-colors ${
                 activeSection === t.key
-                  ? t.color === 'orange' ? 'bg-orange-600 text-white' : 'bg-blue-700 text-white'
+                  ? t.color === 'orange' ? 'bg-orange-600 text-white'
+                    : t.color === 'purple' ? 'bg-purple-700 text-white'
+                    : 'bg-blue-700 text-white'
                   : 'bg-white text-gray-600 border border-gray-200'
               }`}
             >
