@@ -12,6 +12,7 @@ const FEATURES = [
   { to: '/laws', icon: '⚖️', label: '修法速覽', desc: '新舊法對照，白話易懂', color: 'bg-indigo-600 hover:bg-indigo-700' },
   { to: '/law-ref', icon: '📖', label: '法規查閱', desc: '熱危害＋粉塵完整條文重點標色', color: 'bg-gray-700 hover:bg-gray-600' },
   { to: '/predictions', icon: '🎯', label: 'AI預測考題', desc: '基於最新修法的預測題', color: 'bg-orange-500 hover:bg-orange-600' },
+  { to: '/worked', icon: '🧮', label: '解題練習區', desc: '計算題逐步解析 × 公式速查', color: 'bg-emerald-700 hover:bg-emerald-800', badge: 'NEW' },
 ]
 
 export default function Home() {
