@@ -30,6 +30,7 @@ const TOPIC_COLOR = {
 
 function ProblemCard({ prob, revealed, onToggle }) {
   const [openSub, setOpenSub] = useState(null)
+  const [imgError, setImgError] = useState(false)
   const isWBGT = prob.topic === '高溫WBGT'
 
   return (
@@ -56,6 +57,19 @@ function ProblemCard({ prob, revealed, onToggle }) {
         </div>
         <h3 className="font-semibold text-gray-800 leading-snug">{prob.title}</h3>
       </div>
+
+      {/* Question image (original scan) */}
+      {prob.imageRef && !imgError && (
+        <div className="px-4 pt-3">
+          <img
+            src={prob.imageRef}
+            alt={`Q${prob.id} 原始試題`}
+            className="w-full rounded-xl border border-gray-200 object-contain max-h-64"
+            onError={() => setImgError(true)}
+          />
+          <p className="text-xs text-gray-400 mt-1 text-center">📷 原始試題掃描檔</p>
+        </div>
+      )}
 
       {/* Question */}
       <div className="px-4 py-3 bg-gray-50">
@@ -240,7 +254,25 @@ export default function WorkedExamples() {
           <button onClick={collapseAll} className="text-xs px-3 py-2 bg-gray-400 text-white rounded-xl hover:bg-gray-500">全收</button>
         </div>
 
-        <p className="text-gray-400 text-xs mb-4">共 {filtered.length} 題</p>
+        {/* Stats row */}
+        <div className="flex gap-2 mb-3">
+          <div className={`flex-1 rounded-xl px-3 py-2 text-center ${activeSection === 'noise' ? 'bg-blue-50' : 'bg-orange-50'}`}>
+            <p className="text-xs text-gray-500">題目數</p>
+            <p className={`font-bold text-lg ${activeSection === 'noise' ? 'text-blue-700' : 'text-orange-700'}`}>{filtered.length}</p>
+          </div>
+          <div className="flex-1 bg-green-50 rounded-xl px-3 py-2 text-center">
+            <p className="text-xs text-gray-500">已解析</p>
+            <p className="font-bold text-lg text-green-700">
+              {filtered.filter(p => revealedIds[`${activeSection}-${p.id}`]).length}
+            </p>
+          </div>
+          <div className="flex-1 bg-gray-50 rounded-xl px-3 py-2 text-center">
+            <p className="text-xs text-gray-500">待練習</p>
+            <p className="font-bold text-lg text-gray-600">
+              {filtered.filter(p => !revealedIds[`${activeSection}-${p.id}`]).length}
+            </p>
+          </div>
+        </div>
 
         {/* Problem list */}
         <div className="space-y-4">
@@ -254,8 +286,20 @@ export default function WorkedExamples() {
           ))}
         </div>
 
+        {/* Professional OSH exam tips */}
+        <div className="mt-8 bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
+          <p className="text-emerald-800 font-semibold text-sm mb-2">🎓 子安技師解題格式提醒</p>
+          <ul className="text-emerald-700 text-xs space-y-1">
+            <li>• <strong>引用法條</strong>：計算答案前先寫「依職安衛設施規則§300」或「依OSHA 5dB換算表」</li>
+            <li>• <strong>驗算步驟</strong>：計算過程要完整列出，帶入數字後逐步化簡</li>
+            <li>• <strong>單位標明</strong>：dB、hr、%、°C、Lux 均須標示</li>
+            <li>• <strong>法規判斷</strong>：最後一步需對照法規上限，明確寫出「超過/未超過法規規定」</li>
+            <li>• <strong>保護措施</strong>：若超標，需列出工程控制→行政管理→個人防護具依序措施</li>
+          </ul>
+        </div>
+
         {/* Footer */}
-        <div className="mt-8 text-center space-y-2">
+        <div className="mt-4 text-center space-y-2">
           <Link to="/knowledge" className="block text-blue-600 text-sm hover:underline">
             → 前往知識卡片複習相關概念
           </Link>
