@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# 環境變數與金流密鑰（絕對不要提交！）
+.env
+.env.*
+!.env.example
+.vercel
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

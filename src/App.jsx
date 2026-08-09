@@ -11,6 +11,8 @@ import ShukeyiGuide from './pages/ShukeyiGuide'
 import ExamStats from './pages/ExamStats'
 import LawReference from './pages/LawReference'
 import WorkedExamples from './pages/WorkedExamples'
+import Unlock from './pages/Unlock'
+import PaymentResult from './pages/PaymentResult'
 
 export default function App() {
   return (
@@ -28,6 +30,8 @@ export default function App() {
         <Route path="/stats" element={<ExamStats />} />
         <Route path="/law-ref" element={<LawReference />} />
         <Route path="/worked" element={<WorkedExamples />} />
+        <Route path="/unlock" element={<Unlock />} />
+        <Route path="/payment-result" element={<PaymentResult />} />
       </Routes>
     </BrowserRouter>
   )

@@ -18,4 +18,11 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // 後端（Serverless Functions）與設定檔在 Node 環境執行，使用 Node 全域變數。
+    files: ['api/**/*.js', 'vite.config.js', '*.config.js'],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ])
