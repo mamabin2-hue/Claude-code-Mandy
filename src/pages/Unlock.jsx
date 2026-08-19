@@ -4,6 +4,15 @@ import { startCheckout } from '../utils/payment'
 import { usePremium } from '../hooks/usePremium'
 
 const PRICE = 299
+
+// 賣方與聯絡資訊 —— 綠界信用卡審核會核對這裡的電話 / Email
+// 是否與你在綠界後台填的「收款資料」一致。若不一致會被退件，請務必對齊。
+const MERCHANT = {
+  company: '卓信人資整合有限公司',
+  email: 'zhuohsin@gmail.com',
+  phone: '0989-269-822',
+}
+
 const PERKS = [
   '解鎖全部年度完整題庫與詳解',
   '術科計算題逐步解析',
@@ -79,9 +88,51 @@ export default function Unlock() {
               <p className="mt-3 text-center text-xs text-gray-400">
                 由綠界 ECPay 提供安全金流，支援信用卡 / ATM / 超商
               </p>
+
+              {/* 以下為綠界信用卡審核所需的必備資訊區塊 */}
+              <div className="mt-8 pt-6 border-t border-gray-100 space-y-5 text-sm text-gray-600">
+                <section>
+                  <h2 className="font-semibold text-gray-800 mb-1">商品／服務內容</h2>
+                  <p>
+                    本商品為「職業衛生管理甲級技術士」線上題庫的完整版存取權。付款後即
+                    解鎖全部年度歷屆試題、詳解、術科計算題逐步解析、知識卡片與法規重點，
+                    屬一次性付費之數位內容服務，購買後可長期使用。
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="font-semibold text-gray-800 mb-1">售價</h2>
+                  <p>新臺幣 {PRICE} 元（一次性，含稅）。幣別：新臺幣 TWD。</p>
+                </section>
+
+                <section>
+                  <h2 className="font-semibold text-gray-800 mb-1">退款政策</h2>
+                  <p>
+                    本商品為數位內容，依《通訊交易解除權合理例外情事適用準則》，一經開通
+                    解鎖即視為提供服務完成，恕不適用七日鑑賞期。如遇重複扣款、系統錯誤或
+                    無法正常解鎖等情形，請於交易後 7 日內來信客服，經確認後將全額退款。
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="font-semibold text-gray-800 mb-1">賣方與客服聯絡資訊</h2>
+                  <p>{MERCHANT.company}</p>
+                  <p>
+                    客服信箱：
+                    <a href={`mailto:${MERCHANT.email}`} className="text-blue-600 underline">
+                      {MERCHANT.email}
+                    </a>
+                  </p>
+                  <p>客服電話：{MERCHANT.phone}</p>
+                </section>
+              </div>
             </>
           )}
         </div>
+
+        <p className="mt-4 text-center text-xs text-blue-200">
+          © {MERCHANT.company}
+        </p>
       </div>
     </div>
   )
